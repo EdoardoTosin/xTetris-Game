@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/EdoardoTosin/x-Tetris-Game">
-    <img src="https://raw.githubusercontent.com/EdoardoTosin/x-Tetris-Game/main/example/logo.png" alt="x-Tetris Game" height=100px></a>
+    <img src="https://raw.githubusercontent.com/EdoardoTosin/x-Tetris-Game/main/example/logo.png" alt="LOGO" height=100px></a>
 </p>
 
 ## Table of contents
