@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://github.com/EdoardoTosin/x-Tetris-Game">
-    <img src="https://raw.githubusercontent.com/EdoardoTosin/x-Tetris-Game/main/example/logo.png" alt="LOGO" height=100px></a>
+  <a href="https://github.com/EdoardoTosin/xTetris-Game">
+    <img src="https://raw.githubusercontent.com/EdoardoTosin/xTetris-Game/main/example/logo.png" alt="LOGO" height=100px></a>
 </p>
 
 ## Table of contents
@@ -37,24 +37,24 @@ To run this project, compile it locally using `make` command and have fun.
 
   ``` bash
   $ make
-  $ .\x-Tetris
+  $ .\xTetris
   ```
 
 ### For Linux users:
 Run the following commands on terminal:
 ``` bash
-$ git clone https://github.com/EdoardoTosin/x-Tetris-Game.git
-$ cd x-Tetris-Game
+$ git clone https://github.com/EdoardoTosin/xTetris-Game.git
+$ cd xTetris-Game
 $ ./build.sh
 $ ./run.sh
 ```
 
 ## Documentation
 
-Doxygen documentation of the project is available [here](https://edoardotosin.github.io/x-Tetris-Game/).
+Doxygen documentation of the project is available [here](https://edoardotosin.github.io/xTetris-Game/).
 
 ## License
 
 Copyright (c) 2021 [Lorenzo Tosin](https://github.com/LorenzoTosin) & [Edoardo Tosin](https://github.com/EdoardoTosin)
 
-This software is released under the terms of the GNU General Public License v3.0. See the [LICENSE](https://github.com/EdoardoTosin/x-Tetris-Game/tree/main/LICENSE) file for further information.
+This software is released under the terms of the GNU General Public License v3.0. See the [LICENSE](https://github.com/EdoardoTosin/xTetris-Game/tree/main/LICENSE) file for further information.
