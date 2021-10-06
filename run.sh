@@ -3,4 +3,4 @@
 set -o errexit
 
 #run
-build/x-Tetris
+build/xTetris

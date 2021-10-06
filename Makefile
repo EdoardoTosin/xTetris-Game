@@ -1,7 +1,7 @@
-all: x-Tetris clean
+all: xTetris clean
 
-x-Tetris: src/x-Tetris.o src/gameControl.o src/objectCreation.o src/printGame.o src/startGame.o src/printRules.o src/printCredits.o src/startMenu.o
-	cc src/x-Tetris.o src/gameControl.o src/objectCreation.o src/printGame.o src/startGame.o src/printRules.o src/printCredits.o src/startMenu.o -o x-Tetris
+xTetris: src/xTetris.o src/gameControl.o src/objectCreation.o src/printGame.o src/startGame.o src/printRules.o src/printCredits.o src/startMenu.o
+	cc src/xTetris.o src/gameControl.o src/objectCreation.o src/printGame.o src/startGame.o src/printRules.o src/printCredits.o src/startMenu.o -o xTetris
 
 objectCreation.o: objectCreation.c objectCreation.h
 	cc -c -ansi -pedantic -O2 -Wall -Wextra -lm objectCreation.c
@@ -24,8 +24,8 @@ printCredits.o: printCredits.c printCredits.h
 startMenu.o: startMenu.c startMenu.h
 	cc -c -ansi -pedantic -O2 -Wall -Wextra -lm startMenu.c
 
-x-Tetris.o: x-Tetris.c
-	cc -c -ansi -pedantic -O2 -Wall -Wextra -lm x-Tetris.c
+xTetris.o: xTetris.c
+	cc -c -ansi -pedantic -O2 -Wall -Wextra -lm xTetris.c
 
 .PHONY: clean
 clean:
