@@ -51,7 +51,7 @@ $ ./run.sh
 
 ## Documentation
 
-Doxygen documentation of the project is available [here](https://edoardotosin.github.io/x-Tetris/).
+Doxygen documentation of the project is available [here](https://edoardotosin.github.io/x-Tetris-Game/).
 
 ## License
 
