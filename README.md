@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/EdoardoTosin/miniLaska-Game">
+  <a href="https://github.com/EdoardoTosin/x-Tetris-Game">
     <img src="https://raw.githubusercontent.com/EdoardoTosin/x-Tetris-Game/main/example/logo.png" alt="x-Tetris Game" height=100px></a>
 </p>
 
