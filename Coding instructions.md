@@ -1,6 +1,6 @@
 <h1 align="center">X-Tetris</h1>
 
-X-Tetris è una versione avanzata del gioco originale del Tetris. Per le regole del tetris puoi visitare la pagine Wikipedia https://it.wikipedia.org/wiki/Tetris.
+X-Tetris è una versione avanzata del gioco originale del Tetris. Per le regole del tetris puoi visitare la pagina Wikipedia https://it.wikipedia.org/wiki/Tetris.
 
 ## Single Player
 
