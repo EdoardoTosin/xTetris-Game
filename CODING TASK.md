@@ -20,7 +20,7 @@ Un giocatore perde la partita se non posiziona correttamente un pezzo nel propri
 
 La modalità multi-player deve prevedere sia la possibilità di giocare player vs. player, sia player vs. cpu, dove la cpu può essere implementata con una strategia a vostra scelta.
 
-## Schema di implementazione
+## Schema d'implementazione
 
 Il programma che implementerete dovrà chiedere al giocatore quale mossa giocare, e dovrà visualizzare il campo di gioco aggiornato (usando la funzione `printf`). Dovrà verificare che la mossa scelta non inserisca un tetramino fuori dal campo di gioco, dovrà aggiornare il punteggio e la lista di pezzi disponibili. Questi passi si ripetono fino alla fine della partita.
 
