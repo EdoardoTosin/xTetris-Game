@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "definitions.h"
 
 void delayTimer(int timeDelay) {
   #ifdef _WIN32
