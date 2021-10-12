@@ -9,7 +9,7 @@
 int main (void) {
   system(CLEAR);
   puts("/====================/");
-  puts("       miniLaska      ");
+  puts("        xTetris       ");
   puts("/====================/");
   delayTimer(1);
   return 0;
