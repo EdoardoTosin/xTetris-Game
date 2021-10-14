@@ -3,13 +3,15 @@
 #include "common.h"
 
 void printIntro(void){
+  system(CLEAR);
   wprintf(L"======================\n");
   wprintf(L"        xTetris       \n");
   wprintf(L"======================\n");
-  delayTimer(1);
+  delayTimer(2);
 }
 
 void printBoard(void){
+  system(CLEAR);
   //setlocale(LC_CTYPE, "");
   wchar_t emptySquare = 0x2B1C;
   wchar_t fullSquare = 0x2B1B;
