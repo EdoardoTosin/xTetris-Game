@@ -10,10 +10,7 @@
 */
 int main (void) {
   setlocale(LC_CTYPE, "");
-  system(CLEAR);
   printIntro();
-  delayTimer(1);
-  system(CLEAR);
   printBoard();
   delayTimer(1);
   return 0;
