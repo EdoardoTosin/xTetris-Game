@@ -1,11 +1,18 @@
+#CLion files
 .idea
-cmake-build-debug
+
+# Build files
 xTetris
-*.cmake
 *.exe
 *.o
 *.d
+
+# Doxygen config file
 Doxyfile
+
+# CMake build files
 CMakeCache.txt
 /build
 /CMakeFiles
+*.cmake
+cmake-build-debug
