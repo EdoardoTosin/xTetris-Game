@@ -1,8 +1,11 @@
 .idea
 cmake-build-debug
 xTetris
+*.cmake
 *.exe
 *.o
 *.d
 Doxyfile
+CMakeCache.txt
 /build
+/CMakeFiles
