@@ -22,20 +22,19 @@ void printIntro(void){
 void printBoard(void){
   //system(CLEAR);
   int i, j;
-  for (i=0; i<HEIGHT+1; i++){
-    if (i<HEIGHT){
+  for (i=0; i<HEIGHT+2; i++){
+    if (i>0 && i<HEIGHT+1){
       for (j=0; j<WIDTH+2; j++){
         if (j==0 || j==WIDTH+1)
           wprintf(L"%lc", fSq);
         else
           wprintf(L"%lc", eSq);
       }
-      wprintf(L"\n");
     }
     else{
       for (j=0; j<WIDTH+2; j++)
         wprintf(L"%lc", fSq);
     }
+    wprintf(L"\n");
   }
-  wprintf(L"\n");
 }
