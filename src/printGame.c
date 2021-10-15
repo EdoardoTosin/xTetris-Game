@@ -2,9 +2,8 @@
 #include <wchar.h>
 #include "common.h"
 #include "definitions.h"
-
-wchar_t eSq = 0x2B1C; // emptySquare
-wchar_t fSq = 0x2B1B; // fullSquare
+#include "initBoard.h"
+#include "struct.h"
 
 void printIntro(void){
   system(CLEAR);
@@ -20,9 +19,8 @@ void printIntro(void){
   delayTimer(2);
 }
 
-void printEmptyBoard(void){
+void printBoard(void){
   //system(CLEAR);
-  //setlocale(LC_CTYPE, "");
   int i, j;
   for (i=0; i<HEIGHT+1; i++){
     if (i<HEIGHT){
@@ -40,5 +38,4 @@ void printEmptyBoard(void){
     }
   }
   wprintf(L"\n");
-  wprintf(L"\nTest success.\n");
 }
