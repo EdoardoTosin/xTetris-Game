@@ -15,7 +15,6 @@ void printIntro(void){
   wprintf(L" _|    _|      _|    _|          _|      _|        _|      _|_|\n");
   wprintf(L" _|    _|      _|      _|_|_|      _|_|  _|        _|  _|_|_|\n");
   wprintf(L"\n");
-  wprintf(L"\n");
   delayTimer(2);
 }
 
