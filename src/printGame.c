@@ -10,11 +10,11 @@ void printIntro(void){
   system(CLEAR);
   wprintf(L"\n");
   wprintf(L"\n");
-  wprintf(L"           _|_|_|_|_|            _|                _|            \n");
-  wprintf(L" _|    _|      _|      _|_|    _|_|_|_|  _|  _|_|        _|_|_|  \n");
-  wprintf(L"   _|_|        _|    _|_|_|_|    _|      _|_|      _|  _|_|      \n");
-  wprintf(L" _|    _|      _|    _|          _|      _|        _|      _|_|  \n");
-  wprintf(L" _|    _|      _|      _|_|_|      _|_|  _|        _|  _|_|_|    \n");
+  wprintf(L"           _|_|_|_|_|            _|                _|\n");
+  wprintf(L" _|    _|      _|      _|_|    _|_|_|_|  _|  _|_|        _|_|_|\n");
+  wprintf(L"   _|_|        _|    _|_|_|_|    _|      _|_|      _|  _|_|\n");
+  wprintf(L" _|    _|      _|    _|          _|      _|        _|      _|_|\n");
+  wprintf(L" _|    _|      _|      _|_|_|      _|_|  _|        _|  _|_|_|\n");
   wprintf(L"\n");
   wprintf(L"\n");
   delayTimer(2);
@@ -24,16 +24,20 @@ void printEmptyBoard(void){
   //system(CLEAR);
   //setlocale(LC_CTYPE, "");
   int i, j;
-  for (i=0; i<12; i++){
-    wprintf(L"%lc", fSq);
-    for (j=0; j<10; j++){
-      wprintf(L"%lc", eSq);
+  for (i=0; i<HEIGHT+1; i++){
+    if (i<HEIGHT){
+      for (j=0; j<WIDTH+2; j++){
+        if (j==0 || j==WIDTH+1)
+          wprintf(L"%lc", fSq);
+        else
+          wprintf(L"%lc", eSq);
+      }
+      wprintf(L"\n");
     }
-    wprintf(L"%lc", fSq);
-    wprintf(L"\n");
-  }
-  for (i=0; i<12; i++){
-    wprintf(L"%lc", fSq);
+    else{
+      for (j=0; j<WIDTH+2; j++)
+        wprintf(L"%lc", fSq);
+    }
   }
   wprintf(L"\n");
   wprintf(L"\nTest success.\n");
