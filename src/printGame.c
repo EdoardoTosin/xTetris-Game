@@ -15,12 +15,12 @@ void printIntro(void){
   wprintf(L" _|    _|      _|    _|          _|      _|        _|      _|_|\n");
   wprintf(L" _|    _|      _|      _|_|_|      _|_|  _|        _|  _|_|_|\n");
   wprintf(L"\n");
-  delayTimer(2);
+  delayTimer(1);
 }
 
 void printSpacing(){
   int i;
-  for (i=0; i<NSPACES; i++)
+  for (i=0; i<SPACING; i++)
     wprintf(L" ");
 }
 
