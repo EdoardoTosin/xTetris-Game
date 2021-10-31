@@ -19,7 +19,9 @@ void printIntro(void){
 }
 
 void printSpacing(){
-  wprintf(L"        ");
+  int i;
+  for (i=0; i<8; i++)
+    wprintf(L" ");
 }
 
 void printPlayersName(wchar_t* pl1, wchar_t* pl2){
@@ -69,22 +71,4 @@ void printBoard(BoardPtr mat_1, BoardPtr mat_2, wchar_t* pl1, wchar_t* pl2){
       wprintf(L"\n");
     }
   }
-
-  /*
-  for (i=0; i<HEIGHT+2; i++){
-    if (i>0 && i<HEIGHT+1){
-      for (j=0; j<WIDTH+2; j++){
-        if (j==0 || j==WIDTH+1)
-          wprintf(L"%lc", fSq);
-        else
-          wprintf(L"%lc", mat_1[15-i][10-j].status);
-      }
-    }
-    else{
-      for (j=0; j<WIDTH+2; j++)
-        wprintf(L"%lc", fSq);
-    }
-    wprintf(L"\n");
-  }
-  */
 }
