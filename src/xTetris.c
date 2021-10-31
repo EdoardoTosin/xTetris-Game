@@ -4,13 +4,22 @@
 #include "common.h"
 #include "printGame.h"
 
+#include "struct.h"
+#include "initBoard.h"
+
 /*!
    \brief Main entry point of the program.
 */
 int main (void) {
+  BoardPtr board_1, board_2;
+  wchar_t* pl1;
+  wchar_t* pl2;
   setlocale(LC_CTYPE, "");
   printIntro();
-  printBoard();
+  pl1 = L"Player_A";
+  pl2 = L"Player_B";
+  board_1 = board_2 = initialize();
+  printBoard(board_1, board_2);
   delayTimer(1);
   return 0;
 }
