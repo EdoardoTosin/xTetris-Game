@@ -1,6 +1,6 @@
 #define HEIGHT (15)
 #define WIDTH (10)
-#define NSPACES (8)
+#define SPACING (8)
 
 #ifdef _WIN32
 #include <Windows.h>
