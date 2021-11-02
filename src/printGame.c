@@ -6,7 +6,7 @@
 #include "struct.h"
 
 void printIntro(void){
-  system(CLEAR);
+  clearCLI();
   wprintf(L"\n");
   wprintf(L"\n");
   wprintf(L"           _|_|_|_|_|            _|                _|\n");
@@ -15,7 +15,9 @@ void printIntro(void){
   wprintf(L" _|    _|      _|    _|          _|      _|        _|      _|_|\n");
   wprintf(L" _|    _|      _|      _|_|_|      _|_|  _|        _|  _|_|_|\n");
   wprintf(L"\n");
+  /*
   delayTimer(1);
+  */
 }
 
 void printSpacing(){
@@ -36,9 +38,10 @@ void printPlayersName(wchar_t* pl1, wchar_t* pl2){
 }
 
 void printBoard(BoardPtr mat_1, BoardPtr mat_2, wchar_t* pl1, wchar_t* pl2){
-  //system(CLEAR);
   int i, j, k;
-
+  /*
+  clearCLI();
+  */
 
   for (i=0; i<HEIGHT+2; i++){
     if (i==0 || i==HEIGHT+1){
