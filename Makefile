@@ -2,16 +2,16 @@ all: xTetris clean
 
 xTetris: src/xTetris.o src/printGame.o src/initBoard.o src/common.o -o xTetris
 
-common.o: src/common.c common.h
+src/common.o: src/common.c src/common.h
 	cc -c -ansi -pedantic -O2 -Wall -Wextra -lm src/common.c
 
-initBoard.o: src/initBoard.c initBoard.h
+src/initBoard.o: src/initBoard.c src/initBoard.h
 	cc -c -ansi -pedantic -O2 -Wall -Wextra -lm src/initBoard.c
 
-printGame.o: src/printGame.c printGame.h
+src/printGame.o: src/printGame.c src/printGame.h
 	cc -c -ansi -pedantic -O2 -Wall -Wextra -lm src/printGame.c
 
-xTetris.o: src/xTetris.c
+src/xTetris.o: src/xTetris.c
 	cc -c -ansi -pedantic -O2 -Wall -Wextra -lm src/xTetris.c
 
 .PHONY: clean
