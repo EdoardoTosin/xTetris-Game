@@ -16,3 +16,7 @@ CMakeCache.txt
 /CMakeFiles
 *.cmake
 cmake-build-debug
+
+# Makefile build folders
+/obj
+/bin
