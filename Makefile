@@ -1,19 +1,38 @@
-all: xTetris clean
+# Project Name (generate executable with this name)
+TARGET   = xTetris
 
-xTetris: src/xTetris.o src/printGame.o src/initBoard.o src/common.o -o xTetris
+CC       = gcc
+# compiling flags here
+CFLAGS   = -ansi -pedantic -O2 -Wall -Wextra -lm
 
-src/common.o: src/common.c src/common.h
-	cc -c -ansi -pedantic -O2 -Wall -Wextra -lm src/common.c
+LINKER   = gcc
+# linking flags here
+LFLAGS   = -Wall -pedantic -O2 -Wall -Wextra -lm
 
-src/initBoard.o: src/initBoard.c src/initBoard.h
-	cc -c -ansi -pedantic -O2 -Wall -Wextra -lm src/initBoard.c
+# change these to proper directories where each file should be
+SRCDIR   = src
+OBJDIR   = src
+BINDIR   = src
 
-src/printGame.o: src/printGame.c src/printGame.h
-	cc -c -ansi -pedantic -O2 -Wall -Wextra -lm src/printGame.c
+SOURCES  := $(wildcard $(SRCDIR)/*.c)
+INCLUDES := $(wildcard $(SRCDIR)/*.h)
+OBJECTS  := $(SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
+rm       = rm -f
 
-src/xTetris.o: src/xTetris.c
-	cc -c -ansi -pedantic -O2 -Wall -Wextra -lm src/xTetris.c
+$(TARGET): $(OBJECTS)
+	@$(LINKER) $(OBJECTS) $(LFLAGS) -o $@
+	@echo "Linking complete!"
+
+$(OBJECTS): $(OBJDIR)/%.o : $(SRCDIR)/%.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo "Compiled "$<" successfully!"
 
 .PHONY: clean
 clean:
-	rm -rf src/*.o
+	@$(rm) $(OBJECTS)
+	@echo "Cleanup complete!"
+
+.PHONY: remove
+remove: clean
+	@$(rm) $(BINDIR)/$(TARGET)
+	@echo "Executable removed!"
