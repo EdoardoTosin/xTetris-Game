@@ -16,11 +16,13 @@ int main (void) {
   wchar_t* pl2;
   setlocale(LC_CTYPE, "");
   printIntro();
-  pl1 = L"Player_A";
-  pl2 = L"Player_B";
+  pl1 = L"Player A";
+  pl2 = L"Player B";
   board_1 = board_2 = initialize();
-  printBoard(board_1, board_2);
+  printBoard(board_1, board_2, pl1, pl2);
+  /*
   delayTimer(1);
+  */
   return 0;
 }
 
