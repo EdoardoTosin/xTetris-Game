@@ -30,7 +30,7 @@ void printPlayersName(wchar_t* pl1, wchar_t* pl2){
   int i, length;
   wprintf(L"%ls", pl1);
   length = wcslen(pl1);
-  for (i=0; i<12-length; i++)
+  for (i=0; i<12*2-length; i++)
     wprintf(L" ");
   printSpacing();
   wprintf(L"%ls", pl2);
