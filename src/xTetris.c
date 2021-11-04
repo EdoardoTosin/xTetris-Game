@@ -16,8 +16,8 @@ int main (void) {
   wchar_t* pl2;
   setlocale(LC_CTYPE, "");
   printIntro();
-  pl1 = L"Player A";
-  pl2 = L"Player B";
+  pl1 = L"Player AAAAA";
+  pl2 = L"Player BBBBB";
   board_1 = board_2 = initialize();
   printBoard(board_1, board_2, pl1, pl2);
   /*
