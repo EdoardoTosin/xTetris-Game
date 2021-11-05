@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <wchar.h>
 #include "common.h"
-#include "definitions.h"
 #include "struct.h"
 
 BoardPtr initialize() {
