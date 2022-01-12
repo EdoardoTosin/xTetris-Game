@@ -3,8 +3,8 @@
 */
 void clearCLI();
 /*!
-   \brief Call the system sleep with closs-platform compatibility.
-   @param timeDelay Time of the sleep.
+   \brief Call the system sleep.
+   @param timeDelay Time of the sleep in microseconds.
 */
 void delayTimer(int timeDelay);
 
@@ -16,3 +16,7 @@ wchar_t eSq;
    \brief Assign unicode character (black square) to this global variable.
 */
 wchar_t fSq;
+
+/*
+  COMPLETE WITH NEW FUNCTIONS
+*/

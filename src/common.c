@@ -10,18 +10,14 @@
 #include "definitions.h"
 
 void clearCLI(){
-  int result;
-  result = system(CLEAR);
-  if (result == 1)
+  int res;
+  res = system("clear");
+  if (res == 1)
     exit(EXIT_FAILURE);
 }
 
 void delayTimer(int timeDelay){
-  #ifdef _WIN32
-  Sleep(timeDelay);
-  #else
-  sleep(timeDelay);
-  #endif
+  usleep(timeDelay);
 }
 
 wchar_t eSq = 0x2B1C; /* emptySquare */
