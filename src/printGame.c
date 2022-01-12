@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <wchar.h>
 #include "common.h"
+#include "definitions.h"
 #include "initBoard.h"
 #include "struct.h"
 
