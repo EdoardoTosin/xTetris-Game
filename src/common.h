@@ -4,7 +4,7 @@
 void clearCLI();
 /*!
    \brief Call the system sleep.
-   @param timeDelay Time of the sleep in microseconds.
+   @param[in] timeDelay Time of the sleep in microseconds.
 */
 void delayTimer(int timeDelay);
 
