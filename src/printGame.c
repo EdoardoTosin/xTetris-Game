@@ -5,21 +5,6 @@
 #include "initBoard.h"
 #include "struct.h"
 
-void printIntro(void){
-  clearCLI();
-  wprintf(L"\n");
-  wprintf(L"\n");
-  wprintf(L"           _|_|_|_|_|            _|                _|\n");
-  wprintf(L" _|    _|      _|      _|_|    _|_|_|_|  _|  _|_|        _|_|_|\n");
-  wprintf(L"   _|_|        _|    _|_|_|_|    _|      _|_|      _|  _|_|\n");
-  wprintf(L" _|    _|      _|    _|          _|      _|        _|      _|_|\n");
-  wprintf(L" _|    _|      _|      _|_|_|      _|_|  _|        _|  _|_|_|\n");
-  wprintf(L"\n");
-  /*
-  delayTimer(1);
-  */
-}
-
 void printSpacing(){
   int i;
   for (i=0; i<SPACING; i++)
@@ -34,14 +19,13 @@ void printPlayersName(wchar_t* pl1, wchar_t* pl2){
     wprintf(L" ");
   printSpacing();
   wprintf(L"%ls", pl2);
-  wprintf(L"\n");
+  wprintf(L"\r\n");
 }
 
 void printBoard(BoardPtr mat_1, BoardPtr mat_2, wchar_t* pl1, wchar_t* pl2){
   int i, j, k;
-  /*
+  
   clearCLI();
-  */
 
   for (i=0; i<HEIGHT+2; i++){
     if (i==0 || i==HEIGHT+1){
@@ -52,7 +36,7 @@ void printBoard(BoardPtr mat_1, BoardPtr mat_2, wchar_t* pl1, wchar_t* pl2){
           wprintf(L"%lc", fSq);
         printSpacing();
       }
-      wprintf(L"\n");
+      wprintf(L"\r\n");
     }
     else{
       for (j=0; j<WIDTH+2; j++){
@@ -71,7 +55,7 @@ void printBoard(BoardPtr mat_1, BoardPtr mat_2, wchar_t* pl1, wchar_t* pl2){
         else
           wprintf(L"%lc", mat_2[15-i][10-j].status);
       }
-      wprintf(L"\n");
+      wprintf(L"\r\n");
     }
   }
 }
