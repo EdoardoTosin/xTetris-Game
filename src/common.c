@@ -8,7 +8,6 @@
 #include <sys/time.h>
 #include <sys/types.h>
 
-
 #include "definitions.h"
 
 void sound(){
@@ -88,4 +87,15 @@ int u_getchar(void){
   else
     ret=buf;
   return ret;
+}
+
+int waitUserInput(){
+  int key;
+  while(1){
+    if(u_kbhit()){
+      key=u_getchar();
+      return key;
+    }
+  }
+  usleep(100);
 }
