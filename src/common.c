@@ -17,7 +17,7 @@ void clearCLI(){
 }
 
 void delayTimer(int timeDelay){
-  usleep(timeDelay);
+  sleep(timeDelay);
 }
 
 wchar_t eSq = 0x2B1C; /* emptySquare */
