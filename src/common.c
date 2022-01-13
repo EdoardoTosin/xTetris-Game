@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <sys/ioctl.h>
 #include <wchar.h>
 
 #include <termios.h>
@@ -7,7 +8,12 @@
 #include <sys/time.h>
 #include <sys/types.h>
 
+
 #include "definitions.h"
+
+void sound(){
+  wprintf(L"\a");
+}
 
 void clearCLI(){
   int res;
@@ -19,6 +25,8 @@ void clearCLI(){
 void delayTimer(int timeDelay){
   sleep(timeDelay);
 }
+
+struct winsize w;
 
 wchar_t eSq = 0x2B1C; /* emptySquare */
 wchar_t fSq = 0x2B1B; /* fullSquare */
