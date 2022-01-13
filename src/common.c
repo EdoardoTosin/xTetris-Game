@@ -28,6 +28,20 @@ void delayTimer(int timeDelay){
 
 struct winsize w;
 
+void widthSpacing(int filledWidth){
+  int i;
+  ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
+  for(i=0; i<(w.ws_col-filledWidth)/2; i++)
+    wprintf(L" ");
+}
+
+void heightSpacing(int filledHeight){
+  int i;
+  ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
+  for(i=0; i<(w.ws_row-filledHeight)/2; i++)
+    wprintf(L"\r\n");
+}
+
 wchar_t eSq = 0x2B1C; /* emptySquare */
 wchar_t fSq = 0x2B1B; /* fullSquare */
 
