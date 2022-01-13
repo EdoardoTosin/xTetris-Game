@@ -126,8 +126,12 @@ int choiceCtrl(int menu, int opt, int min, int max){
       else if(key==CARRIAGE_RETURN){
         return opt;
       }
-      else if(key==ESCAPE)
-        return 0;
+      else if(key==ESCAPE){
+        if(opt==6 || opt == 7)
+          return opt;
+        else
+          return 1;
+      }
       else if(key==CTRL_C)
         exitFailure();
     }
