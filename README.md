@@ -12,7 +12,7 @@
 * [License](#license)
 
 ## General info
-This is a variant of the famous video game Tetris.
+This is a variant of the famous video game Tetris written in C (standard C89) for Linux.
 
 ## Gameplay
 * Goal: Put your organizational skills and endurance to the test by clearing as many lines as possible.
