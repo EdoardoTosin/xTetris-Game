@@ -7,6 +7,14 @@ void printIntro();
 
 /*!
    \brief Print main menu.
+   @param[in] start Define the first menu item that need to be printed.
+   @param[in] end Define the last menu item that need to be printed.
+   @param[in] selected Define wich item is currently selected.
+*/
+void printMenuItems(int start, int end, int selected);
+
+/*!
+   \brief Print main menu.
    @param[in] opt Define the selected option in the menu at that moment.
 */
 void printMainMenu(int opt);
