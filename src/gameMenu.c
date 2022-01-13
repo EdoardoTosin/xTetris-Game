@@ -129,7 +129,7 @@ int choiceCtrl(int menu, int opt, int min, int max){
       else if(key==ESCAPE)
         return 0;
       else if(key==CTRL_C)
-        exit(EXIT_FAILURE);
+        exitFailure();
     }
     usleep(100);
   }
