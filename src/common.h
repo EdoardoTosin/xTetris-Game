@@ -1,6 +1,10 @@
 #include <sys/ioctl.h>
 
 /*!
+   \brief Exit the program after cleaning everything on screen.
+*/
+void exitFailure();
+/*!
    \brief Makes a beep sound.
 */
 void sound();

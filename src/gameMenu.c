@@ -10,15 +10,15 @@ void printIntro(void){
   clearCLI();
   heightSpacing(5);
   widthSpacing(62);
-  wprintf(L"          _|_|_|_|_|            _|                _|\n");
+  wprintf(L"          _|_|_|_|_|            _|                _|\r\n");
   widthSpacing(62);
-  wprintf(L"_|    _|      _|      _|_|    _|_|_|_|  _|  _|_|        _|_|_|\n");
+  wprintf(L"_|    _|      _|      _|_|    _|_|_|_|  _|  _|_|        _|_|_|\r\n");
   widthSpacing(62);
-  wprintf(L"  _|_|        _|    _|_|_|_|    _|      _|_|      _|  _|_|\n");
+  wprintf(L"  _|_|        _|    _|_|_|_|    _|      _|_|      _|  _|_|\r\n");
   widthSpacing(62);
-  wprintf(L"_|    _|      _|    _|          _|      _|        _|      _|_|\n");
+  wprintf(L"_|    _|      _|    _|          _|      _|        _|      _|_|\r\n");
   widthSpacing(62);
-  wprintf(L"_|    _|      _|      _|_|_|      _|_|  _|        _|  _|_|_|\n");
+  wprintf(L"_|    _|      _|      _|_|_|      _|_|  _|        _|  _|_|_|\r\n");
 }
 
 void printMenuItems(int start, int end, int selected){
@@ -105,7 +105,7 @@ void printCurrentMenu(int menu, int opt){
 }
 
 int choiceCtrl(int menu, int opt, int min, int max){
-  int key;
+  int key=0;
   printCurrentMenu(menu, opt);
   while(1){
     if(u_kbhit()){
@@ -128,6 +128,8 @@ int choiceCtrl(int menu, int opt, int min, int max){
       }
       else if(key==ESCAPE)
         return 0;
+      else if(key==CTRL_C)
+        exit(EXIT_FAILURE);
     }
     usleep(100);
   }

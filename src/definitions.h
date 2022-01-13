@@ -3,8 +3,9 @@
 #define SPACING (8)
 
 
-#define ESCAPE (27)
+#define CTRL_C (3)
 #define CARRIAGE_RETURN (13)
+#define ESCAPE (27)
 
 #define UPPER_W (87)
 #define UPPER_A (65)
