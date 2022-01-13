@@ -1,10 +1,6 @@
 #include <sys/ioctl.h>
 
 /*!
-   \brief Exit the program after cleaning everything on screen.
-*/
-void exitFailure();
-/*!
    \brief Makes a beep sound.
 */
 void sound();
@@ -12,6 +8,10 @@ void sound();
    \brief Call the system function to clear the cli.
 */
 void clearCLI();
+/*!
+   \brief Exit the program after cleaning everything on screen.
+*/
+void exitFailure();
 /*!
    \brief Call the system sleep.
    @param[in] timeDelay Time of the sleep in seconds.

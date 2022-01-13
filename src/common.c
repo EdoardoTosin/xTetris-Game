@@ -10,11 +10,6 @@
 
 #include "definitions.h"
 
-void exitFailure(){
-  clearCLI();
-  exit(EXIT_FAILURE);
-}
-
 void sound(){
   wprintf(L"\a");
 }
@@ -24,6 +19,11 @@ void clearCLI(){
   res = system("clear");
   if (res == 1)
     exitFailure();
+}
+
+void exitFailure(){
+  clearCLI();
+  exit(EXIT_FAILURE);
 }
 
 void delayTimer(int timeDelay){
