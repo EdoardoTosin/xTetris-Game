@@ -20,6 +20,18 @@ void delayTimer(int timeDelay);
 struct winsize w;
 
 /*!
+   \brief Apply an horizontal spacing based on window width and what need to be printed.
+   @param[in] filledWidth Width of what is printed that need to be centered.
+*/
+void widthSpacing(int filledWidth);
+
+/*!
+   \brief Apply a vertical spacing based on window heigth and what need to be printed.
+   @param[in] filledHeight Height of what is printed that need to be centered.
+*/
+void heightSpacing(int filledHeight);
+
+/*!
    \brief Assign unicode character (white square) to this global variable.
 */
 wchar_t eSq;
