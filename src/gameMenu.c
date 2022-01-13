@@ -6,6 +6,20 @@
 #include "common.h"
 #include "definitions.h"
 
+void printIntro(void){
+  clearCLI();
+  wprintf(L"\n");
+  wprintf(L"\n");
+  wprintf(L"           _|_|_|_|_|            _|                _|\n");
+  wprintf(L" _|    _|      _|      _|_|    _|_|_|_|  _|  _|_|        _|_|_|\n");
+  wprintf(L"   _|_|        _|    _|_|_|_|    _|      _|_|      _|  _|_|\n");
+  wprintf(L" _|    _|      _|    _|          _|      _|        _|      _|_|\n");
+  wprintf(L" _|    _|      _|      _|_|_|      _|_|  _|        _|  _|_|_|\n");
+  wprintf(L"\n");
+
+  delayTimer(1);
+}
+
 void printMainMenu(int opt){
   if(opt==2){
     wprintf(L"-->Start Game<--\r\n");
@@ -34,16 +48,23 @@ void printMainMenu(int opt){
 }
 
 void playersName(wchar_t* pl1, wchar_t* pl2){
+  wchar_t p1, p2;
+  p1 = L"Player 007";
+  p2 = L"Player 2";
+  /*
   do{
     wprintf(L"Enter Player 1 name:\r\n");
     wscanf(L"%ls", pl1);
   }
-  while(pl1!=L"\0");
+  while(pl1==L"\0");
   do{
-    wprintf(L"Enter Player 1 name:\r\n");
+    wprintf(L"Enter Player 2 name:\r\n");
     wscanf(L"%ls", pl2);
   }
-  while(pl2!=L"\0");
+  while(pl2==L"\0");
+  */
+  pl1 = p1;
+  pl2 = p2;
 }
 
 void printGuide(){

@@ -1,6 +1,11 @@
 #include <wchar.h>
 
 /*!
+   \brief Print game logo.
+*/
+void printIntro();
+
+/*!
    \brief Print main menu.
    @param[in] opt Define the selected option in the menu at that moment.
 */

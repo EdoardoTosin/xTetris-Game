@@ -1,8 +1,4 @@
 /*!
-   \brief Print game logo.
-*/
-void printIntro();
-/*!
    \brief Print spaces between the two boards.
 */
 void printSpacing();
