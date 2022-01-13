@@ -6,7 +6,8 @@
 ## Table of contents
 * [General info](#general-info)
 * [Gameplay](#gameplay)
-* [Setup](#setup)
+* [Compile](#compile)
+* [Launch](#launch)
 * [Documentation](#documentation)
 * [License](#license)
 
@@ -24,28 +25,17 @@ This is a variant of the famous video game Tetris.
 
 Source: [tetris.123-games.org](https://tetris.123-games.org/tut.html)
 
-## Setup
-To run this project, compile it locally using `make` command and have fun.
-
-### For Windows users:
-* Install Mingw-w64 via the [SourceForge](https://sourceforge.net/projects/mingw-w64/) website
-* Add the path to your Mingw-w64 bin folder to the Windows PATH environment variable
-* Install [Chocolatey](https://chocolatey.org/install) package manager and then install make with the command
-  ```choco install make```
-* Download the project from [here](https://github.com/EdoardoTosin/miniLaska-Game/archive/main.zip) or via ``git clone``
-* Run the following commands:
-
-  ``` bash
-  $ make
-  $ .\xTetris
-  ```
-
-### For Linux users:
+## Compile
 Run the following commands on terminal:
 ``` bash
 $ git clone https://github.com/EdoardoTosin/xTetris-Game.git
 $ cd xTetris-Game
 $ ./build.sh
+```
+
+## Launch
+Run the following command on terminal:
+``` bash
 $ ./run.sh
 ```
 
