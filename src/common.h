@@ -1,3 +1,9 @@
+#include <sys/ioctl.h>
+
+/*!
+   \brief Makes a beep sound.
+*/
+void sound();
 /*!
    \brief Call the system function to clear the cli.
 */
@@ -7,6 +13,11 @@ void clearCLI();
    @param[in] timeDelay Time of the sleep in seconds.
 */
 void delayTimer(int timeDelay);
+
+/*!
+   \brief Global variable type struct winsize used for terminal width and height.
+*/
+struct winsize w;
 
 /*!
    \brief Assign unicode character (white square) to this global variable.
