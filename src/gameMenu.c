@@ -19,8 +19,6 @@ void printIntro(void){
   wprintf(L"_|    _|      _|    _|          _|      _|        _|      _|_|\n");
   widthSpacing(62);
   wprintf(L"_|    _|      _|      _|_|_|      _|_|  _|        _|  _|_|_|\n");
-
-  delayTimer(1);
 }
 
 void printMenuItems(int start, int end, int selected){
@@ -112,26 +110,26 @@ int choiceCtrl(int menu, int opt, int min, int max){
   while(1){
     if(u_kbhit()){
       key=u_getchar();
-      if(key==119 || key==87 || key==115 || key==83){
-        if(key==119 || key==87){
+      if(key==LOWER_W || key==UPPER_W || key==LOWER_S || key==UPPER_S){
+        if(key==LOWER_W || key==UPPER_W){
           opt--;
           if(opt<min)
             opt=max;
         }
-        else if(key==115 || key==83){
+        else if(key==LOWER_S || key==UPPER_S){
           opt++;
           if(opt>max)
             opt=min;
         }
         printCurrentMenu(menu, opt);
       }
-      else if(key==13){
+      else if(key==CARRIAGE_RETURN){
         return opt;
       }
-      else if(key==27)
+      else if(key==ESCAPE)
         return 0;
     }
-    /*usleep(100);*/
+    usleep(100);
   }
   return 0;
 }

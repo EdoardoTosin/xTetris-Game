@@ -43,3 +43,8 @@ wchar_t fSq;
 /*
   COMPLETE WITH NEW FUNCTIONS
 */
+
+/*!
+   \brief Loop until user press a valid key.
+*/
+int waitUserInput();
