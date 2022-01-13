@@ -17,8 +17,10 @@ void sound(){
 void clearCLI(){
   int res;
   res = system("clear");
-  if (res == 1)
-    exitFailure();
+  if (res == 1){
+    clearCLI();
+    exit(EXIT_FAILURE);
+  }
 }
 
 void exitFailure(){
