@@ -10,6 +10,11 @@
 
 #include "definitions.h"
 
+void exitFailure(){
+  clearCLI();
+  exit(EXIT_FAILURE);
+}
+
 void sound(){
   wprintf(L"\a");
 }
@@ -18,7 +23,7 @@ void clearCLI(){
   int res;
   res = system("clear");
   if (res == 1)
-    exit(EXIT_FAILURE);
+    exitFailure();
 }
 
 void delayTimer(int timeDelay){
@@ -90,10 +95,12 @@ int u_getchar(void){
 }
 
 int waitUserInput(){
-  int key;
+  int key=0;
   while(1){
     if(u_kbhit()){
       key=u_getchar();
+      if (key == CTRL_C)
+        exitFailure();
       return key;
     }
   }
