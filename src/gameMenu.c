@@ -23,48 +23,45 @@ void printIntro(void){
 void printMainMenu(int opt){
   if(opt==2){
     wprintf(L"-->Start Game<--\r\n");
-    wprintf(L"      Rules\r\n");
+    wprintf(L"      Guide\r\n");
     wprintf(L"     Credits\r\n");
     wprintf(L"      Exit\r\n");
   }
   else if(opt==3){
     wprintf(L"   Start Game\r\n");
-    wprintf(L"   -->Rules<--\r\n");
+    wprintf(L"   -->Guide<--\r\n");
     wprintf(L"     Credits\r\n");
     wprintf(L"      Exit\r\n");
   }
   else if(opt==4){
     wprintf(L"   Start Game\r\n");
-    wprintf(L"      Rules\r\n");
+    wprintf(L"      Guide\r\n");
     wprintf(L"  -->Credits<--\r\n");
     wprintf(L"      Exit\r\n");
   }
   else if(opt==5){
     wprintf(L"   Start Game\r\n");
-    wprintf(L"      Rules\r\n");
+    wprintf(L"      Guide\r\n");
     wprintf(L"     Credits\r\n");
     wprintf(L"   -->Exit<--\r\n");
   }
 }
 
 void playersName(wchar_t* pl1, wchar_t* pl2){
-  wchar_t p1, p2;
-  p1 = L"Player 007";
-  p2 = L"Player 2";
-  /*
+  pl1 = L"Player 007";
+  pl2 = L"Player 2";
+  setlocale( LC_ALL, "" );
   do{
     wprintf(L"Enter Player 1 name:\r\n");
-    wscanf(L"%ls", pl1);
+    /*wscanf(L"%ls", pl1);*/
   }
-  while(pl1==L"\0");
+  while(wcslen(pl1)<1 || wcslen(pl1)>20);
   do{
     wprintf(L"Enter Player 2 name:\r\n");
-    wscanf(L"%ls", pl2);
+    /*wscanf(L"%ls", pl2);*/
   }
-  while(pl2==L"\0");
-  */
-  pl1 = p1;
-  pl2 = p2;
+  while(wcslen(pl2)<1 || wcslen(pl2)>20);
+
 }
 
 void printGuide(){
