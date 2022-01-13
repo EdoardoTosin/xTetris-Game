@@ -13,18 +13,18 @@ void printSpacing(){
 
 void printPlayersName(wchar_t* pl1, wchar_t* pl2){
   int i, length;
-  wprintf(L"%ls", pl1);
+  wprintf(L"%ls", *pl1);
   length = wcslen(pl1);
   for (i=0; i<12*2-length; i++)
     wprintf(L" ");
   printSpacing();
-  wprintf(L"%ls", pl2);
+  wprintf(L"%ls", *pl2);
   wprintf(L"\r\n");
 }
 
 void printBoard(BoardPtr mat_1, BoardPtr mat_2, wchar_t* pl1, wchar_t* pl2){
   int i, j, k;
-  
+
   clearCLI();
 
   for (i=0; i<HEIGHT+2; i++){
