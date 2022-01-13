@@ -8,43 +8,47 @@
 
 void printIntro(void){
   clearCLI();
-  wprintf(L"\n");
-  wprintf(L"\n");
-  wprintf(L"           _|_|_|_|_|            _|                _|\n");
-  wprintf(L" _|    _|      _|      _|_|    _|_|_|_|  _|  _|_|        _|_|_|\n");
-  wprintf(L"   _|_|        _|    _|_|_|_|    _|      _|_|      _|  _|_|\n");
-  wprintf(L" _|    _|      _|    _|          _|      _|        _|      _|_|\n");
-  wprintf(L" _|    _|      _|      _|_|_|      _|_|  _|        _|  _|_|_|\n");
-  wprintf(L"\n");
+  heightSpacing(5);
+  widthSpacing(62);
+  wprintf(L"          _|_|_|_|_|            _|                _|\n");
+  widthSpacing(62);
+  wprintf(L"_|    _|      _|      _|_|    _|_|_|_|  _|  _|_|        _|_|_|\n");
+  widthSpacing(62);
+  wprintf(L"  _|_|        _|    _|_|_|_|    _|      _|_|      _|  _|_|\n");
+  widthSpacing(62);
+  wprintf(L"_|    _|      _|    _|          _|      _|        _|      _|_|\n");
+  widthSpacing(62);
+  wprintf(L"_|    _|      _|      _|_|_|      _|_|  _|        _|  _|_|_|\n");
 
   delayTimer(1);
 }
 
+void printMenuItems(int start, int end, int selected){
+  int i;
+  wchar_t* item[7];
+  item[0]=L"-->";
+  item[1]=L"Start Game";
+  item[2]=L"Guide";
+  item[3]=L"Credits";
+  item[4]=L"Exit";
+  item[5]=L"Return";
+  item[6]=L"<--";
+
+  for(i=start; i<=end; i++){
+    if(i==selected){
+      widthSpacing(wcslen(item[0])+wcslen(item[i])+wcslen(item[6]));
+      wprintf(L"%ls%ls%ls\r\n",item[0],item[i],item[6]);
+    }
+    else{
+      widthSpacing(wcslen(item[i]));
+      wprintf(L"%ls\r\n",item[i]);
+    }
+  }
+}
+
 void printMainMenu(int opt){
-  if(opt==2){
-    wprintf(L"-->Start Game<--\r\n");
-    wprintf(L"      Guide\r\n");
-    wprintf(L"     Credits\r\n");
-    wprintf(L"      Exit\r\n");
-  }
-  else if(opt==3){
-    wprintf(L"   Start Game\r\n");
-    wprintf(L"   -->Guide<--\r\n");
-    wprintf(L"     Credits\r\n");
-    wprintf(L"      Exit\r\n");
-  }
-  else if(opt==4){
-    wprintf(L"   Start Game\r\n");
-    wprintf(L"      Guide\r\n");
-    wprintf(L"  -->Credits<--\r\n");
-    wprintf(L"      Exit\r\n");
-  }
-  else if(opt==5){
-    wprintf(L"   Start Game\r\n");
-    wprintf(L"      Guide\r\n");
-    wprintf(L"     Credits\r\n");
-    wprintf(L"   -->Exit<--\r\n");
-  }
+  heightSpacing(4);
+  printMenuItems(1,4,opt-1);
 }
 
 void playersName(wchar_t* pl1, wchar_t* pl2){
@@ -52,19 +56,23 @@ void playersName(wchar_t* pl1, wchar_t* pl2){
   pl2 = L"Player 2";
   setlocale( LC_ALL, "" );
   do{
+    heightSpacing(1);
+    widthSpacing(20);
     wprintf(L"Enter Player 1 name:\r\n");
     /*wscanf(L"%ls", pl1);*/
   }
   while(wcslen(pl1)<1 || wcslen(pl1)>20);
   do{
+    heightSpacing(1);
+    widthSpacing(20);
     wprintf(L"Enter Player 2 name:\r\n");
     /*wscanf(L"%ls", pl2);*/
   }
   while(wcslen(pl2)<1 || wcslen(pl2)>20);
-
 }
 
 void printGuide(){
+  heightSpacing(14);
   wprintf(L"- Goal: Put your organizational skills and endurance to the test by clearing as many lines as possible.\r\n");
   wprintf(L"- Clear lines: Maneuver the falling Tetriminos to fit them together within the Matrix. To clear a line, fill every square within a single row.\r\n");
   wprintf(L"- Score points: Earn points by clearing lines. Clear multiple lines at once to increase your scoring opportunities.\r\n");
@@ -73,21 +81,23 @@ void printGuide(){
   wprintf(L"- Hold queue: Store a falling Tetrimino in the Hold Queue for later use.\r\n");
   wprintf(L"- Game over: Stack the Tetriminos too high and the game is over!\r\n");
   wprintf(L"\r\n");
-  wprintf(L"\r\n");
-  wprintf(L"   -->Return<--\r\n");
+  printMenuItems(5,5,5);
 }
 
 void printCredits(){
+  heightSpacing(14);
+  widthSpacing(10);
   wprintf(L"Developer:\r\n");
-  wprintf(L" Edoardo Tosin\r\n");
+  widthSpacing(13);
+  wprintf(L"Edoardo Tosin\r\n");
   wprintf(L"\r\n");
   wprintf(L"\r\n");
-  wprintf(L"   -->Return<--\r\n");
+  printMenuItems(5,5,5);
 }
 
 void printCurrentMenu(int menu, int opt){
   clearCLI();
-  wprintf(L"\a");
+  /*sound();*/
   if(menu==1)
     printMainMenu(opt);
   else if(menu==3)
