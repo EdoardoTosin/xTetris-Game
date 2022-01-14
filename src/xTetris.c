@@ -36,29 +36,30 @@ int main (int argc, char *argv[]) {
   }
   while(key!=ESCAPE && key!=CARRIAGE_RETURN);
 
-  nChoices[0][0]=2;
+  nChoices[0][0]=2;   /* Menu #1 -> Start Menu */
   nChoices[1][0]=5;
-  nChoices[0][1]=nChoices[1][1]=6;
-  nChoices[0][2]=nChoices[1][2]=7;
-  nChoices[0][3]=nChoices[1][3]=8;
+  nChoices[0][1]=6;   /* Menu #2 -> Start Game */
+  nChoices[1][1]=8;
+  nChoices[0][2]=nChoices[1][2]=9;    /* Menu #3 -> Rules */
+  nChoices[0][3]=nChoices[1][3]=10;   /* Menu #4 -> Credits */
   menu=1;
-  opt=nChoices[0][menu-1];
   do{
-    if(menu!=2){ /* 2->Launch Gameplay */
-      if(opt==6 || opt==7){
+    if(menu!=6 && menu!=7){
+      if(menu>=8 && menu<=10){
+        opt=menu-6;
         menu=1;
-        opt=opt-4;
       }
-      opt = choiceCtrl(menu, opt, nChoices[0][menu-1], nChoices[1][menu-1]);
+      else
+        opt=nChoices[0][menu-1];
+      menu = choiceCtrl(menu, opt, nChoices[0][menu-1], nChoices[1][menu-1]);
     }
     else{
-      playersName(pl1, pl2);
-      printBoard(board_1, board_2, pl1, pl2);
-      opt=5;
+      playersName(pl1, pl2, menu-6);
+      printBoard(board_1, board_2, pl1, pl2, menu-6);
+      menu=5;
     }
-    menu=opt;
   }
-  while(opt!=5);
+  while(menu!=5);
   clearCLI();
   return 0;
 }
