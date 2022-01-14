@@ -2,6 +2,9 @@
 
 set -o errexit
 
+#Clean terminal
+clear
+
 rm -rf build
 mkdir build
 cd build

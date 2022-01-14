@@ -41,6 +41,11 @@ void widthSpacing(int filledWidth){
     wprintf(L" ");
 }
 
+void printCentered(wchar_t* text){
+  widthSpacing(wcslen(text));
+  wprintf(L"%ls\r\n", text);
+}
+
 void heightSpacing(int filledHeight){
   int i;
   ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
@@ -105,6 +110,7 @@ int waitUserInput(){
         exitFailure();
       return key;
     }
+    nanosleep(100);
   }
-  usleep(100);
+  exitFailure();
 }
