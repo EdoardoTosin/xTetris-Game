@@ -28,8 +28,8 @@ void exitFailure(){
   exit(EXIT_FAILURE);
 }
 
-void delayTimer(int timeDelay){
-  sleep(timeDelay);
+void delayTimer(int time){
+  sleep(time);
 }
 
 struct winsize w;

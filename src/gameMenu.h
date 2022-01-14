@@ -20,11 +20,18 @@ void printMenuItems(int start, int end, int selected);
 void printMainMenu(int opt);
 
 /*!
+   \brief Print player mode menu.
+   @param[in] opt Define the selected option in the menu at that moment.
+*/
+void printPlayerMode(int opt);
+
+/*!
    \brief Prepare the gameplay asking for player names.
    @param[in] pl1 Pointer to Player 1 name.
    @param[in] pl2 Pointer to Player 2 name.
+   @param[in] mode Define wich mode has been selected: singleplayer or multiplayer.
 */
-void playersName(wchar_t* pl1, wchar_t* pl2);
+void playersName(wchar_t* pl1, wchar_t* pl2, int mode);
 
 /*!
    \brief Print the rules menu.

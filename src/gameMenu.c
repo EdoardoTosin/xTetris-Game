@@ -23,19 +23,21 @@ void printIntro(void){
 
 void printMenuItems(int start, int end, int selected){
   int i;
-  wchar_t* item[7];
+  wchar_t* item[9];
   item[0]=L"-->";
   item[1]=L"Start Game";
   item[2]=L"Guide";
   item[3]=L"Credits";
   item[4]=L"Exit";
-  item[5]=L"Return";
-  item[6]=L"<--";
+  item[5]=L"Singleplayer";
+  item[6]=L"Multiplayer";
+  item[7]=L"Return";
+  item[8]=L"<--";
 
   for(i=start; i<=end; i++){
     if(i==selected){
-      widthSpacing(wcslen(item[0])+wcslen(item[i])+wcslen(item[6]));
-      wprintf(L"%ls%ls%ls\r\n",item[0],item[i],item[6]);
+      widthSpacing(wcslen(item[0])+wcslen(item[i])+wcslen(item[8]));
+      wprintf(L"%ls%ls%ls\r\n",item[0],item[i],item[8]);
     }
     else{
       widthSpacing(wcslen(item[i]));
@@ -49,7 +51,12 @@ void printMainMenu(int opt){
   printMenuItems(1,4,opt-1);
 }
 
-void playersName(wchar_t* pl1, wchar_t* pl2){
+void printPlayerMode(int opt){
+  heightSpacing(3);
+  printMenuItems(5,7,opt-1);
+}
+
+void playersName(wchar_t* pl1, wchar_t* pl2, int mode){
   pl1 = L"Player 007";
   pl2 = L"Player 2";
   setlocale( LC_ALL, "" );
@@ -60,13 +67,17 @@ void playersName(wchar_t* pl1, wchar_t* pl2){
     /*wscanf(L"%ls", pl1);*/
   }
   while(wcslen(pl1)<1 || wcslen(pl1)>20);
-  do{
-    heightSpacing(1);
-    widthSpacing(20);
-    wprintf(L"Enter Player 2 name:\r\n");
-    /*wscanf(L"%ls", pl2);*/
+  if (mode==1){
+    do{
+      heightSpacing(1);
+      widthSpacing(20);
+      wprintf(L"Enter Player 2 name:\r\n");
+      /*wscanf(L"%ls", pl2);*/
+    }
+    while(wcslen(pl2)<1 || wcslen(pl2)>20);
   }
-  while(wcslen(pl2)<1 || wcslen(pl2)>20);
+  else
+    pl2=L"Bot";
 }
 
 void printGuide(){
@@ -79,18 +90,18 @@ void printGuide(){
   wprintf(L"- Hold queue: Store a falling Tetrimino in the Hold Queue for later use.\r\n");
   wprintf(L"- Game over: Stack the Tetriminos too high and the game is over!\r\n");
   wprintf(L"\r\n");
-  printMenuItems(5,5,5);
+  printMenuItems(7,7,7);
 }
 
 void printCredits(){
-  heightSpacing(14);
+  heightSpacing(5);
   widthSpacing(10);
   wprintf(L"Developer:\r\n");
   widthSpacing(13);
   wprintf(L"Edoardo Tosin\r\n");
   wprintf(L"\r\n");
   wprintf(L"\r\n");
-  printMenuItems(5,5,5);
+  printMenuItems(7,7,7);
 }
 
 void printCurrentMenu(int menu, int opt){
@@ -98,6 +109,8 @@ void printCurrentMenu(int menu, int opt){
   /*sound();*/
   if(menu==1)
     printMainMenu(opt);
+  else if(menu==2)
+    printPlayerMode(opt);
   else if(menu==3)
     printGuide();
   else if(menu==4)
@@ -124,11 +137,16 @@ int choiceCtrl(int menu, int opt, int min, int max){
         printCurrentMenu(menu, opt);
       }
       else if(key==CARRIAGE_RETURN){
+        /*
+        wprintf(L"menu->%d opt->%d\r\n", menu, opt);
+        delayTimer(1);
+        clearCLI();
+        */
         return opt;
       }
       else if(key==ESCAPE){
-        if(opt==6 || opt == 7)
-          return opt;
+        if(opt>=6 && opt<=8)
+          return 8;
         else
           return 1;
       }
