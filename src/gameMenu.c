@@ -8,7 +8,7 @@
 
 void printIntro(void){
   clearCLI();
-  heightSpacing(5);
+  heightSpacing(7);
   widthSpacing(62);
   wprintf(L"          _|_|_|_|_|            _|                _|\r\n");
   widthSpacing(62);
@@ -19,6 +19,11 @@ void printIntro(void){
   wprintf(L"_|    _|      _|    _|          _|      _|        _|      _|_|\r\n");
   widthSpacing(62);
   wprintf(L"_|    _|      _|      _|_|_|      _|_|  _|        _|  _|_|_|\r\n");
+  wprintf(L"\r\n");
+  printCentered(L"Controls: W, A, S, D, Enter, Esc");
+  wprintf(L"\r\n");
+  wprintf(L"\r\n");
+  printCentered(L"Press ENTER to continue...");
 }
 
 void printMenuItems(int start, int end, int selected){
@@ -33,45 +38,40 @@ void printMenuItems(int start, int end, int selected){
   item[6]=L"Multiplayer";
   item[7]=L"Return";
   item[8]=L"<--";
-
   for(i=start; i<=end; i++){
     if(i==selected){
-      widthSpacing(wcslen(item[0])+wcslen(item[i])+wcslen(item[8]));
-      wprintf(L"%ls%ls%ls\r\n",item[0],item[i],item[8]);
+      widthSpacing(wcslen(item[0]) + wcslen(item[i]) + wcslen(item[8]));
+      wprintf(L"%ls%ls%ls\r\n", item[0], item[i], item[8]);
     }
-    else{
-      widthSpacing(wcslen(item[i]));
-      wprintf(L"%ls\r\n",item[i]);
-    }
+    else
+      printCentered(item[i]);
   }
 }
 
-void printMainMenu(int opt){
+void printMainMenu(int* opt){
   heightSpacing(4);
-  printMenuItems(1,4,opt-1);
+  printMenuItems(1, 4, (*opt)-1);
 }
 
-void printPlayerMode(int opt){
+void printPlayerMode(int* opt){
   heightSpacing(3);
-  printMenuItems(5,7,opt-1);
+  printMenuItems(5, 7, (*opt)-1);
 }
 
 void playersName(wchar_t* pl1, wchar_t* pl2, int mode){
   pl1 = L"Player 007";
   pl2 = L"Player 2";
-  setlocale( LC_ALL, "" );
+  setlocale(LC_ALL, "");
   do{
     heightSpacing(1);
-    widthSpacing(20);
-    wprintf(L"Enter Player 1 name:\r\n");
+    printCentered(L"Enter Player 1 name:");
     /*wscanf(L"%ls", pl1);*/
   }
   while(wcslen(pl1)<1 || wcslen(pl1)>20);
   if (mode==1){
     do{
       heightSpacing(1);
-      widthSpacing(20);
-      wprintf(L"Enter Player 2 name:\r\n");
+      printCentered(L"Enter Player 2 name:");
       /*wscanf(L"%ls", pl2);*/
     }
     while(wcslen(pl2)<1 || wcslen(pl2)>20);
@@ -90,58 +90,51 @@ void printGuide(){
   wprintf(L"- Hold queue: Store a falling Tetrimino in the Hold Queue for later use.\r\n");
   wprintf(L"- Game over: Stack the Tetriminos too high and the game is over!\r\n");
   wprintf(L"\r\n");
-  printMenuItems(7,7,7);
+  printMenuItems(7, 7, 7);
 }
 
 void printCredits(){
   heightSpacing(5);
-  widthSpacing(10);
-  wprintf(L"Developer:\r\n");
-  widthSpacing(13);
-  wprintf(L"Edoardo Tosin\r\n");
+  printCentered(L"Developer:");
+  printCentered(L"Edoardo Tosin");
   wprintf(L"\r\n");
   wprintf(L"\r\n");
-  printMenuItems(7,7,7);
+  printMenuItems(7, 7, 7);
 }
 
-void printCurrentMenu(int menu, int opt){
+void printCurrentMenu(int* menu, int* opt){
   clearCLI();
   /*sound();*/
-  if(menu==1)
+  if(*menu==1)
     printMainMenu(opt);
-  else if(menu==2)
+  else if(*menu==2)
     printPlayerMode(opt);
-  else if(menu==3)
+  else if(*menu==3)
     printGuide();
-  else if(menu==4)
+  else if(*menu==4)
     printCredits();
 }
 
 int choiceCtrl(int menu, int opt, int min, int max){
   int key=0;
-  printCurrentMenu(menu, opt);
+  printCurrentMenu(&menu, &opt);
   while(1){
     if(u_kbhit()){
       key=u_getchar();
       if(key==LOWER_W || key==UPPER_W || key==LOWER_S || key==UPPER_S){
         if(key==LOWER_W || key==UPPER_W){
-          opt--;
+          (opt)--;
           if(opt<min)
             opt=max;
         }
         else if(key==LOWER_S || key==UPPER_S){
-          opt++;
+          (opt)++;
           if(opt>max)
             opt=min;
         }
-        printCurrentMenu(menu, opt);
+        printCurrentMenu(&menu, &opt);
       }
       else if(key==CARRIAGE_RETURN){
-        /*
-        wprintf(L"menu->%d opt->%d\r\n", menu, opt);
-        delayTimer(1);
-        clearCLI();
-        */
         return opt;
       }
       else if(key==ESCAPE){
@@ -153,7 +146,7 @@ int choiceCtrl(int menu, int opt, int min, int max){
       else if(key==CTRL_C)
         exitFailure();
     }
-    usleep(100);
+    nanosleep(100);
   }
-  return 0;
+  exitFailure();
 }
