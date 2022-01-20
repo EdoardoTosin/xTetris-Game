@@ -2,7 +2,6 @@
 #include <wchar.h>
 #include "common.h"
 #include "definitions.h"
-#include "initBoard.h"
 #include "struct.h"
 
 void printSpacing(){
@@ -11,10 +10,10 @@ void printSpacing(){
     wprintf(L" ");
 }
 
-void printPlayersName(wchar_t* pl1, wchar_t* pl2){
+void printPlayersName(wchar_t **pl1, wchar_t **pl2){
   int i, length;
   wprintf(L"%ls", *pl1);
-  length = wcslen(pl1);
+  length = wcslen(*pl1);
   for (i=0; i<12*2-length; i++)
     wprintf(L" ");
   printSpacing();
@@ -22,7 +21,7 @@ void printPlayersName(wchar_t* pl1, wchar_t* pl2){
   wprintf(L"\r\n");
 }
 
-void printBoard(BoardPtr mat_1, BoardPtr mat_2, wchar_t* pl1, wchar_t* pl2){
+void printBoard(BoardPtr mat_1, BoardPtr mat_2, wchar_t **pl1, wchar_t **pl2){
   int i, j, k;
 
   clearCLI();
