@@ -28,7 +28,7 @@ void printIntro(void){
 
 void printMenuItems(int start, int end, int selected){
   int i;
-  wchar_t* item[9];
+  wchar_t *item[9];
   item[0]=L"-->";
   item[1]=L"Start Game";
   item[2]=L"Guide";
@@ -48,7 +48,7 @@ void printMenuItems(int start, int end, int selected){
   }
 }
 
-void printMainMenu(int* opt){
+void printMainMenu(int *opt){
   heightSpacing(4);
   printMenuItems(1, 4, (*opt)-1);
 }
@@ -58,26 +58,11 @@ void printPlayerMode(int* opt){
   printMenuItems(5, 7, (*opt)-1);
 }
 
-void playersName(wchar_t* pl1, wchar_t* pl2, int mode){
-  pl1 = L"Player 007";
-  pl2 = L"Player 2";
-  setlocale(LC_ALL, "");
-  do{
-    heightSpacing(1);
-    printCentered(L"Enter Player 1 name:");
-    /*wscanf(L"%ls", pl1);*/
-  }
-  while(wcslen(pl1)<1 || wcslen(pl1)>20);
-  if (mode==1){
-    do{
-      heightSpacing(1);
-      printCentered(L"Enter Player 2 name:");
-      /*wscanf(L"%ls", pl2);*/
-    }
-    while(wcslen(pl2)<1 || wcslen(pl2)>20);
-  }
+void secondPlayerName(wchar_t **pl2, int mode){
+  if (mode==1)
+    *pl2=L"Player 2";
   else
-    pl2=L"Bot";
+    *pl2=L"Bot";
 }
 
 void printGuide(){
@@ -102,7 +87,7 @@ void printCredits(){
   printMenuItems(7, 7, 7);
 }
 
-void printCurrentMenu(int* menu, int* opt){
+void printCurrentMenu(int *menu, int *opt){
   clearCLI();
   /*sound();*/
   if(*menu==1)
