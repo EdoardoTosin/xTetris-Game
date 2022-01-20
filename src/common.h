@@ -33,7 +33,7 @@ void widthSpacing(int filledWidth);
    \brief Print text centered horizontally based on string length.
    @param[in] text Text that need to be printed on screen (doesn't include special characters).
 */
-void printCentered(wchar_t* text);
+void printCentered(wchar_t *text);
 
 /*!
    \brief Apply a vertical spacing based on window heigth and what need to be printed.

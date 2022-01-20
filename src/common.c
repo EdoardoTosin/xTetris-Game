@@ -41,7 +41,7 @@ void widthSpacing(int filledWidth){
     wprintf(L" ");
 }
 
-void printCentered(wchar_t* text){
+void printCentered(wchar_t *text){
   widthSpacing(wcslen(text));
   wprintf(L"%ls\r\n", text);
 }
