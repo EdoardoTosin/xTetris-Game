@@ -21,8 +21,7 @@ int main (int argc, char *argv[]) {
 
   PlNamePtr pl1, pl2;
   BoardPtr board_1, board_2;
-
-  ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);/
+  
   pl1 = initializePlName();
   pl2 = initializePlName();
   board_1 = initializeBoard();
