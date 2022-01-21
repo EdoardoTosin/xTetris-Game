@@ -1,5 +1,7 @@
 #include <wchar.h>
 
+#include "struct.h"
+
 /*!
    \brief Print game logo.
 */
@@ -30,7 +32,7 @@ void printPlayerMode(int *opt);
    @param[in] pl2 Pointer to Player 2 name.
    @param[in] mode Define wich mode has been selected: singleplayer or multiplayer.
 */
-void secondPlayerName(wchar_t **pl2, int mode);
+void secondPlayerName(PlNamePtr pl1, PlNamePtr pl2, int mode);
 
 /*!
    \brief Print the rules menu.

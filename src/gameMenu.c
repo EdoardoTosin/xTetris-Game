@@ -5,6 +5,7 @@
 
 #include "common.h"
 #include "definitions.h"
+#include "struct.h"
 
 void printIntro(void){
   clearCLI();
@@ -58,11 +59,12 @@ void printPlayerMode(int* opt){
   printMenuItems(5, 7, (*opt)-1);
 }
 
-void secondPlayerName(wchar_t **pl2, int mode){
+void secondPlayerName(PlNamePtr pl1, PlNamePtr pl2, int mode){
+  pl1->name=L"Player 1";
   if (mode==1)
-    *pl2=L"Player 2";
+    pl2->name=L"Player 2";
   else
-    *pl2=L"Bot";
+    pl2->name=L"Bot";
 }
 
 void printGuide(){

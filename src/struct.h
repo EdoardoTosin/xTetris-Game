@@ -18,4 +18,9 @@ struct Move {
 };
 typedef struct Move * MovePtr;
 
+struct NameTag {
+  wchar_t *name;
+};
+typedef struct NameTag * PlNamePtr;
+
 #endif
