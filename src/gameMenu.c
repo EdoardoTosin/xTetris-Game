@@ -21,23 +21,23 @@ void printIntro(void){
   widthSpacing(62);
   wprintf(L"_|    _|      _|      _|_|_|      _|_|  _|        _|  _|_|_|\r\n");
   wprintf(L"\r\n");
-  printCentered(L"Controls: W, A, S, D, Enter, Esc");
+  printCentered(L"🎮 Controls: W⏫, A⏪, S⏬, D⏩, Enter✅, Esc❎");
   wprintf(L"\r\n");
   wprintf(L"\r\n");
-  printCentered(L"Press ENTER to continue...");
+  printCentered(L"🕹 Press ENTER to continue...");
 }
 
 void printMenuItems(int start, int end, int selected){
   int i;
   wchar_t *item[9];
   item[0]=L"-->";
-  item[1]=L"Start Game";
-  item[2]=L"Guide";
-  item[3]=L"Credits";
-  item[4]=L"Exit";
-  item[5]=L"Singleplayer";
-  item[6]=L"Multiplayer";
-  item[7]=L"Return";
+  item[1]=L"🎮 Start Game";
+  item[2]=L"🆘 Guide";
+  item[3]=L"💳 Credits";
+  item[4]=L"🍵 Exit";
+  item[5]=L"🍺 Singleplayer";
+  item[6]=L"🍻 Multiplayer";
+  item[7]=L"🔙 Return";
   item[8]=L"<--";
   for(i=start; i<=end; i++){
     if(i==selected){
@@ -55,21 +55,30 @@ void printMainMenu(int *opt){
 }
 
 void printPlayerMode(int* opt){
-  heightSpacing(3);
+  heightSpacing(5);
+  printMenuItems(1, 1, 0);
+  wprintf(L"\r\n");
   printMenuItems(5, 7, (*opt)-1);
 }
 
 void secondPlayerName(PlNamePtr pl1, PlNamePtr pl2, int mode){
   pl1->name=L"Player 1";
+  wprintf(L"\r\n");
+  wprintf(L"%ls\r\n", pl1->name);
+  wprintf(L"%ls\r\n", pl2->name);
   if (mode==1)
     pl2->name=L"Player 2";
   else
     pl2->name=L"Bot";
+  wprintf(L"\r\n");
+  wprintf(L"%ls\r\n", pl1->name);
+  wprintf(L"%ls\r\n", pl2->name);
+  delayTimer(2);
 }
 
 void printGuide(){
   heightSpacing(16);
-  printCentered(L"Guide");
+  printMenuItems(2, 2, 0);
   wprintf(L"\r\n");
   wprintf(L"- Goal: Put your organizational skills and endurance to the test by clearing as many lines as possible.\r\n");
   wprintf(L"- Clear lines: Maneuver the falling Tetriminos to fit them together within the Matrix. To clear a line, fill every square within a single row.\r\n");
@@ -83,8 +92,9 @@ void printGuide(){
 }
 
 void printCredits(){
-  heightSpacing(5);
-  printCentered(L"Developer:");
+  heightSpacing(6);
+  printMenuItems(3, 3, 0);
+  wprintf(L"\r\n");
   printCentered(L"Edoardo Tosin");
   wprintf(L"\r\n");
   wprintf(L"\r\n");
