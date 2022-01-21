@@ -3,9 +3,14 @@
 #include "struct.h"
 
 /*!
-   \brief Print game logo.
+   \brief Print the intro screen.
 */
-void printIntro();
+void welcome();
+
+/*!
+   \brief Print the end screen.
+*/
+void goodbye();
 
 /*!
    \brief Print main menu.

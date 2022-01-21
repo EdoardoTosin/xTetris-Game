@@ -7,24 +7,46 @@
 #include "definitions.h"
 #include "struct.h"
 
-void printIntro(void){
+void welcome(void){
   clearCLI();
-  heightSpacing(7);
+  heightSpacing(13);
   widthSpacing(62);
-  wprintf(L"          _|_|_|_|_|            _|                _|\r\n");
+  wprintf(L"          🔲🔲🔲🔲🔲            🔲                🔲\r\n");
   widthSpacing(62);
-  wprintf(L"_|    _|      _|      _|_|    _|_|_|_|  _|  _|_|        _|_|_|\r\n");
+  wprintf(L"🔲    🔲      🔲      🔲🔲    🔲🔲🔲🔲  🔲  🔲🔲        🔲🔲🔲\r\n");
   widthSpacing(62);
-  wprintf(L"  _|_|        _|    _|_|_|_|    _|      _|_|      _|  _|_|\r\n");
+  wprintf(L"  🔲🔲        🔲    🔲🔲🔲🔲    🔲      🔲🔲      🔲  🔲🔲\r\n");
   widthSpacing(62);
-  wprintf(L"_|    _|      _|    _|          _|      _|        _|      _|_|\r\n");
+  wprintf(L"🔲    🔲      🔲    🔲          🔲      🔲        🔲      🔲🔲\r\n");
   widthSpacing(62);
-  wprintf(L"_|    _|      _|      _|_|_|      _|_|  _|        _|  _|_|_|\r\n");
+  wprintf(L"🔲    🔲      🔲      🔲🔲🔲      🔲🔲  🔲        🔲  🔲🔲🔲\r\n");
+  wprintf(L"\r\n");
+  wprintf(L"\r\n");
+  wprintf(L"\r\n");
   wprintf(L"\r\n");
   printCentered(L"🎮 Controls: W⏫, A⏪, S⏬, D⏩, Enter✅, Esc❎");
   wprintf(L"\r\n");
   wprintf(L"\r\n");
   printCentered(L"🕹 Press ENTER to continue...");
+}
+
+void goodbye(){
+  clearCLI();
+  heightSpacing(5);
+  widthSpacing(30);
+  wprintf(L"                              ✨\r\n");
+  widthSpacing(30);
+  wprintf(L"🔲🔲🔲    🔲      🔲  🔲🔲🔲🔲\r\n");
+  widthSpacing(30);
+  wprintf(L"🔲    🔲    🔲  🔲    🔲\r\n");
+  widthSpacing(30);
+  wprintf(L"🔲🔲🔲        🔲      🔲🔲🔲\r\n");
+  widthSpacing(30);
+  wprintf(L"🔲    🔲      🔲      🔲\r\n");
+  widthSpacing(30);
+  wprintf(L"🔲🔲🔲        🔲      🔲🔲🔲🔲\r\n");
+  wprintf(L"\r\n");
+  delayTimer(1);
 }
 
 void printMenuItems(int start, int end, int selected){

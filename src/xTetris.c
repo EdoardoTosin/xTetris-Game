@@ -29,7 +29,7 @@ int main (int argc, char *argv[]) {
 
   setlocale(LC_CTYPE, "");
   do{
-    printIntro();
+    welcome();
     key = waitUserInput();
   }
   while(/*key!=ESCAPE && */key!=CARRIAGE_RETURN);
@@ -51,8 +51,8 @@ int main (int argc, char *argv[]) {
         opt=nChoices[0][menu-1];
       menu = choiceCtrl(menu, opt, nChoices[0][menu-1], nChoices[1][menu-1]);
     }
-    else{
-      secondPlayerName(pl1, pl2, menu-6);
+    else{/*
+      secondPlayerName(pl1, pl2, menu-6);*/
       printBoard(board_1, board_2, pl1, pl2);
 
       delayTimer(2);
@@ -60,6 +60,8 @@ int main (int argc, char *argv[]) {
     }
   }
   while(menu!=5);
+
+  goodbye();
 
   destroyPlName(pl1);
   destroyPlName(pl2);
