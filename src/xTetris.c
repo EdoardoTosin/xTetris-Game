@@ -10,7 +10,7 @@
 #include "gameMenu.h"
 
 #include "struct.h"
-#include "initBoard.h"
+#include "manageStruct.h"
 
 /*!
    \brief Main entry point of the program.
@@ -19,15 +19,14 @@ int main (int argc, char *argv[]) {
   int nChoices[2][4];
   int menu, opt, key=2;
 
+  PlNamePtr pl1, pl2;
   BoardPtr board_1, board_2;
-  wchar_t* pl1;
-  wchar_t* pl2;
 
-  ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
-
-  pl1 = L"\0";
-  pl2 = L"\0";
-  board_1 = board_2 = initialize();
+  ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);/
+  pl1 = initializePlName();
+  pl2 = initializePlName();
+  board_1 = initializeBoard();
+  board_2 = initializeBoard();
 
   setlocale(LC_CTYPE, "");
   do{
@@ -54,12 +53,20 @@ int main (int argc, char *argv[]) {
       menu = choiceCtrl(menu, opt, nChoices[0][menu-1], nChoices[1][menu-1]);
     }
     else{
-      playersName(pl1, pl2, menu-6);
-      printBoard(board_1, board_2, pl1, pl2, menu-6);
+      secondPlayerName(pl1, pl2, menu-6);
+      printBoard(board_1, board_2, pl1, pl2);
+
+      delayTimer(2);
       menu=5;
     }
   }
   while(menu!=5);
+
+  destroyPlName(pl1);
+  destroyPlName(pl2);
+  destroyBoard(board_1);
+  destroyBoard(board_2);
+
   clearCLI();
   return 0;
 }

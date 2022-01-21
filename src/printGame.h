@@ -10,7 +10,7 @@ void printSpacing();
    @param[in] pl1 Player 1 name.
    @param[in] pl2 Player 2 name.
 */
-void printPlayersName(wchar_t **pl1, wchar_t **pl2);
+void printPlayersName(PlNamePtr pl1,PlNamePtr pl2);
 /*!
    \brief Print the game with object in the terminal.
    @param[in] mat_1 Pointer of struct board of player 1.
@@ -18,4 +18,4 @@ void printPlayersName(wchar_t **pl1, wchar_t **pl2);
    @param[in] pl1 Player 1 name.
    @param[in] pl2 Player 2 name.
 */
-void printBoard(BoardPtr mat_1, BoardPtr mat_2, wchar_t **pl1, wchar_t **pl2);
+void printBoard(BoardPtr mat_1, BoardPtr mat_2, PlNamePtr pl1, PlNamePtr pl2);
