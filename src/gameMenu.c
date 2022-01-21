@@ -68,7 +68,9 @@ void secondPlayerName(PlNamePtr pl1, PlNamePtr pl2, int mode){
 }
 
 void printGuide(){
-  heightSpacing(14);
+  heightSpacing(16);
+  printCentered(L"Guide");
+  wprintf(L"\r\n");
   wprintf(L"- Goal: Put your organizational skills and endurance to the test by clearing as many lines as possible.\r\n");
   wprintf(L"- Clear lines: Maneuver the falling Tetriminos to fit them together within the Matrix. To clear a line, fill every square within a single row.\r\n");
   wprintf(L"- Score points: Earn points by clearing lines. Clear multiple lines at once to increase your scoring opportunities.\r\n");
