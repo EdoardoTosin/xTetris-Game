@@ -21,7 +21,7 @@ int main (int argc, char *argv[]) {
 
   PlNamePtr pl1, pl2;
   BoardPtr board_1, board_2;
-  
+
   pl1 = initializePlName();
   pl2 = initializePlName();
   board_1 = initializeBoard();
@@ -32,7 +32,7 @@ int main (int argc, char *argv[]) {
     printIntro();
     key = waitUserInput();
   }
-  while(key!=ESCAPE && key!=CARRIAGE_RETURN);
+  while(/*key!=ESCAPE && */key!=CARRIAGE_RETURN);
 
   nChoices[0][0]=2;   /* Menu #1 -> Start Menu */
   nChoices[1][0]=5;
