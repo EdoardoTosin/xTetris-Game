@@ -50,9 +50,11 @@ wchar_t eSq;
 */
 wchar_t fSq;
 
-/*
-  COMPLETE WITH NEW FUNCTIONS
-*/
+void u_cleanup(void);
+
+int u_kbhit(void);
+
+int u_getchar(void);
 
 /*!
    \brief Loop until user press a valid key.
