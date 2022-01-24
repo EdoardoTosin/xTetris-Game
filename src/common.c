@@ -64,7 +64,6 @@ void u_cleanup(void){
 
 int u_kbhit(void){
   struct termios t;
-  int ret;
   fd_set rfd;
   struct timeval to;
   static int first_hit=0;
@@ -91,7 +90,6 @@ int u_kbhit(void){
 
 int u_getchar(void){
   int ret;
-  fd_set rfc;
   unsigned char buf;
 
   if(read(0, &buf, 1)!=1)
