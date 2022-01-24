@@ -10,6 +10,6 @@ mkdir build
 cd build
 
 #Generate build folder
-cmake ../.
+cmake ../. -DCMAKE_BUILD_TYPE=Release
 #make, execute compile command
 make
