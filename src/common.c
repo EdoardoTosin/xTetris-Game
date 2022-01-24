@@ -53,8 +53,8 @@ void heightSpacing(int filledHeight){
     wprintf(L"\r\n");
 }
 
-wchar_t eSq = 0x2B1C; /* emptySquare */
-wchar_t fSq = 0x2B1B; /* fullSquare */
+wchar_t eSq = 0x2B1C; /* emptySquare ⬜ */
+wchar_t fSq = 0x2B1B; /* fullSquare ⬛ */
 
 static struct termios orig_term;
 
