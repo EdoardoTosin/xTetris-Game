@@ -20,3 +20,7 @@ cmake-build-debug
 # Makefile build folders
 /obj
 /bin
+
+# Test & debug scripts
+buildAndRun.sh
+valgrind.sh
