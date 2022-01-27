@@ -1,3 +1,6 @@
+#ifndef COMMON_H
+#define COMMON_H
+
 #include <sys/ioctl.h>
 
 /*!
@@ -61,3 +64,5 @@ int u_getchar(void);
    @param[in] time Time in microseconds which the usleep is called.
 */
 int waitUserInput();
+
+#endif

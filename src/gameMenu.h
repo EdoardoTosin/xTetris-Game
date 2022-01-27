@@ -1,3 +1,6 @@
+#ifndef GAMEMENU_H
+#define GAMEMENU_H
+
 #include <wchar.h>
 
 #include "struct.h"
@@ -64,3 +67,5 @@ void printCurrentMenu(int *menu, int *opt);
    @param[in] max Highest value of option in current menu.
 */
 int choiceCtrl(int menu, int opt, int min, int max);
+
+#endif
