@@ -1,3 +1,6 @@
+#ifndef PRINTGAME_H
+#define PRINTGAME_H
+
 #include <wchar.h>
 #include "struct.h"
 
@@ -19,3 +22,5 @@ void printPlayersName(PlNamePtr pl1,PlNamePtr pl2);
    @param[in] pl2 Player 2 name.
 */
 void printBoard(BoardPtr mat_1, BoardPtr mat_2, PlNamePtr pl1, PlNamePtr pl2);
+
+#endif
