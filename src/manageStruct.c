@@ -42,3 +42,17 @@ void destroyPlName(PlNamePtr playerName){
   free(playerName->name);
   free(playerName);
 }
+/*
+TetrominoPtr initializeTetrominoes(){
+  int i, j, k, l;
+  TetrominoPtr parts = malloc(sizeof(PiecePtr)*NPIECES);
+  for(i=0; i<NPIECES; i++){
+    (*parts).piece[i] = malloc(sizeof(PiecePtr));
+    for(j=0; j<TETROMINO_DIM; j++)
+      for(k=0; k<TETROMINO_DIM; k++)
+        for(l=0; l<TETROMINO_ROT; l++)
+          (*parts).piece[i].status[j][k][l]=eSq;
+  }
+  return parts;
+}
+*/

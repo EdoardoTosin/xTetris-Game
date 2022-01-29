@@ -1,6 +1,8 @@
 #ifndef STRUCT_H
 #define STRUCT_H
 
+#include "definitions.h"
+
 struct Cell {
   wchar_t status;
 };
@@ -22,5 +24,15 @@ struct NameTag {
   wchar_t *name;
 };
 typedef struct NameTag * PlNamePtr;
+
+struct Piece {
+  wchar_t status[TETROMINO_DIM][TETROMINO_DIM][TETROMINO_ROT];
+};
+typedef struct Piece * PiecePtr;
+
+struct Tetrominoes {
+  PiecePtr piece;
+};
+typedef struct Tetromino * TetrominoPtr;
 
 #endif
