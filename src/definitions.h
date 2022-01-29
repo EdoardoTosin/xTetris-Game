@@ -1,7 +1,9 @@
 #define HEIGHT (15)
 #define WIDTH (10)
 #define SPACING (8)
-
+#define NPIECES (7)
+#define TETROMINO_DIM (5)
+#define TETROMINO_ROT (4)
 
 #define CTRL_C (3)
 #define CARRIAGE_RETURN (13)

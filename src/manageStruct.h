@@ -1,3 +1,6 @@
+#ifndef MANAGESTRUCT_H
+#define MANAGESTRUCT_H
+
 #include "struct.h"
 
 /*!
@@ -23,3 +26,7 @@ PlNamePtr initializePlName();
    @param[in] playerName Struct that need to be freed.
 */
 void destroyPlName(PlNamePtr playerName);
+/*
+TetrominoPtr initializeTetrominoes();
+*/
+#endif
