@@ -1,7 +1,13 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#include <time.h>
 #include <sys/ioctl.h>
+
+/*!
+   \brief Global variables type `struct timespec` used for nanosleep paramenters.
+*/
+struct timespec request, remaining;
 
 /*!
    \brief Makes a beep sound.
@@ -22,7 +28,7 @@ void exitFailure();
 void delayTimer(int timeDelay);
 
 /*!
-   \brief Global variable type struct winsize used for terminal width and height.
+   \brief Global variable type `struct winsize` used for terminal width and height.
 */
 struct winsize w;
 

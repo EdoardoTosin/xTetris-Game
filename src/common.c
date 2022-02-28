@@ -10,6 +10,10 @@
 
 #include "definitions.h"
 
+enum {NSEC_TO_SLEEP = 125, SECS_TO_SLEEP = 0};
+
+struct timespec request, remaining = {NSEC_TO_SLEEP, SECS_TO_SLEEP};
+
 void sound(){
   wprintf(L"\a");
 }
@@ -108,7 +112,7 @@ int waitUserInput(){
         exitFailure();
       return key;
     }
-    nanosleep(100);
+    nanosleep(&request, &remaining);
   }
   exitFailure();
 }
