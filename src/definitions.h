@@ -4,6 +4,7 @@
 #define NPIECES (7)
 #define TETROMINO_DIM (5)
 #define TETROMINO_ROT (4)
+#define PIECES (20)
 
 #define CTRL_C (3)
 #define CARRIAGE_RETURN (13)
