@@ -25,6 +25,20 @@ This is a variant of the famous video game Tetris written in C (standard C89) fo
 
 Source: [tetris.123-games.org](https://tetris.123-games.org/tut.html)
 
+## Controls
+- `W`: Rotate the tetromino 90° counter-clockwise.
+- `S`: Rotate the tetromino 90° clockwise.
+- `A`: Move the tetromino to the left.
+- `D`: Move the tetromino to the right.
+- `Spacebar`: Accelerate tetromino falling.
+- `Enter`: Confirm.
+- `Esc`: Go back.
+
+## Requirements
+- [Git](https://git-scm.com/).
+- [CMake](https://cmake.org/) (version equal or greater than 3.21).
+- (Optional) Set one of the [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) in your terminal for better display the special characters printed by the game.
+
 ## Compile
 Run the following commands on terminal:
 ``` bash

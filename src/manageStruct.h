@@ -7,7 +7,7 @@
    \brief Allocate memory for BoardPtr struct.
    @param[out] mat Struct empty at the start for the tetriminos cells.
 */
-BoardPtr initializeBoard();
+BoardPtr initializeBoard(void);
 
 /*!
    \brief Free the BoardPtr struct passed as parameter.
@@ -15,18 +15,31 @@ BoardPtr initializeBoard();
 */
 void destroyBoard(BoardPtr board);
 
-/*!
-   \brief Allocate memory for PlNamePtr struct.
-   @param[out] mat Struct empty at the start for the tetriminos cells.
-*/
-PlNamePtr initializePlName();
 
 /*!
-   \brief Free the PlNamePtr struct passed as parameter.
-   @param[in] playerName Struct that need to be freed.
+   \brief Allocate memory for MovePtr struct.
+   @param[out] storeMove Struct that contains all the info about a single move (coordinates, shape and rotation).
 */
-void destroyPlName(PlNamePtr playerName);
-/*
-TetrominoPtr initializeTetrominoes();
+MovePtr initializeMove(void);
+
+/*!
+   \brief Free the MovePtr struct passed as parameter.
+   @param[in] storeMove Struct that need to be freed.
 */
+void destroyMove(MovePtr storeMove);
+
+
+/*!
+   \brief Allocate memory for TetraminoPtr struct.
+   @param[out] parts Struct that contains all tetrominoes shapes with all possible rotations: [N_PIECES][TETRO_ROT][TETRO_DIM][TETRO_DIM].
+*/
+TetrominoPtr initializeTetrominoes(void);
+
+/*!
+   \brief Free the TetrominoPtr struct passed as parameter.
+   @param[in] board Struct that need to be freed.
+*/
+void destroyTetromino(TetrominoPtr parts);
+
+
 #endif
