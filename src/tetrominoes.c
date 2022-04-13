@@ -4,13 +4,11 @@
 #include "definitions.h"
 #include "tetrominoes.h"
 
-/* Occupa un quadrato della matrice del tetramino*/
-void fill(t_tetromino* t, int i, int j) {
+void fill(TetrominoPtr* t, int i, int j) {
   (t->container)[i][j] = 1;
 }
 
-/* Mette tutti zeri nel tetramino */
-void init_tetromino(t_tetromino* t) {
+void iniTetrominoPtr(TetrominoPtr* t) {
 	int i, j;
 
 	for (i = 0; i < TETROMINO_ROT; ++i) {
@@ -20,13 +18,12 @@ void init_tetromino(t_tetromino* t) {
   }
 }
 
-/* Inizializza la matrice di tetramini */
-void init_tetromat(t_tetromino tetromat[NPIECES][TETROMINO_ROT]) {
+void init_tetromat(TetrominoPtr tetromat[NPIECES][TETROMINO_ROT]) {
 	int i, j;
 
 	for (i = 0; i < NROFTETROMINOS; ++i) {
 		for (j = 0; j < TETROMINO_ROT; ++j) {
-			init_tetromino(&(tetromat[i][j]));
+			iniTetrominoPtr(&(tetromat[i][j]));
 			(tetromat[i][j]).exists = 0;
     }
   }

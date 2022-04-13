@@ -25,14 +25,10 @@ struct NameTag {
 };
 typedef struct NameTag * PlNamePtr;
 
-struct Piece {
-  wchar_t status[TETROMINO_DIM][TETROMINO_DIM][TETROMINO_ROT];
+struct Tetromino {
+	int container[4][4];
+	int exists;
 };
-typedef struct Piece * PiecePtr;
-
-struct Tetrominoes {
-  PiecePtr piece;
-};
-typedef struct Tetromino * TetrominoPtr;
+typedef struct Tetromino* TetrominoPtr;
 
 #endif
