@@ -21,47 +21,47 @@ void iniTetrominoPtr(TetrominoPtr* t) {
 void init_tetromat(TetrominoPtr tetromat[NPIECES][TETROMINO_ROT]) {
 	int i, j;
 
-	for (i = 0; i < NROFTETROMINOS; ++i) {
+	for (i = 0; i < NPIECES; ++i) {
 		for (j = 0; j < TETROMINO_ROT; ++j) {
 			iniTetrominoPtr(&(tetromat[i][j]));
-			(tetromat[i][j]).exists = 0;
+			(tetromat[i][j])->exists = 0;
     }
   }
 
-	(tetromat[0][0]).exists = 1;
-	(tetromat[0][1]).exists = 1;
-	(tetromat[0][2]).exists = 0;
-	(tetromat[0][3]).exists = 0;
+	(tetromat[0][0])->exists = 1;
+	(tetromat[0][1])->exists = 1;
+	(tetromat[0][2])->exists = 0;
+	(tetromat[0][3])->exists = 0;
 
-	(tetromat[1][0]).exists = 1;
-	(tetromat[1][1]).exists = 1;
-	(tetromat[1][2]).exists = 1;
-	(tetromat[1][3]).exists = 1;
+	(tetromat[1][0])->exists = 1;
+	(tetromat[1][1])->exists = 1;
+	(tetromat[1][2])->exists = 1;
+	(tetromat[1][3])->exists = 1;
 
-	(tetromat[2][0]).exists = 1;
-	(tetromat[2][1]).exists = 1;
-	(tetromat[2][2]).exists = 1;
-	(tetromat[2][3]).exists = 1;
+	(tetromat[2][0])->exists = 1;
+	(tetromat[2][1])->exists = 1;
+	(tetromat[2][2])->exists = 1;
+	(tetromat[2][3])->exists = 1;
 
-	(tetromat[3][0]).exists = 1;
-	(tetromat[3][1]).exists = 0;
-	(tetromat[3][2]).exists = 0;
-	(tetromat[3][3]).exists = 0;
+	(tetromat[3][0])->exists = 1;
+	(tetromat[3][1])->exists = 0;
+	(tetromat[3][2])->exists = 0;
+	(tetromat[3][3])->exists = 0;
 
-	(tetromat[4][0]).exists = 1;
-	(tetromat[4][1]).exists = 1;
-	(tetromat[4][2]).exists = 0;
-	(tetromat[4][3]).exists = 0;
+	(tetromat[4][0])->exists = 1;
+	(tetromat[4][1])->exists = 1;
+	(tetromat[4][2])->exists = 0;
+	(tetromat[4][3])->exists = 0;
 
-	(tetromat[5][0]).exists = 1;
-	(tetromat[5][1]).exists = 1;
-	(tetromat[5][2]).exists = 0;
-	(tetromat[5][3]).exists = 0;
+	(tetromat[5][0])->exists = 1;
+	(tetromat[5][1])->exists = 1;
+	(tetromat[5][2])->exists = 0;
+	(tetromat[5][3])->exists = 0;
 
-	(tetromat[6][0]).exists = 1;
-	(tetromat[6][1]).exists = 1;
-	(tetromat[6][2]).exists = 1;
-	(tetromat[6][3]).exists = 1;
+	(tetromat[6][0])->exists = 1;
+	(tetromat[6][1])->exists = 1;
+	(tetromat[6][2])->exists = 1;
+	(tetromat[6][3])->exists = 1;
 
 	fill(&(tetromat[0][0]), 3, 0);
 	fill(&(tetromat[0][0]), 3, 1);
