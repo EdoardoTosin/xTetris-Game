@@ -13,7 +13,7 @@
 	 @param[in] i Row of the cell to fill.
 	 @param[in] j Column of the cell to fill.
 */
-void fill(TetrominoPtr* t, int i, int j);
+void fillTetromino(TetrominoPtr* t, int i, int j);
 
 /*!
    \brief Fill all tetromino matrix with zeros.
