@@ -78,7 +78,7 @@ void printMainMenu(int *opt){
 }
 
 void printPlayerMode(int* opt){
-  heightSpacing(5);
+  heightSpacing(9);
   printMenuItems(1, 1, 0);
   wprintf(L"\r\n");
   printMenuItems(5, 7, (*opt)-1);
