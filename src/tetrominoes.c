@@ -5,7 +5,7 @@
 #include "tetrominoes.h"
 
 void fillTetromino(TetrominoPtr* t, int i, int j) {
-  (t->container)[i][j] = 1;
+  //(t->container)[i][j] = 1;
 }
 
 void iniTetrominoPtr(TetrominoPtr* t) {
@@ -13,7 +13,7 @@ void iniTetrominoPtr(TetrominoPtr* t) {
 
 	for (i = 0; i < NPIECES; ++i) {
 		for (j = 0; j < TETROMINO_ROT; ++j) {
-			(t->container)[i][j] = 0;
+			//(t->contaimer)[i][j] = 0;
     }
   }
 }
