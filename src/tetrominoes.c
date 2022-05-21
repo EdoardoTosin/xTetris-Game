@@ -14,8 +14,8 @@ void iniTetrominoPtr(TetrominoPtr* t) {
 	for (i = 0; i < NPIECES; ++i) {
 		for (j = 0; j < TETROMINO_ROT; ++j) {
 			//(t->contaimer)[i][j] = 0;
-    }
-  }
+		}
+	}
 }
 
 void init_tetromat(TetrominoPtr tetromat[NPIECES][TETROMINO_ROT]) {
