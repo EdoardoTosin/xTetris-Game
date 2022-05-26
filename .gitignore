@@ -25,3 +25,5 @@ cmake-build-debug
 buildAndRun.sh
 valgrind.sh
 cacheMiss.sh
+
+*.geany
