@@ -16,17 +16,15 @@ BoardPtr initializeBoard();
 void destroyBoard(BoardPtr board);
 
 /*!
-   \brief Allocate memory for PlNamePtr struct.
-   @param[out] mat Struct empty at the start for the tetriminos cells.
+   \brief Allocate memory for TetraminoPtr struct.
+   @param[out] parts Struct that contains all tetrominoes shapes with all possible rotations: [N_PIECES][TETR_ROT][TETR_DIM][TETR_DIM].
 */
-PlNamePtr initializePlName();
+TetrominoPtr initializeTetrominoes();
 
 /*!
-   \brief Free the PlNamePtr struct passed as parameter.
-   @param[in] playerName Struct that need to be freed.
+   \brief Free the TetrominoPtr struct passed as parameter.
+   @param[in] board Struct that need to be freed.
 */
-void destroyPlName(PlNamePtr playerName);
-/*
-TetrominoPtr initializeTetrominoes();
-*/
+void destroyTetrominoes(TetrominoPtr parts);
+
 #endif

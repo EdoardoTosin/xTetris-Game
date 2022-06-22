@@ -5,6 +5,23 @@
 #include <sys/ioctl.h>
 
 /*!
+   \brief Assign unicode character (green check square) to this global variable.
+*/
+wchar_t chSq;
+/*!
+   \brief Assign unicode character (green crossed square) to this global variable.
+*/
+wchar_t crSq;
+/*!
+   \brief Assign unicode character (white square) to this global variable.
+*/
+wchar_t eSq;
+/*!
+   \brief Assign unicode character (black square) to this global variable.
+*/
+wchar_t fSq;
+
+/*!
    \brief Global variables type `struct timespec` used for nanosleep paramenters.
 */
 struct timespec request, remaining;
@@ -49,15 +66,6 @@ void printCentered(wchar_t *text);
    @param[in] filledHeight Height of what is printed that need to be centered.
 */
 void heightSpacing(int filledHeight);
-
-/*!
-   \brief Assign unicode character (white square) to this global variable.
-*/
-wchar_t eSq;
-/*!
-   \brief Assign unicode character (black square) to this global variable.
-*/
-wchar_t fSq;
 
 void u_cleanup(void);
 

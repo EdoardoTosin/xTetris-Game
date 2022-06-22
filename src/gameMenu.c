@@ -33,7 +33,7 @@ void welcome(void){
 
 void goodbye(){
   clearCLI();
-  heightSpacing(5);
+  heightSpacing(10);
   widthSpacing(30);
   wprintf(L"                              ✨\r\n");
   widthSpacing(30);
@@ -82,21 +82,6 @@ void printPlayerMode(int* opt){
   printMenuItems(1, 1, 0);
   wprintf(L"\r\n");
   printMenuItems(5, 7, (*opt)-1);
-}
-
-void secondPlayerName(PlNamePtr pl1, PlNamePtr pl2, int mode){
-  pl1->name=L"Player 1";
-  wprintf(L"\r\n");
-  wprintf(L"%ls\r\n", pl1->name);
-  wprintf(L"%ls\r\n", pl2->name);
-  if (mode==1)
-    pl2->name=L"Player 2";
-  else
-    pl2->name=L"Bot";
-  wprintf(L"\r\n");
-  wprintf(L"%ls\r\n", pl1->name);
-  wprintf(L"%ls\r\n", pl2->name);
-  delayTimer(2);
 }
 
 void printGuide(){
