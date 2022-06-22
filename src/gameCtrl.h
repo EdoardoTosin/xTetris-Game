@@ -24,7 +24,7 @@ void makeMove(BoardPtr board, MovePtr moveSpec);
    @param[in] row Starting row coordinate of tetromino matrix.
    @param[in] col Starting column coordinate of tetromino matrix.
 */
-int tetroIsInsideBoard(BoardPtr, TetrominoPtr tetro, int piece, int rotation, int row, int col)
+int tetroIsInsideBoard(BoardPtr, TetrominoPtr tetro, int piece, int rotation, int row, int col);
 
 /*!
    \brief Check if the tetromino rotation is valid.
@@ -48,7 +48,7 @@ int validMove(BoardPtr board, int move);
    \brief Convert landed Tetromino value into a new one.
    @param[in] board Player board where the tetromino landed.
 */
-void landingTetro(BoardPtr);
+void landingTetro(BoardPtr board);
 
 /*!
    \brief Check if tetromino has landed or still falling.

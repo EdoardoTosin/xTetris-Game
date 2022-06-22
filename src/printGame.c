@@ -4,14 +4,25 @@
 #include "definitions.h"
 #include "struct.h"
 
-void printSpacing(){
+void waitDebug(){
+
   int i;
+  
+  wscanf(L"%d", &i);
+}
+
+void printSpacing(){
+  
+  int i;
+
   for (i=0; i<SPACING; i++)
     wprintf(L" ");
 }
 
 void printPlayersName(int mode){
+
   int i, length;
+
   wprintf(PL1);
   length = wcslen(PL1);
   for (i=0; i<12*2-length; i++)
@@ -25,6 +36,7 @@ void printPlayersName(int mode){
 }
 
 void printBoard(BoardPtr mat_1, BoardPtr mat_2, int mode){
+
   int i, j, k;
 
   clearCLI();
@@ -63,4 +75,33 @@ void printBoard(BoardPtr mat_1, BoardPtr mat_2, int mode){
       wprintf(L"\r\n");
     }
   }
+}
+
+
+void printTetrominoes(TetrominoPtr parts){
+
+  int i, j, k, l;
+
+  clearCLI();
+
+  for(i=0; i<N_PIECES; i++){
+    wprintf(L"Piece: %d\r\n", i);
+    for(j=0; j<TETRO_ROT; j++){
+      wprintf(L"Rotation: %d\r\n", j);
+      for(k=0; k<TETRO_DIM; k++){
+        for(l=0; l<TETRO_DIM; l++){
+          if (parts[i][j][k][l].status>EMPTY_BOX)
+            wprintf(L"%lc", fSq);
+          else
+            wprintf(L"%lc", eSq);
+        }
+        wprintf(L"\r\n");
+      }
+      wprintf(L"\r\n");
+    }
+    wprintf(L"\r\n");
+  }
+
+  waitDebug();
+  
 }
