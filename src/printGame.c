@@ -10,18 +10,21 @@ void printSpacing(){
     wprintf(L" ");
 }
 
-void printPlayersName(PlNamePtr pl1,PlNamePtr pl2){
+void printPlayersName(int mode){
   int i, length;
-  wprintf(L"%ls", pl1->name);
-  length = wcslen(pl1->name);
+  wprintf(PL1);
+  length = wcslen(PL1);
   for (i=0; i<12*2-length; i++)
     wprintf(L" ");
   printSpacing();
-  wprintf(L"%ls", pl2->name);
+  if (mode==MULTIPLAYER)
+    wprintf(L"Player 2");
+  else
+    wprintf(L"Bot");
   wprintf(L"\r\n");
 }
 
-void printBoard(BoardPtr mat_1, BoardPtr mat_2, PlNamePtr pl1, PlNamePtr pl2){
+void printBoard(BoardPtr mat_1, BoardPtr mat_2, int mode){
   int i, j, k;
 
   clearCLI();
@@ -29,7 +32,7 @@ void printBoard(BoardPtr mat_1, BoardPtr mat_2, PlNamePtr pl1, PlNamePtr pl2){
   for (i=0; i<HEIGHT+2; i++){
     if (i==0 || i==HEIGHT+1){
       if (i==0)
-        printPlayersName(pl1, pl2);
+        printPlayersName(mode);
       for (k=0; k<2; k++){
         for (j=0; j<WIDTH+2; j++)
           wprintf(L"%lc", fSq);
@@ -44,15 +47,18 @@ void printBoard(BoardPtr mat_1, BoardPtr mat_2, PlNamePtr pl1, PlNamePtr pl2){
           if (j==WIDTH+1)
             printSpacing();
         }
+        else if (mat_1[HEIGHT-i][WIDTH-j].status>EMPTY_BOX)
+          wprintf(L"%lc", fSq);
         else
-          wprintf(L"%lc", mat_1[15-i][10-j].status);
+          wprintf(L"%lc", eSq);
       }
       for (j=0; j<WIDTH+2; j++){
-        if (j==0 || j==WIDTH+1){
+        if (j==0 || j==WIDTH+1)
           wprintf(L"%lc", fSq);
-        }
+        else if (mat_2[HEIGHT-i][WIDTH-j].status>EMPTY_BOX)
+          wprintf(L"%lc", fSq);
         else
-          wprintf(L"%lc", mat_2[15-i][10-j].status);
+          wprintf(L"%lc", eSq);
       }
       wprintf(L"\r\n");
     }

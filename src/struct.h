@@ -1,10 +1,8 @@
 #ifndef STRUCT_H
 #define STRUCT_H
 
-#include "definitions.h"
-
 struct Cell {
-  wchar_t status;
+  char status;
 };
 typedef struct Cell ** BoardPtr;
 
@@ -15,20 +13,16 @@ struct Position {
 typedef struct Position * PositionPtr;
 
 struct Move {
+  int piece;
+  int rotation;
   PositionPtr startPos;
   PositionPtr endPos;
 };
 typedef struct Move * MovePtr;
 
-struct NameTag {
-  wchar_t *name;
+struct TetrominoCell {
+  char status;
 };
-typedef struct NameTag * PlNamePtr;
-
-struct Tetromino {
-	int container[4][4];
-	int exists;
-};
-typedef struct Tetromino* TetrominoPtr;
+typedef struct TetrominoCell **** TetrominoPtr;
 
 #endif

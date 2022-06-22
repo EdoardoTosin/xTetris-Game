@@ -1,10 +1,16 @@
 #define HEIGHT (15)
 #define WIDTH (10)
 #define SPACING (8)
-#define NPIECES (7)
-#define TETROMINO_DIM (5)
-#define TETROMINO_ROT (4)
-#define PIECES (20)
+#define N_PIECES (7)
+#define TETRO_ROT (4)
+#define TETRO_DIM (5)
+
+#define TETRO_BOX (2)
+#define BOARD_BOX (1)
+#define EMPTY_BOX (0)
+
+#define VALID (1)
+#define INVALID (0)
 
 #define CTRL_C (3)
 #define CARRIAGE_RETURN (13)
@@ -19,3 +25,7 @@
 #define LOWER_A (97)
 #define LOWER_S (115)
 #define LOWER_D (100)
+
+#define SINGLEPLAYER (0)
+#define MULTIPLAYER (1)
+#define PL1 (L"Player 1")

@@ -10,6 +10,11 @@
 
 #include "definitions.h"
 
+const wchar_t chSq = 0x2705; /* checkSquare ✅ */
+const wchar_t crSq = 0x274E; /* crossSquare ❎ */
+const wchar_t eSq = 0x2B1C; /* emptySquare ⬜ */
+const wchar_t fSq = 0x2B1B; /* fullSquare ⬛ */
+
 enum {NSEC_TO_SLEEP = 125, SECS_TO_SLEEP = 0};
 
 struct timespec request, remaining = {NSEC_TO_SLEEP, SECS_TO_SLEEP};
@@ -56,9 +61,6 @@ void heightSpacing(int filledHeight){
   for(i=0; i<(w.ws_row-filledHeight)/2; i++)
     wprintf(L"\r\n");
 }
-
-const wchar_t eSq = 0x2B1C; /* emptySquare ⬜ */
-const wchar_t fSq = 0x2B1B; /* fullSquare ⬛ */
 
 static struct termios orig_term;
 
