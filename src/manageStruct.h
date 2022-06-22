@@ -17,7 +17,7 @@ void destroyBoard(BoardPtr board);
 
 /*!
    \brief Allocate memory for TetraminoPtr struct.
-   @param[out] parts Struct that contains all tetrominoes shapes with all possible rotations: [N_PIECES][TETR_ROT][TETR_DIM][TETR_DIM].
+   @param[out] parts Struct that contains all tetrominoes shapes with all possible rotations: [N_PIECES][TETRO_ROT][TETRO_DIM][TETRO_DIM].
 */
 TetrominoPtr initializeTetrominoes();
 

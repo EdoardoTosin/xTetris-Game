@@ -24,7 +24,9 @@ void sound(){
 }
 
 void clearCLI(){
+
   int res;
+  
   res = system("clear");
   if (res == 1){
     clearCLI();
@@ -44,7 +46,9 @@ void delayTimer(int time){
 struct winsize w;
 
 void widthSpacing(int filledWidth){
+
   int i;
+  
   ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
   for(i=0; i<(w.ws_col-filledWidth)/2; i++)
     wprintf(L" ");
@@ -56,7 +60,9 @@ void printCentered(wchar_t *text){
 }
 
 void heightSpacing(int filledHeight){
+
   int i;
+
   ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
   for(i=0; i<(w.ws_row-filledHeight)/2; i++)
     wprintf(L"\r\n");
@@ -69,6 +75,7 @@ void u_cleanup(void){
 }
 
 int u_kbhit(void){
+
   struct termios t;
   fd_set rfd;
   struct timeval to;
@@ -95,6 +102,7 @@ int u_kbhit(void){
 }
 
 int u_getchar(void){
+
   int ret;
   unsigned char buf;
 
@@ -106,7 +114,9 @@ int u_getchar(void){
 }
 
 int waitUserInput(){
+
   int key=0;
+
   while(1){
     if(u_kbhit()){
       key=u_getchar();

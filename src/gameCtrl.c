@@ -7,7 +7,8 @@
 #include "printGame.h"
 
 int clearFullRows(BoardPtr board){
-	int i, j, points, count;
+
+	int i, j;
 	int totPoints = 0;
 	int consecutive = 1;
 	int row = 1;
@@ -17,6 +18,7 @@ int clearFullRows(BoardPtr board){
 		fullRow[i] = 0;
 		for(j=0; j<WIDTH; j++){
 			if(board[i][j].status==EMPTY_BOX){
+				j=WIDTH;
 				row = 0;
 				consecutive = 1;
 			}
@@ -28,9 +30,8 @@ int clearFullRows(BoardPtr board){
 		totPoints += consecutive * row;
 	}
 
-	row = HEIGHT-1;
-	for(i=HEIGHT-1; i>=0; i--){
-		if(fullRow[row]==1){
+	for(i=HEIGHT-1, row = HEIGHT-1; i>=0; i--, row--){
+		while(fullRow[row]!=0){
 			row--;
 		}
 		if (row!=i){
@@ -55,6 +56,7 @@ int tetroIsInsideBoard(BoardPtr board, TetrominoPtr tetro, int piece, int rotati
 }
 
 int validRotation(BoardPtr board, TetrominoPtr tetro, int piece, int rotation, int row, int col){
+
 	int i, j, k, l;
 
 	for(i=row, k=0; k<TETRO_DIM; i++, k++){
@@ -65,7 +67,7 @@ int validRotation(BoardPtr board, TetrominoPtr tetro, int piece, int rotation, i
 				}
 			}
 			else if(i>=WIDTH || j<0 || j>=HEIGHT){
-				if(tetro[piece][rotation][k][l].statu==TETRO_BOX){
+				if(tetro[piece][rotation][k][l].status==TETRO_BOX){
 					return INVALID;
 				}
 			}
@@ -91,7 +93,7 @@ int validMove(BoardPtr board, int move){
 	return VALID;
 }
 
-void landingTetro(BoardPtr){
+void landingTetro(BoardPtr board){
 	return;
 }
 
@@ -121,6 +123,8 @@ void startGame(int mode){
 	tetro = initializeTetrominoes();
 
 	printBoard(board_1, board_2, mode);
+
+	printTetrominoes(tetro);
 
 	destroyBoard(board_1);
 	destroyBoard(board_2);

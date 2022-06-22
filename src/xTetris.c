@@ -13,6 +13,7 @@
 	 \brief Main entry point of the program.
 */
 int main (int argc, char *argv[]) {
+	
 	int nChoices[2][4];
 	int menu, opt, key=0;
 
