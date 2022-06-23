@@ -7,8 +7,8 @@ struct Cell {
 typedef struct Cell ** BoardPtr;
 
 struct Position {
-  int row;
-  int col;
+  int r;
+  int c;
 };
 typedef struct Position * PositionPtr;
 
