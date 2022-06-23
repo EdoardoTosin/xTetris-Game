@@ -4,8 +4,8 @@
 #include "definitions.h"
 #include "struct.h"
 
-void waitDebug(){
-  int key=0;
+void waitUser(){
+  int key=2;
   while(key!=CARRIAGE_RETURN){
     key = waitUserInput();
   }

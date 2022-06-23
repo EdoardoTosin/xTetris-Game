@@ -99,30 +99,47 @@ int validMove(BoardPtr board, int move){
 	return VALID;
 }
 
-void landedTetro(BoardPtr board){
-	
-	int i, j;
-
-	for(i=0; i<HEIGHT; i++)
-		for(j=0; j<WIDTH; j++)
-			if(board[i][j].status==TETRO_BOX)
-				board[i][j].status = BOARD_BOX;
-}
-
-int validFall(BoardPtr board){
+int fallingTetromino(BoardPtr board){
 
 	int i, j;
+	int fall;
 
-	for(i=0; i<HEIGHT; i++){
-		for(j=0; j<WIDTH; j++){
-			if(board[i][j].status==TETRO_BOX && i+1>=HEIGHT)
-				return INVALID;
-			if(board[i][j].status==TETRO_BOX && board[i+1][j].status>TETRO_BOX)
-				return INVALID;
+	for(i=0, fall=VALID; i<HEIGHT; i++){
+		for(j=0; j<WIDTH && fall==VALID; j++){
+			if(board[i][j].status==TETRO_BOX && i+1>=HEIGHT){
+				wprintf(L"[%d][%d] clash with bottom\r\n", i, j);
+				fall = INVALID;
+			}
+			else if(board[i][j].status==TETRO_BOX && board[i+1][j].status>TETRO_BOX){
+				wprintf(L"[%d][%d] clash with another box below\r\n", i, j);
+				fall = INVALID;
+			}
 		}
 	}
 
-	return VALID;
+	if(fall==VALID){
+		wprintf(L"Falling\r\n");
+		for(i=HEIGHT-1; i>=0; i--){
+			for(j=0; j<WIDTH; j++){
+				if(board[i][j].status==TETRO_BOX){
+					board[i+1][j].status = TETRO_BOX;
+					board[i][j].status = EMPTY_BOX;
+				}
+			}
+		}
+	}
+	else{
+		wprintf(L"Landed\r\n");
+		for(i=0; i<HEIGHT; i++){
+			for(j=0; j<WIDTH; j++){
+				if(board[i][j].status==TETRO_BOX){
+					board[i][j].status = BOARD_BOX;
+				}
+			}
+		}
+	}
+
+	return fall;
 }
 
 void addTetromino(BoardPtr board, TetrominoPtr tetro, int shape, int rotation){
@@ -150,10 +167,10 @@ void startGame(int mode){
 
 	int i, j;
 
-	int points_1=0;
-	int pointsPtr_1 = &points_1;
-	int points_2=0;
-	int pointsPtr_2 = &points_2;
+	int fall = 0;
+	int winner = 0;
+	int points_1 = 0;
+	int points_2 = 0;
 
 	BoardPtr board_1, board_2;
 	MovePtr storeMove_1, storeMove_2;
@@ -166,21 +183,50 @@ void startGame(int mode){
 	storeMove_2 = initializeMove();
 	tetro = initializeTetrominoes();
 
+	addTetromino(board_2, tetro, 4, 2);
+	while(winner==0){
+		printBoard(board_1, board_2, mode);
+		fall = fallingTetromino(board_2);
+		delayTimer(1);
+		if(fall==0)
+			winner=2;
+	}
+
+	wprintf(L"\r\n");
+	if (winner==1 && mode==SINGLEPLAYER){
+		wprintf(L"YOU WON!!!");
+	}
+	else if (winner==2 && mode==SINGLEPLAYER){
+		wprintf(L"LOSER!!!");
+	}
+	else if (winner==1 && mode==MULTIPLAYER){
+		wprintf(L"Winner: Player 1!!");
+	}
+	else if (winner==2 && mode==MULTIPLAYER){
+		wprintf(L"Winner: Player 2!!");
+	}
+	else if(points_1 == points_2){
+		wprintf(L"TIE!!!");
+	}
+	wprintf(L"\r\nPress ENTER to exit\r\n");
+	waitUser();
+
+	/*
 	printBoard(board_1, board_2, mode);
-	waitDebug();
+	waitUser();
 
 	printTetrominoes(tetro);
-	waitDebug();
+	waitUser();
 
 	addTetromino(board_1, tetro, 0, 3);
 
 	printBoard(board_1, board_2, mode);
-	waitDebug();
+	waitUser();
 
 	addTetromino(board_2, tetro, 3, 2);
 
 	printBoard(board_1, board_2, mode);
-	waitDebug();
+	waitUser();
 
 	for(i=HEIGHT-1; i>=HEIGHT-7; i--){
 		if(i==HEIGHT-1 || i<HEIGHT-3)
@@ -189,15 +235,16 @@ void startGame(int mode){
 	}
 
 	printBoard(board_1, board_2, mode);
-	waitDebug();
+	waitUser();
 
 	points_2 += clearFullRows(board_2);
 
 	wprintf(L"%d\r\n", points_2);
-	waitDebug();
+	waitUser();
 
 	printBoard(board_1, board_2, mode);
-	waitDebug();
+	waitUser();
+	*/
 
 	destroyBoard(board_1);
 	destroyBoard(board_2);
