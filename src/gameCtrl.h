@@ -49,7 +49,7 @@ int validFall(BoardPtr board);
 
 void addTetromino(BoardPtr board, TetrominoPtr tetro, int shape, int rotation);
 
-void playerTurn(BoardPtr board, TetrominoPtr tetro);
+int playerTurn(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int points);
 
 /*!
    \brief Start the gameplay.

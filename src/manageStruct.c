@@ -36,11 +36,23 @@ void destroyBoard(BoardPtr board){
   free(board);
 }
 
-MovePtr initializeMove(){
 
+MovePtr initializeMove(){
   MovePtr storeMove = (struct Move *) malloc(sizeof(struct Move));
+  if(storeMove == NULL) {
+      wprintf(L"Error! memory not allocated.\n");
+      exit(EXIT_FAILURE);
+  }
   storeMove->startPos = (struct Position *) malloc(sizeof(struct Position));
+  if(storeMove->startPos == NULL) {
+      wprintf(L"Error! memory not allocated.\n");
+      exit(EXIT_FAILURE);
+  }
   storeMove->endPos = (struct Position *) malloc(sizeof(struct Position));
+  if(storeMove->endPos == NULL) {
+      wprintf(L"Error! memory not allocated.\n");
+      exit(EXIT_FAILURE);
+  }
   return storeMove;
 }
 
@@ -49,6 +61,7 @@ void destroyMove(MovePtr storeMove){
   free(storeMove->startPos);
   free(storeMove);
 }
+
 
 TetrominoPtr initializeTetrominoes(){
 
@@ -177,7 +190,7 @@ TetrominoPtr initializeTetrominoes(){
   return parts;
 }
 
-void destroyTetrominoes(TetrominoPtr parts){
+void destroyTetromino(TetrominoPtr parts){
 
   int i, j, k;
 

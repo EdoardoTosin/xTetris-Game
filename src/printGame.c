@@ -75,7 +75,6 @@ void printBoard(BoardPtr mat_1, BoardPtr mat_2, int mode){
       wprintf(L"\r\n");
     }
   }
-  waitDebug();
 }
 
 
@@ -102,5 +101,4 @@ void printTetrominoes(TetrominoPtr parts){
     }
     wprintf(L"\r\n");
   }
-  waitDebug();
 }

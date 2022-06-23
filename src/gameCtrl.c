@@ -142,7 +142,7 @@ void addTetromino(BoardPtr board, TetrominoPtr tetro, int shape, int rotation){
 	}
 }
 
-int playerTurn(BoardPtr board, TetrominoPtr tetro){
+int playerTurn(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int points){
 	return;
 }
 
@@ -151,26 +151,36 @@ void startGame(int mode){
 	int i, j;
 
 	int points_1=0;
+	int pointsPtr_1 = &points_1;
 	int points_2=0;
+	int pointsPtr_2 = &points_2;
 
 	BoardPtr board_1, board_2;
+	MovePtr storeMove_1, storeMove_2;
  	TetrominoPtr tetro;
+
 
 	board_1 = initializeBoard();
 	board_2 = initializeBoard();
+	storeMove_1 = initializeMove();
+	storeMove_2 = initializeMove();
 	tetro = initializeTetrominoes();
 
 	printBoard(board_1, board_2, mode);
+	waitDebug();
 
 	printTetrominoes(tetro);
+	waitDebug();
 
 	addTetromino(board_1, tetro, 0, 3);
 
 	printBoard(board_1, board_2, mode);
+	waitDebug();
 
-	addTetromino(board_2, tetro, 0, 2);
+	addTetromino(board_2, tetro, 3, 2);
 
 	printBoard(board_1, board_2, mode);
+	waitDebug();
 
 	for(i=HEIGHT-1; i>=HEIGHT-7; i--){
 		if(i==HEIGHT-1 || i<HEIGHT-3)
@@ -179,17 +189,20 @@ void startGame(int mode){
 	}
 
 	printBoard(board_1, board_2, mode);
+	waitDebug();
 
 	points_2 += clearFullRows(board_2);
 
 	wprintf(L"%d\r\n", points_2);
-
 	waitDebug();
 
 	printBoard(board_1, board_2, mode);
+	waitDebug();
 
 	destroyBoard(board_1);
 	destroyBoard(board_2);
-	destroyTetrominoes(tetro);
+	destroyMove(storeMove_1);
+	destroyMove(storeMove_2);
+	destroyTetromino(tetro);
 
 }
