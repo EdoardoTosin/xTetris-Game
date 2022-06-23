@@ -36,16 +36,11 @@ int validRotation(BoardPtr board, TetrominoPtr tetro, int piece, int rotation, i
 int validMove(BoardPtr board, int move);
 
 /*!
-   \brief Convert landed Tetromino value into a new one.
-   @param[in] board Player board where the tetromino landed.
+   \brief Check if tetromino has landed or will move it one step down.
+   @param[in] board Player board where the tetromino is falling or landed.
+   @param[out] fall If not moved the value is 0, otherwise 1.
 */
-void landedTetro(BoardPtr board);
-
-/*!
-   \brief Check if tetromino has landed or still falling.
-   @param[in] board Player board where the tetromino is falling.
-*/
-int validFall(BoardPtr board);
+int fallingTetromino(BoardPtr board);
 
 void addTetromino(BoardPtr board, TetrominoPtr tetro, int shape, int rotation);
 
