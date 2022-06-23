@@ -5,8 +5,8 @@
 #define TETRO_ROT (4)
 #define TETRO_DIM (5)
 
-#define TETRO_BOX (2)
-#define BOARD_BOX (1)
+#define BOARD_BOX (2)
+#define TETRO_BOX (1)
 #define EMPTY_BOX (0)
 
 #define VALID (1)

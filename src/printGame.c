@@ -5,10 +5,10 @@
 #include "struct.h"
 
 void waitDebug(){
-
-  int i;
-  
-  wscanf(L"%d", &i);
+  int key=0;
+  while(key!=CARRIAGE_RETURN){
+    key = waitUserInput();
+  }
 }
 
 void printSpacing(){
@@ -59,7 +59,7 @@ void printBoard(BoardPtr mat_1, BoardPtr mat_2, int mode){
           if (j==WIDTH+1)
             printSpacing();
         }
-        else if (mat_1[HEIGHT-i][WIDTH-j].status>EMPTY_BOX)
+        else if (mat_1[i-1][j-1].status>EMPTY_BOX)
           wprintf(L"%lc", fSq);
         else
           wprintf(L"%lc", eSq);
@@ -67,7 +67,7 @@ void printBoard(BoardPtr mat_1, BoardPtr mat_2, int mode){
       for (j=0; j<WIDTH+2; j++){
         if (j==0 || j==WIDTH+1)
           wprintf(L"%lc", fSq);
-        else if (mat_2[HEIGHT-i][WIDTH-j].status>EMPTY_BOX)
+        else if (mat_2[i-1][j-1].status>EMPTY_BOX)
           wprintf(L"%lc", fSq);
         else
           wprintf(L"%lc", eSq);
@@ -75,6 +75,7 @@ void printBoard(BoardPtr mat_1, BoardPtr mat_2, int mode){
       wprintf(L"\r\n");
     }
   }
+  waitDebug();
 }
 
 
@@ -101,7 +102,5 @@ void printTetrominoes(TetrominoPtr parts){
     }
     wprintf(L"\r\n");
   }
-
   waitDebug();
-  
 }

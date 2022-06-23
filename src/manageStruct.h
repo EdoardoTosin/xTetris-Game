@@ -16,6 +16,18 @@ BoardPtr initializeBoard();
 void destroyBoard(BoardPtr board);
 
 /*!
+   \brief Allocate memory for MovePtr struct.
+   @param[out] storeMove Struct that contains all the info about a single move (coordinates, shape and rotation).
+*/
+MovePtr initializeMove();
+
+/*!
+   \brief Free the MovePtr struct passed as parameter.
+   @param[in] storeMove Struct that need to be freed.
+*/
+void destroyMove(MovePtr storeMove);
+
+/*!
    \brief Allocate memory for TetraminoPtr struct.
    @param[out] parts Struct that contains all tetrominoes shapes with all possible rotations: [N_PIECES][TETRO_ROT][TETRO_DIM][TETRO_DIM].
 */

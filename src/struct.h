@@ -2,7 +2,7 @@
 #define STRUCT_H
 
 struct Cell {
-  char status;
+  int status;
 };
 typedef struct Cell ** BoardPtr;
 
@@ -21,7 +21,7 @@ struct Move {
 typedef struct Move * MovePtr;
 
 struct TetrominoCell {
-  char status;
+  int status;
 };
 typedef struct TetrominoCell **** TetrominoPtr;
 
