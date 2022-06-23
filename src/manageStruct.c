@@ -36,6 +36,20 @@ void destroyBoard(BoardPtr board){
   free(board);
 }
 
+MovePtr initializeMove(){
+
+  MovePtr storeMove = (struct Move *) malloc(sizeof(struct Move));
+  storeMove->startPos = (struct Position *) malloc(sizeof(struct Position));
+  storeMove->endPos = (struct Position *) malloc(sizeof(struct Position));
+  return storeMove;
+}
+
+void destroyMove(MovePtr storeMove){
+  free(storeMove->endPos);
+  free(storeMove->startPos);
+  free(storeMove);
+}
+
 TetrominoPtr initializeTetrominoes(){
 
   int i, j, k, l;
