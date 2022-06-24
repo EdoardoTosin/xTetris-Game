@@ -20,9 +20,9 @@ int clearFullRows(BoardPtr board);
 /*!
    \brief Change tetromino position as moved by  the player.
    @param[in] board Player board where the move needs to be verified.
-   @param[in] moveSpec Struct where all  details of current move are stored.
+   @param[in] storeMove Struct where all  details of current move are stored.
 */
-void makeMove(BoardPtr board, MovePtr moveSpec);
+void makeMove(BoardPtr board, MovePtr storeMove);
 
 /*!
    \brief Check if the tetromino rotation is valid.
@@ -45,18 +45,19 @@ int validMove(BoardPtr board, int move);
 /*!
    \brief Check if tetromino has landed or will move it one step down.
    @param[in] board Player board where the tetromino is falling or landed.
+   @param[in] storeMove Struct where all  details of current move are stored.
    @param[out] fall If not moved the value is 0, otherwise 1.
 */
-int fallingTetromino(BoardPtr board);
+int fallingTetromino(BoardPtr board, MovePtr storeMove);
 
 /*!
    \brief Drop a tetromino into the board.
    @param[in] board Player board where the tetromino needs to be dropped.
    @param[in] tetro Store all tetrominoes possibible shapes.
-   @param[in] piece Type of tetromino piece that need the rotation check.
-   @param[in] rotation Value between 0 and 3 that correspond to a certain tetromino rotation.
+   @param[in] storeMove Struct where all  details of current move are stored.
+   @param[out] complete Return a number based on tetromino addition (0 if it was added, 1 otherwise).
 */
-void addTetromino(BoardPtr board, TetrominoPtr tetro, int shape, int rotation);
+int addTetromino(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove);
 
 int playerTurn(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int points);
 
