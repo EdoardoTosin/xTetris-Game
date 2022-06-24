@@ -15,7 +15,7 @@
 int main (int argc, char *argv[]) {
 	
 	int nChoices[2][4];
-	int menu, opt, key=2;
+	int menu, opt, key=RESET;
 
 	setlocale(LC_CTYPE, "");
 	
@@ -48,6 +48,7 @@ int main (int argc, char *argv[]) {
 			startGame(menu-6);
 			delayTimer(0);
 			menu=1;
+			key=RESET;
 		}
 	}
 	while(menu!=5);

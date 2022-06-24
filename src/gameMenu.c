@@ -123,7 +123,7 @@ void printCurrentMenu(int *menu, int *opt){
 }
 
 int choiceCtrl(int menu, int opt, int min, int max){
-  int key=0;
+  int key=RESET;
   printCurrentMenu(&menu, &opt);
   while(1){
     if(u_kbhit()){
