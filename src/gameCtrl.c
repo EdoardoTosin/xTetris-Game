@@ -211,7 +211,7 @@ void startGame(int mode){
 	int count = 0;
 
 	int skip;
-	int key=0;
+	int key=RESET;
 	int fall = 0;
 	int complete = 0;
 	int points_1 = 0;
@@ -292,7 +292,8 @@ void startGame(int mode){
 	else if(points_1 == points_2){
 		wprintf(L"TIE!!!");
 	}
-	delayTimer(5);
+	delayTimer(2);
+	key=RESET;
 	wprintf(L"\r\nPress ENTER to exit\r\n");
 	waitUser();
 
