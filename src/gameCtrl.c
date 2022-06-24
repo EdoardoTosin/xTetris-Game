@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <wchar.h>
 #include <stdlib.h>
+#include <time.h>
 #include "common.h"
 #include "definitions.h"
 #include "struct.h"
@@ -9,7 +10,7 @@
 
 
 int randGen(int min, int max){
-	
+
 	unsigned long partSize, endOfLastPart, range, r;
 	
 	range = max - min + 1;
@@ -191,16 +192,15 @@ void startGame(int mode){
 	int points_1 = 0;
 	int points_2 = 0;
 
-	BoardPtr board_1, board_2;
-	MovePtr storeMove_1, storeMove_2;
- 	TetrominoPtr tetro;
+	clock_t start, timeDiff;
 
- 	srand(time(NULL));
+	BoardPtr board_1, board_2;
+	MovePtr storeMove;
+ 	TetrominoPtr tetro;
 
 	board_1 = initializeBoard();
 	board_2 = initializeBoard();
-	storeMove_1 = initializeMove();
-	storeMove_2 = initializeMove();
+	storeMove = initializeMove();
 	tetro = initializeTetrominoes();
 
 	while(complete==0){
@@ -210,6 +210,12 @@ void startGame(int mode){
 		}
 		fall = 1;
 		printBoard(board_1, board_2, mode);
+		start = clock();
+		do{
+			timeDiff = (clock()-start)/CLOCKS_PER_SEC;
+		}
+		while(timeDiff<1);
+		wprintf(L"Time: %d\r\n", timeDiff);
 		fall = fallingTetromino(board_2);
 		delayTimer(1);
 		if(fall==0 && count>2){
@@ -273,8 +279,7 @@ void startGame(int mode){
 
 	destroyBoard(board_1);
 	destroyBoard(board_2);
-	destroyMove(storeMove_1);
-	destroyMove(storeMove_2);
+	destroyMove(storeMove);
 	destroyTetromino(tetro);
 
 }

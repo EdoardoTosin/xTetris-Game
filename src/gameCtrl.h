@@ -1,6 +1,7 @@
 #ifndef GAMECTRL_H
 #define GAMECTRL_H
 
+#include <time.h>
 #include "struct.h"
 
 /*!
