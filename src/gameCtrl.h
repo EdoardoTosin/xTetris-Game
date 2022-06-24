@@ -3,6 +3,12 @@
 
 #include "struct.h"
 
+/*!
+   \brief Generate random number given a range.
+   @param[in] min Minimum number of range (inclusive).
+   @param[in] max Maximum number of range (inclusive).
+*/
+int randGen(int min, int max);
 
 /*!
    \brief Change tetromino position as moved by  the player.
@@ -42,6 +48,13 @@ int validMove(BoardPtr board, int move);
 */
 int fallingTetromino(BoardPtr board);
 
+/*!
+   \brief Drop a tetromino into the board.
+   @param[in] board Player board where the tetromino needs to be dropped.
+   @param[in] tetro Store all tetrominoes possibible shapes.
+   @param[in] piece Type of tetromino piece that need the rotation check.
+   @param[in] rotation Value between 0 and 3 that correspond to a certain tetromino rotation.
+*/
 void addTetromino(BoardPtr board, TetrominoPtr tetro, int shape, int rotation);
 
 int playerTurn(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int points);
