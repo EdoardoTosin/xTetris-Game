@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include <wchar.h>
 #include <stdlib.h>
 #include <time.h>
@@ -76,7 +78,7 @@ int clearFullRows(BoardPtr board){
 	return totPoints;
 }
 
-void makeMove(BoardPtr board, MovePtr moveSpec){
+void makeMove(BoardPtr board, MovePtr storeMove){
 	return;
 }
 
@@ -118,7 +120,7 @@ int validMove(BoardPtr board, int move){
 	return VALID;
 }
 
-int fallingTetromino(BoardPtr board){
+int fallingTetromino(BoardPtr board, MovePtr storeMove){
 
 	int i, j;
 	int fall;
@@ -146,6 +148,9 @@ int fallingTetromino(BoardPtr board){
 				}
 			}
 		}
+		storeMove->startPos->row = storeMove->endPos->row;
+		storeMove->startPos->col = storeMove->endPos->col;
+		storeMove->endPos->row++;
 	}
 	else{
 		wprintf(L"Landed\r\n");
@@ -161,21 +166,39 @@ int fallingTetromino(BoardPtr board){
 	return fall;
 }
 
-void addTetromino(BoardPtr board, TetrominoPtr tetro, int shape, int rotation){
-	int i, j, l;
-	int x = -1;
-	for(i=0; i<TETRO_DIM; i++){
+int addTetromino(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove){
+	int i, j, l, y;
+	int shape, rotation, clash, row, col;
+	col = WIDTH/2-TETRO_DIM/2;
+	shape = storeMove->piece;
+	rotation = storeMove->rotation;
+	wprintf(L"First Row check\r\n");
+	for(i=0, row=-1; i<TETRO_DIM; i++){
 		for(j=0; j<TETRO_DIM; j++){
-			if(x==-1 && tetro[shape][rotation][i][j].status==TETRO_BOX)
-				x = i;
+			if(row==-1 && tetro[shape][rotation][i][j].status==TETRO_BOX)
+				row = i;
 		}
 	}
-	for(i=0; x<TETRO_DIM; x++, i++){
-		for(j=WIDTH/2-TETRO_DIM/2, l=0; l<TETRO_DIM; j++, l++){
-			if(tetro[shape][rotation][x][l].status==TETRO_BOX)
+	wprintf(L"Check Clash\r\n");
+	for(i=0, y = row; y<TETRO_DIM; y++, i++){
+		for(j=col, l=0; l<TETRO_DIM; j++, l++){
+			if(tetro[shape][rotation][y][l].status==TETRO_BOX && board[i][j].status==BOARD_BOX)
+				return 1;
+		}
+	}
+	wprintf(L"Valid add -> proceed to add the tetro to the board\r\n");
+	for(i=0, y = row; y<TETRO_DIM; y++, i++){
+		for(j=col, l=0; l<TETRO_DIM; j++, l++){
+			if(tetro[shape][rotation][y][l].status==TETRO_BOX)
 				board[i][j].status = TETRO_BOX;
 		}
 	}
+	wprintf(L"Store new coordinates of tetromino in storeMove\r\n");
+	storeMove->startPos->row = -1;
+	storeMove->startPos->col = -1;
+	storeMove->endPos->row = row;
+	storeMove->endPos->col = col;
+	return 0;
 }
 
 int playerTurn(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int points){
@@ -187,6 +210,8 @@ void startGame(int mode){
 	int i, j;
 	int count = 0;
 
+	int skip;
+	int key=0;
 	int fall = 0;
 	int complete = 0;
 	int points_1 = 0;
@@ -205,22 +230,50 @@ void startGame(int mode){
 
 	while(complete==0){
 		if(fall==0){
-			count++;
-			addTetromino(board_2, tetro, randGen(0, N_PIECES-1), randGen(0, TETRO_ROT-1));
+			storeMove->piece = randGen(0, N_PIECES-1);
+			storeMove->rotation = randGen(0, TETRO_ROT-1);
+			complete = addTetromino(board_1, tetro, storeMove);
 		}
-		fall = 1;
-		printBoard(board_1, board_2, mode);
-		start = clock();
-		do{
-			timeDiff = (clock()-start)/CLOCKS_PER_SEC;
+		if (complete==0){
+			start = clock();
+			fall = 1;
+			skip = 0;
+			do{
+				if(storeMove->startPos->row!=storeMove->endPos->row || storeMove->startPos->col!=storeMove->endPos->col)
+					printBoard(board_1, board_2, mode);
+				if(u_kbhit()){
+					key=u_getchar();
+					if(key==LOWER_W || key==UPPER_W){
+
+					}
+					else if(key==LOWER_S || key==UPPER_S){
+
+					}
+					else if(key==LOWER_A || key==UPPER_A){
+
+					}
+					else if(key==LOWER_D || key==UPPER_D){
+
+					}
+					else if(key==CARRIAGE_RETURN)
+						skip = 1;
+					else if(key==CTRL_C)
+						exitFailure();
+					nanosleep(&request, &remaining);
+				}
+				timeDiff = (clock()-start)*0.7/CLOCKS_PER_SEC;
+			}
+			while(timeDiff<1 && skip==0);
+			fall = fallingTetromino(board_1, storeMove);
+			if(fall==0){
+				points_1 += clearFullRows(board_1);
+				count++;
+			}
+			if (count>2){
+				complete = 1;
+			}
 		}
-		while(timeDiff<1);
-		wprintf(L"Time: %d\r\n", timeDiff);
-		fall = fallingTetromino(board_2);
-		delayTimer(1);
-		if(fall==0 && count>2){
-			complete=1;
-		}
+		
 	}
 
 	wprintf(L"\r\n");
@@ -239,6 +292,7 @@ void startGame(int mode){
 	else if(points_1 == points_2){
 		wprintf(L"TIE!!!");
 	}
+	delayTimer(5);
 	wprintf(L"\r\nPress ENTER to exit\r\n");
 	waitUser();
 
