@@ -1,11 +1,29 @@
 #include <stdio.h>
 #include <wchar.h>
+#include <stdlib.h>
 #include "common.h"
 #include "definitions.h"
 #include "struct.h"
 #include "manageStruct.h"
 #include "printGame.h"
 
+
+int randGen(int min, int max){
+	
+	unsigned long partSize, endOfLastPart, range, r;
+	
+	range = max - min + 1;
+
+	partSize = ((unsigned long)RAND_MAX + 1) / range; 
+	endOfLastPart = partSize * range;
+
+	r = rand();
+	while(r>=endOfLastPart){
+	    r = rand();
+	}
+
+	return min + r / partSize;
+}
 
 int clearFullRows(BoardPtr board){
 
@@ -160,15 +178,16 @@ void addTetromino(BoardPtr board, TetrominoPtr tetro, int shape, int rotation){
 }
 
 int playerTurn(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int points){
-	return;
+	return 0;
 }
 
 void startGame(int mode){
 
 	int i, j;
+	int count = 0;
 
 	int fall = 0;
-	int winner = 0;
+	int complete = 0;
 	int points_1 = 0;
 	int points_2 = 0;
 
@@ -176,6 +195,7 @@ void startGame(int mode){
 	MovePtr storeMove_1, storeMove_2;
  	TetrominoPtr tetro;
 
+ 	srand(time(NULL));
 
 	board_1 = initializeBoard();
 	board_2 = initializeBoard();
@@ -183,26 +203,31 @@ void startGame(int mode){
 	storeMove_2 = initializeMove();
 	tetro = initializeTetrominoes();
 
-	addTetromino(board_2, tetro, 4, 2);
-	while(winner==0){
+	while(complete==0){
+		if(fall==0){
+			count++;
+			addTetromino(board_2, tetro, randGen(0, N_PIECES-1), randGen(0, TETRO_ROT-1));
+		}
+		fall = 1;
 		printBoard(board_1, board_2, mode);
 		fall = fallingTetromino(board_2);
 		delayTimer(1);
-		if(fall==0)
-			winner=2;
+		if(fall==0 && count>2){
+			complete=1;
+		}
 	}
 
 	wprintf(L"\r\n");
-	if (winner==1 && mode==SINGLEPLAYER){
+	if (points_1>points_2 && mode==SINGLEPLAYER){
 		wprintf(L"YOU WON!!!");
 	}
-	else if (winner==2 && mode==SINGLEPLAYER){
+	else if (points_2>points_1 && mode==SINGLEPLAYER){
 		wprintf(L"LOSER!!!");
 	}
-	else if (winner==1 && mode==MULTIPLAYER){
+	else if (points_1>points_2 && mode==MULTIPLAYER){
 		wprintf(L"Winner: Player 1!!");
 	}
-	else if (winner==2 && mode==MULTIPLAYER){
+	else if (points_1>points_2 && mode==MULTIPLAYER){
 		wprintf(L"Winner: Player 2!!");
 	}
 	else if(points_1 == points_2){

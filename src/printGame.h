@@ -4,7 +4,10 @@
 #include <wchar.h>
 #include "struct.h"
 
-void waitDebug();
+/*!
+   \brief Wait until Enter key is pressed.
+*/
+void waitUser();
 
 /*!
    \brief Print spaces between the two boards.
