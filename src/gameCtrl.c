@@ -77,28 +77,51 @@ int clearFullRows(BoardPtr board){
 	return totPoints;
 }
 
-void makeMove(BoardPtr board, MovePtr storeMove){
+void makeMove(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove){
+	
+	int i, j, k, l, piece, rotation;
+	
+	piece = storeMove->piece;
+	rotation = storeMove->rotation;
+	
+	for(i=(storeMove->row)-1, l=-1; i<TETRO_DIM+2; i++, l++){
+		for(j=(storeMove->col)-1, k=-1; j<TETRO_DIM+2; j++, k++){
+			if(i<0 || i>=HEIGHT || j<0 || j>=WIDTH){
+				if((l==-1 || l>=TETRO_DIM || k==-1 || k>=TETRO_DIM) && board[i][j].status==TETRO_BOX){
+					board[i][j].status = EMPTY_BOX;
+				}
+				else if(board[i][j].status==EMPTY_BOX && tetro[piece][rotation][l][k].status==TETRO_BOX){
+					board[i][j].status = TETRO_BOX;
+				}
+				else if(board[i][j].status==TETRO_BOX){
+					board[i][j].status = EMPTY_BOX;
+				}
+			}
+		}
+	}
+	
 	return;
 }
 
-int validRotation(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int rotation){
+int validRotation(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int direction){
 
 	int i, j, k, l;
-	int piece;
+	int piece, rotation;
+	
+	rotation = storeMove->rotation + direction;
+	if(rotation<0 || rotation>3){
+		rotation = rotation - (direction) * 3;
+	}
 	
 	piece = storeMove->piece;
 
 	for(i=storeMove->row, k=0; k<TETRO_DIM; i++, k++){
 		for(j=storeMove->col, l=0; l<TETRO_DIM; j++, l++){
-			if(i>0 && i<WIDTH && j>0 && j<HEIGHT){
-				if(board[i][j].status>TETRO_BOX && tetro[piece][rotation][k][l].status==TETRO_BOX){
-					return INVALID;
-				}
+			if(i>0 && i<WIDTH && j>0 && j<HEIGHT && board[i][j].status>TETRO_BOX && tetro[piece][rotation][k][l].status==TETRO_BOX){
+				return INVALID;
 			}
-			else if(i<=0 || i>=WIDTH || j<0 || j>=HEIGHT){
-				if(tetro[piece][rotation][k][l].status==TETRO_BOX){
-					return INVALID;
-				}
+			else if((i<=0 || i>=WIDTH || j<0 || j>=HEIGHT) && tetro[piece][rotation][k][l].status==TETRO_BOX){
+				return INVALID; /* i<=0 evaluation ?? */
 			}
 		}
 	}
@@ -256,7 +279,7 @@ void startGame(int mode){
 							else{
 								(storeMove->rotation)--;
 							}
-							makeMove(board_1, storeMove);
+							makeMove(board_1, tetro, storeMove);
 						}
 					}
 					else if(key==LOWER_S || key==UPPER_S){
@@ -268,24 +291,24 @@ void startGame(int mode){
 							else{
 								(storeMove->rotation)++;
 							}
-							makeMove(board_1, storeMove);
+							makeMove(board_1, tetro, storeMove);
 						}
 					}
 					else if(key==LOWER_A || key==UPPER_A){
 						move = validMove(board_1, -1);
 						if (move==1){
 							(storeMove->col)--;
-							makeMove(board_1, storeMove);
+							makeMove(board_1, tetro, storeMove);
 						}
 					}
 					else if(key==LOWER_D || key==UPPER_D){
 						move = validMove(board_1, 1);
 						if (move==1){
 							(storeMove->col)++;
-							makeMove(board_1, storeMove);
+							makeMove(board_1, tetro, storeMove);
 						}
 					}
-					else if(key==CARRIAGE_RETURN){
+					else if(key==SPACEBAR){
 						move = 1;
 						skip = 1;
 					}

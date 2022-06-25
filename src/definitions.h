@@ -16,6 +16,7 @@
 #define CARRIAGE_RETURN (13)
 #define ESCAPE (27)
 #define RESET (2)
+#define SPACEBAR (32)
 
 #define UPPER_W (87)
 #define UPPER_A (65)
