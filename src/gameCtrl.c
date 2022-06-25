@@ -164,7 +164,7 @@ int fallingTetromino(BoardPtr board, MovePtr storeMove){
 	}
 
 	if(fall==VALID){
-		wprintf(L"Falling\r\n");
+		/*wprintf(L"Falling\r\n");*/
 		for(i=HEIGHT-1; i>=0; i--){
 			for(j=0; j<WIDTH; j++){
 				if(board[i][j].status==TETRO_BOX){

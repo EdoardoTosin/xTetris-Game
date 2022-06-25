@@ -30,7 +30,7 @@ void makeMove(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove);
    @param[in] board Player board where the move needs to be verified.
    @param[in] tetro Store all tetrominoes possibible shapes.
    @param[in] storeMove Struct where all details of current move to make are store.
-   @param[in] direction Value of rotation, -1 for 90° anticlockwise, 1 for 90° clockwise.
+   @param[in] direction Value of rotation, -1 for 90° counterclockwise, 1 for 90° clockwise.
    @param[out] rotation If valid return 1, otherwise 0.
 */
 int validRotation(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int direction);

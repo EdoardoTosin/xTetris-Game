@@ -25,7 +25,7 @@ void welcome(void){
   wprintf(L"\r\n");
   wprintf(L"\r\n");
   wprintf(L"\r\n");
-  printCentered(L"🎮 Controls: W⏫, A⏪, S⏬, D⏩, Enter✅, Spacebar👽, Esc❎");
+  printCentered(L"🎮 Controls: W🔄, A⏪, S🔃, D⏩, Spacebar👽, Enter✅, Esc❎");
   wprintf(L"\r\n");
   wprintf(L"\r\n");
   printCentered(L"🕹 Press ENTER to continue...");
