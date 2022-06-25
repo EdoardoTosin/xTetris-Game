@@ -210,7 +210,9 @@ void startGame(int mode){
 	int i, j;
 	int count = 0;
 
+	int move;
 	int skip;
+	int prevPoints;
 	int key=RESET;
 	int fall = 0;
 	int complete = 0;
@@ -221,59 +223,69 @@ void startGame(int mode){
 
 	BoardPtr board_1, board_2;
 	MovePtr storeMove;
- 	TetrominoPtr tetro;
+	TetrominoPtr tetro;
 
 	board_1 = initializeBoard();
 	board_2 = initializeBoard();
 	storeMove = initializeMove();
 	tetro = initializeTetrominoes();
 
+	prevPoints = 0;
 	while(complete==0){
 		if(fall==0){
 			storeMove->piece = randGen(0, N_PIECES-1);
 			storeMove->rotation = randGen(0, TETRO_ROT-1);
 			complete = addTetromino(board_1, tetro, storeMove);
+			move = 1;
 		}
 		if (complete==0){
 			start = clock();
 			fall = 1;
 			skip = 0;
 			do{
-				if(storeMove->startPos->row!=storeMove->endPos->row || storeMove->startPos->col!=storeMove->endPos->col)
+				if(move==1){
 					printBoard(board_1, board_2, mode);
+					move = 0;
+				}
 				if(u_kbhit()){
 					key=u_getchar();
 					if(key==LOWER_W || key==UPPER_W){
-
+						move = 1;
 					}
 					else if(key==LOWER_S || key==UPPER_S){
-
+						move = 1;
 					}
 					else if(key==LOWER_A || key==UPPER_A){
-
+						move = 1;
 					}
 					else if(key==LOWER_D || key==UPPER_D){
-
+						move = 1;
 					}
-					else if(key==CARRIAGE_RETURN)
+					else if(key==CARRIAGE_RETURN){
+						move = 1;
 						skip = 1;
+					}
 					else if(key==CTRL_C)
 						exitFailure();
 					nanosleep(&request, &remaining);
 				}
-				timeDiff = (clock()-start)*0.7/CLOCKS_PER_SEC;
+				timeDiff = (clock()-start)*1000/CLOCKS_PER_SEC;
 			}
-			while(timeDiff<1 && skip==0);
+			while(timeDiff<700 && skip==0);
 			fall = fallingTetromino(board_1, storeMove);
+			printBoard(board_1, board_2, mode);
 			if(fall==0){
+				points_1 = prevPoints;
 				points_1 += clearFullRows(board_1);
+				if (points_1 != prevPoints)
+					printBoard(board_1, board_2, mode);
 				count++;
+				move = 1;
 			}
-			if (count>2){
+			if (count>=3){
 				complete = 1;
 			}
 		}
-		
 	}
 
 	wprintf(L"\r\n");
