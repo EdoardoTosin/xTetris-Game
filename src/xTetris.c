@@ -23,7 +23,7 @@ int main (int argc, char *argv[]) {
 		welcome();
 		key = waitUserInput();
 	}
-	while(/*key!=ESCAPE && */key!=CARRIAGE_RETURN);
+	while(key!=CARRIAGE_RETURN);
 
 	nChoices[0][0]=2;   /* Menu #1 -> Start Menu */
 	nChoices[1][0]=5;

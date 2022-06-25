@@ -82,12 +82,15 @@ void makeMove(BoardPtr board, MovePtr storeMove){
 	return;
 }
 
-int validRotation(BoardPtr board, TetrominoPtr tetro, int piece, int rotation, int row, int col){
+int validRotation(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int rotation){
 
 	int i, j, k, l;
+	int piece, row, col;
+	
+	piece = storeMove->piece;
 
-	for(i=row, k=0; k<TETRO_DIM; i++, k++){
-		for(j=col, l=0; l<TETRO_DIM; j++, l++){
+	for(i=storeMove->row, k=0; k<TETRO_DIM; i++, k++){
+		for(j=storeMove->col, l=0; l<TETRO_DIM; j++, l++){
 			if(i>0 && i<WIDTH && j>0 && j<HEIGHT){
 				if(board[i][j].status>TETRO_BOX && tetro[piece][rotation][k][l].status==TETRO_BOX){
 					return INVALID;
@@ -128,11 +131,11 @@ int fallingTetromino(BoardPtr board, MovePtr storeMove){
 	for(i=0, fall=VALID; i<HEIGHT; i++){
 		for(j=0; j<WIDTH && fall==VALID; j++){
 			if(board[i][j].status==TETRO_BOX && i+1>=HEIGHT){
-				wprintf(L"[%d][%d] clash with bottom\r\n", i, j);
+				/*wprintf(L"[%d][%d] clash with bottom\r\n", i, j);*/
 				fall = INVALID;
 			}
 			else if(board[i][j].status==TETRO_BOX && board[i+1][j].status>TETRO_BOX){
-				wprintf(L"[%d][%d] clash with another box below\r\n", i, j);
+				/*wprintf(L"[%d][%d] clash with another box below\r\n", i, j);*/
 				fall = INVALID;
 			}
 		}
@@ -148,12 +151,10 @@ int fallingTetromino(BoardPtr board, MovePtr storeMove){
 				}
 			}
 		}
-		storeMove->startPos->row = storeMove->endPos->row;
-		storeMove->startPos->col = storeMove->endPos->col;
-		storeMove->endPos->row++;
+		(storeMove->row)++;
 	}
 	else{
-		wprintf(L"Landed\r\n");
+		/*wprintf(L"Landed\r\n");*/
 		for(i=0; i<HEIGHT; i++){
 			for(j=0; j<WIDTH; j++){
 				if(board[i][j].status==TETRO_BOX){
@@ -194,10 +195,8 @@ int addTetromino(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove){
 		}
 	}
 	wprintf(L"Store new coordinates of tetromino in storeMove\r\n");
-	storeMove->startPos->row = -1;
-	storeMove->startPos->col = -1;
-	storeMove->endPos->row = row;
-	storeMove->endPos->col = col;
+	storeMove->row = row;
+	storeMove->col = col;
 	return 0;
 }
 
@@ -250,16 +249,42 @@ void startGame(int mode){
 				if(u_kbhit()){
 					key=u_getchar();
 					if(key==LOWER_W || key==UPPER_W){
-						move = 1;
+						move = validRotation(board_1, tetro, storeMove, -1);
+						if (move==1){
+							if(storeMove->rotation==0){
+								storeMove->rotation = 3;
+							}
+							else{
+								(storeMove->rotation)--;
+							}
+							makeMove(board_1, storeMove);
+						}
 					}
 					else if(key==LOWER_S || key==UPPER_S){
-						move = 1;
+						move = validRotation(board_1, tetro, storeMove, 1);
+						if (move==1){
+							if(storeMove->rotation==3){
+								storeMove->rotation = 0;
+							}
+							else{
+								(storeMove->rotation)++;
+							}
+							makeMove(board_1, storeMove);
+						}
 					}
 					else if(key==LOWER_A || key==UPPER_A){
-						move = 1;
+						move = validMove(board_1, -1);
+						if (move==1){
+							(storeMove->col)--;
+							makeMove(board_1, storeMove);
+						}
 					}
 					else if(key==LOWER_D || key==UPPER_D){
-						move = 1;
+						move = validMove(board_1, 1);
+						if (move==1){
+							(storeMove->col)++;
+							makeMove(board_1, storeMove);
+						}
 					}
 					else if(key==CARRIAGE_RETURN){
 						move = 1;
@@ -277,10 +302,11 @@ void startGame(int mode){
 			if(fall==0){
 				points_1 = prevPoints;
 				points_1 += clearFullRows(board_1);
-				if (points_1 != prevPoints)
+				if (points_1 != prevPoints){
 					printBoard(board_1, board_2, mode);
+					move = 1;
+				}
 				count++;
-				move = 1;
 			}
 			if (count>=3){
 				complete = 1;
