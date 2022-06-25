@@ -28,17 +28,17 @@ void makeMove(BoardPtr board, MovePtr storeMove);
    \brief Check if the tetromino rotation is valid.
    @param[in] board Player board where the move needs to be verified.
    @param[in] tetro Store all tetrominoes possibible shapes.
-   @param[in] piece Type of tetromino piece that need the rotation check.
+   @param[in] storeMove Struct where all details of current move to make are store.
    @param[in] rotation Value between 0 and 3 that correspond to a certain tetromino rotation.
-   @param[in] row Starting row coordinate of tetromino matrix.
-   @param[in] col Starting column coordinate of tetromino matrix.
+   @param[out] rotation If valid return 1, otherwise 0.
 */
-int validRotation(BoardPtr board, TetrominoPtr tetro, int piece, int rotation, int row, int col);
+int validRotation(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove);
 
 /*!
    \brief Check if a move of the tetromino is valid.
    @param[in] board Player board where the move needs to be verified.
    @param[in] move Direction (left -1, right 1) where the tetromino is moved.
+   @param[out] move If valid 1, otherwise 0.
 */
 int validMove(BoardPtr board, int move);
 

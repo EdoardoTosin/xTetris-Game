@@ -10,10 +10,12 @@ BoardPtr initializeBoard() {
   int i, j;
 
   BoardPtr mat = (struct Cell **) malloc(HEIGHT * sizeof(struct Cell *));
-    if(mat == NULL) {
-      wprintf(L"Error! memory not allocated.\n");
-      exit(EXIT_FAILURE);
-    }
+  
+  if(mat == NULL) {
+    wprintf(L"Error! memory not allocated.\n");
+    exit(EXIT_FAILURE);
+  }
+  
   for (i = 0; i < HEIGHT; i++) {
     mat[i] = (struct Cell *) malloc(WIDTH * sizeof(struct Cell));
     if(mat[i] == NULL) {
@@ -23,6 +25,7 @@ BoardPtr initializeBoard() {
     for (j = 0; j < WIDTH; j++)
       mat[i][j].status = EMPTY_BOX;
   }
+  
   return mat;
 }
 
@@ -33,32 +36,24 @@ void destroyBoard(BoardPtr board){
   for(i=0; i < HEIGHT; i++){
     free(board[i]);
   }
+  
   free(board);
 }
 
 
 MovePtr initializeMove(){
+  
   MovePtr storeMove = (struct Move *) malloc(sizeof(struct Move));
+  
   if(storeMove == NULL) {
       wprintf(L"Error! memory not allocated.\n");
       exit(EXIT_FAILURE);
   }
-  storeMove->startPos = (struct Position *) malloc(sizeof(struct Position));
-  if(storeMove->startPos == NULL) {
-      wprintf(L"Error! memory not allocated.\n");
-      exit(EXIT_FAILURE);
-  }
-  storeMove->endPos = (struct Position *) malloc(sizeof(struct Position));
-  if(storeMove->endPos == NULL) {
-      wprintf(L"Error! memory not allocated.\n");
-      exit(EXIT_FAILURE);
-  }
+  
   return storeMove;
 }
 
 void destroyMove(MovePtr storeMove){
-  free(storeMove->endPos);
-  free(storeMove->startPos);
   free(storeMove);
 }
 
@@ -69,6 +64,7 @@ TetrominoPtr initializeTetrominoes(){
 
 
   TetrominoPtr parts = (struct TetrominoCell ****) malloc(N_PIECES * sizeof(struct TetrominoCell ***));
+  
   if(parts == NULL) {
       wprintf(L"Error! memory not allocated.\n");
       exit(EXIT_FAILURE);
