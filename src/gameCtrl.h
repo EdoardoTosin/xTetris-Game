@@ -20,19 +20,20 @@ int clearFullRows(BoardPtr board);
 /*!
    \brief Change tetromino position as moved by  the player.
    @param[in] board Player board where the move needs to be verified.
+   @param[in] tetro Store all tetrominoes possibible shapes.
    @param[in] storeMove Struct where all  details of current move are stored.
 */
-void makeMove(BoardPtr board, MovePtr storeMove);
+void makeMove(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove);
 
 /*!
    \brief Check if the tetromino rotation is valid.
    @param[in] board Player board where the move needs to be verified.
    @param[in] tetro Store all tetrominoes possibible shapes.
    @param[in] storeMove Struct where all details of current move to make are store.
-   @param[in] rotation Value between 0 and 3 that correspond to a certain tetromino rotation.
+   @param[in] direction Value of rotation, -1 for 90° anticlockwise, 1 for 90° clockwise.
    @param[out] rotation If valid return 1, otherwise 0.
 */
-int validRotation(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove);
+int validRotation(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int direction);
 
 /*!
    \brief Check if a move of the tetromino is valid.

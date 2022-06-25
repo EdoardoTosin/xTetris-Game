@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <locale.h>
 #include <stdlib.h>
-#include <unistd.h> /* sleep function */
 
 #include "common.h"
 #include "definitions.h"
