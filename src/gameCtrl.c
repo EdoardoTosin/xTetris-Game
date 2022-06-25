@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <wchar.h>
 #include <stdlib.h>
 #include <time.h>
@@ -85,7 +84,7 @@ void makeMove(BoardPtr board, MovePtr storeMove){
 int validRotation(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int rotation){
 
 	int i, j, k, l;
-	int piece, row, col;
+	int piece;
 	
 	piece = storeMove->piece;
 
@@ -169,32 +168,32 @@ int fallingTetromino(BoardPtr board, MovePtr storeMove){
 
 int addTetromino(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove){
 	int i, j, l, y;
-	int shape, rotation, clash, row, col;
+	int shape, rotation, row, col;
 	col = WIDTH/2-TETRO_DIM/2;
 	shape = storeMove->piece;
 	rotation = storeMove->rotation;
-	wprintf(L"First Row check\r\n");
+	/*wprintf(L"First Row check\r\n");*/
 	for(i=0, row=-1; i<TETRO_DIM; i++){
 		for(j=0; j<TETRO_DIM; j++){
 			if(row==-1 && tetro[shape][rotation][i][j].status==TETRO_BOX)
 				row = i;
 		}
 	}
-	wprintf(L"Check Clash\r\n");
+	/*wprintf(L"Check Clash\r\n");*/
 	for(i=0, y = row; y<TETRO_DIM; y++, i++){
 		for(j=col, l=0; l<TETRO_DIM; j++, l++){
 			if(tetro[shape][rotation][y][l].status==TETRO_BOX && board[i][j].status==BOARD_BOX)
 				return 1;
 		}
 	}
-	wprintf(L"Valid add -> proceed to add the tetro to the board\r\n");
+	/*wprintf(L"Valid add -> proceed to add the tetro to the board\r\n");*/
 	for(i=0, y = row; y<TETRO_DIM; y++, i++){
 		for(j=col, l=0; l<TETRO_DIM; j++, l++){
 			if(tetro[shape][rotation][y][l].status==TETRO_BOX)
 				board[i][j].status = TETRO_BOX;
 		}
 	}
-	wprintf(L"Store new coordinates of tetromino in storeMove\r\n");
+	/*wprintf(L"Store new coordinates of tetromino in storeMove\r\n");*/
 	storeMove->row = row;
 	storeMove->col = col;
 	return 0;
@@ -206,14 +205,14 @@ int playerTurn(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int points
 
 void startGame(int mode){
 
-	int i, j;
 	int count = 0;
 
-	int move;
+
 	int skip;
 	int prevPoints;
 	int key=RESET;
 	int fall = 0;
+	int move = 1;
 	int complete = 0;
 	int points_1 = 0;
 	int points_2 = 0;
@@ -334,41 +333,7 @@ void startGame(int mode){
 	key=RESET;
 	wprintf(L"\r\nPress ENTER to exit\r\n");
 	waitUser();
-
-	/*
-	printBoard(board_1, board_2, mode);
-	waitUser();
-
-	printTetrominoes(tetro);
-	waitUser();
-
-	addTetromino(board_1, tetro, 0, 3);
-
-	printBoard(board_1, board_2, mode);
-	waitUser();
-
-	addTetromino(board_2, tetro, 3, 2);
-
-	printBoard(board_1, board_2, mode);
-	waitUser();
-
-	for(i=HEIGHT-1; i>=HEIGHT-7; i--){
-		if(i==HEIGHT-1 || i<HEIGHT-3)
-			for(j=0; j<WIDTH; j++)
-				board_2[i][j].status = BOARD_BOX;
-	}
-
-	printBoard(board_1, board_2, mode);
-	waitUser();
-
-	points_2 += clearFullRows(board_2);
-
-	wprintf(L"%d\r\n", points_2);
-	waitUser();
-
-	printBoard(board_1, board_2, mode);
-	waitUser();
-	*/
+	
 
 	destroyBoard(board_1);
 	destroyBoard(board_2);
