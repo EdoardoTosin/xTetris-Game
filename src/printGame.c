@@ -79,26 +79,31 @@ void gameOver(int points_1, int points_2, int mode){
   
   clearCLI();
 	
-	heightSpacing(7);
+	if(points_1 != points_2){
+    
+    heightSpacing(7);
 	
-	printCentered(L"WINNER:");
-	
-	wprintf(L"\r\n");
-	
-	if (points_1>points_2 && mode==SINGLEPLAYER){
-		printCentered(L"Player 1");
-	}
-	else if (points_2>points_1 && mode==SINGLEPLAYER){
-		printCentered(L"Bot");
-	}
-	else if (points_1>points_2 && mode==MULTIPLAYER){
-		printCentered(L"Player 1");
-	}
-	else if (points_1>points_2 && mode==MULTIPLAYER){
-		printCentered(L"Player 2");
+    printCentered(L"WINNER:");
+    
+    wprintf(L"\r\n");
+    
+    if (points_1>points_2 && mode==SINGLEPLAYER){
+      printCentered(L"Player 1");
+    }
+    else if (points_2>points_1 && mode==SINGLEPLAYER){
+      printCentered(L"Bot");
+    }
+    else if (points_1>points_2 && mode==MULTIPLAYER){
+      printCentered(L"Player 1");
+    }
+    else if (points_1>points_2 && mode==MULTIPLAYER){
+      printCentered(L"Player 2");
+    }
+    
 	}
 	else if(points_1 == points_2){
-		printCentered(L"none, tie.");
+		heightSpacing(6);
+    printCentered(L"TIE!!!");
 	}
 	
 	wprintf(L"\r\n\r\n");
