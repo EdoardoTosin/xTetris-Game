@@ -32,7 +32,7 @@ Source: [tetris.123-games.org](https://tetris.123-games.org/tut.html)
 - `D`: Move the tetromino to the right.
 - `Spacebar`: Accelerate tetromino falling.
 - `Enter`: Confirm.
-- `Esc`: Return back.
+- `Esc`: Go back.
 
 ## Requirements
 - [Git](https://git-scm.com/).
