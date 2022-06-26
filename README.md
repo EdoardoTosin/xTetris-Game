@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://github.com/EdoardoTosin/xTetris-Game">
-    <img src="https://github.com/EdoardoTosin/xTetris-Game/blob/main/doc/logo.png" alt="LOGO" height=200px></a>
+  <a href="https://raw.githubusercontent.com/EdoardoTosin/xTetris-Game">
+    <img src="https://raw.githubusercontent.com/EdoardoTosin/xTetris-Game/blob/main/doc/logo.png" alt="LOGO" height=200px></a>
 </p>
 
 ## Table of contents
@@ -24,6 +24,20 @@ This is a variant of the famous video game Tetris written in C (standard C89) fo
 * Game over: Stack the Tetriminos too high and the game is over!
 
 Source: [tetris.123-games.org](https://tetris.123-games.org/tut.html)
+
+## Controls
+- `W`: Rotate the tetromino 90° counter-clockwise.
+- `S`: Rotate the tetromino 90° clockwise.
+- `A`: Move the tetromino to the left.
+- `D`: Move the tetromino to the right.
+- `Spacebar`: Accelerate tetromino falling.
+- `Enter`: Confirm.
+- `Esc`: Return back.
+
+## Requirements
+- [Git](https://git-scm.com/).
+- [CMake](https://cmake.org/) (version equal or greater than 3.21).
+- (Optional) Set one of the [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) in your terminal for better display the special characters printed by the game.
 
 ## Compile
 Run the following commands on terminal:
