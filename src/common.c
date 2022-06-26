@@ -15,6 +15,8 @@ const wchar_t crSq = 0x274E; /* crossSquare ❎ */
 const wchar_t eSq = 0x2B1C; /* emptySquare ⬜ */
 const wchar_t fSq = 0x2B1B; /* fullSquare ⬛ */
 
+int timeLimit = 700;
+
 enum {NSEC_TO_SLEEP = 125, SECS_TO_SLEEP = 0};
 
 struct timespec request, remaining = {NSEC_TO_SLEEP, SECS_TO_SLEEP};
@@ -44,6 +46,21 @@ void delayTimer(int time){
 }
 
 struct winsize w;
+
+int intLen(int value){
+  
+  int length = 0;
+  
+  if (value != 0){
+    while(value!=0){  
+       value = value/10;  
+       length++;  
+    }
+  }
+  
+  return (length==0)?1:length;
+  
+}
 
 void widthSpacing(int filledWidth){
 
@@ -127,4 +144,11 @@ int waitUserInput(){
     nanosleep(&request, &remaining);
   }
   exitFailure();
+}
+
+void waitUser(){
+  int key=2;
+  while(key!=CARRIAGE_RETURN){
+    key = waitUserInput();
+  }
 }

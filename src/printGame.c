@@ -4,12 +4,6 @@
 #include "definitions.h"
 #include "struct.h"
 
-void waitUser(){
-  int key=2;
-  while(key!=CARRIAGE_RETURN){
-    key = waitUserInput();
-  }
-}
 
 void printSpacing(){
   
@@ -19,23 +13,27 @@ void printSpacing(){
     wprintf(L" ");
 }
 
-void printPlayersName(int mode){
+void printPlayersName(int points_1, int points_2, int mode){
 
-  int i, length;
-
+  int i, length, n;
+  
+  n = intLen(points_1);
+  
   wprintf(PL1);
-  length = wcslen(PL1);
+  wprintf(L": %d", points_1);
+  length = wcslen(PL1) + wcslen(L": ") + n;
   for (i=0; i<12*2-length; i++)
     wprintf(L" ");
   printSpacing();
-  if (mode==MULTIPLAYER)
+  if (mode == MULTIPLAYER)
     wprintf(L"Player 2");
   else
     wprintf(L"Bot");
+  wprintf(L": %d", points_2);
   wprintf(L"\r\n");
 }
 
-void printBoard(BoardPtr mat_1, BoardPtr mat_2, int mode){
+void printBoard(BoardPtr mat_1, BoardPtr mat_2, int points_1, int points_2, int mode){
 
   int i, j, k;
 
@@ -44,7 +42,7 @@ void printBoard(BoardPtr mat_1, BoardPtr mat_2, int mode){
   for (i=0; i<HEIGHT+2; i++){
     if (i==0 || i==HEIGHT+1){
       if (i==0)
-        printPlayersName(mode);
+        printPlayersName(points_1, points_2, mode);
       for (k=0; k<2; k++){
         for (j=0; j<WIDTH+2; j++)
           wprintf(L"%lc", fSq);
@@ -59,7 +57,7 @@ void printBoard(BoardPtr mat_1, BoardPtr mat_2, int mode){
           if (j==WIDTH+1)
             printSpacing();
         }
-        else if (mat_1[i-1][j-1].status>EMPTY_BOX)
+        else if (mat_1[i-1][j-1].status > EMPTY_BOX)
           wprintf(L"%lc", fSq);
         else
           wprintf(L"%lc", eSq);
@@ -67,7 +65,7 @@ void printBoard(BoardPtr mat_1, BoardPtr mat_2, int mode){
       for (j=0; j<WIDTH+2; j++){
         if (j==0 || j==WIDTH+1)
           wprintf(L"%lc", fSq);
-        else if (mat_2[i-1][j-1].status>EMPTY_BOX)
+        else if (mat_2[i-1][j-1].status > EMPTY_BOX)
           wprintf(L"%lc", fSq);
         else
           wprintf(L"%lc", eSq);
@@ -77,6 +75,39 @@ void printBoard(BoardPtr mat_1, BoardPtr mat_2, int mode){
   }
 }
 
+void gameOver(int points_1, int points_2, int mode){
+  
+  clearCLI();
+	
+	heightSpacing(7);
+	
+	printCentered(L"WINNER:");
+	
+	wprintf(L"\r\n");
+	
+	if (points_1>points_2 && mode==SINGLEPLAYER){
+		printCentered(L"Player 1");
+	}
+	else if (points_2>points_1 && mode==SINGLEPLAYER){
+		printCentered(L"Bot");
+	}
+	else if (points_1>points_2 && mode==MULTIPLAYER){
+		printCentered(L"Player 1");
+	}
+	else if (points_1>points_2 && mode==MULTIPLAYER){
+		printCentered(L"Player 2");
+	}
+	else if(points_1 == points_2){
+		printCentered(L"none, tie.");
+	}
+	
+	wprintf(L"\r\n\r\n");
+	
+	printCentered(L"Press ENTER to continue");
+	
+	waitUser();
+	
+}
 
 void printTetrominoes(TetrominoPtr parts){
 
