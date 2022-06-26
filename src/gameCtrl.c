@@ -311,9 +311,11 @@ void startGame(int mode){
 			}
 		}
 	}
+	
 
 	if(mode == MULTIPLAYER){
-		heightSpacing(2);
+		clearCLI();
+		heightSpacing(1);
 		printCentered(L"Press ENTER to continue with Player 2.\r\n");
 		waitUser();
 		prevPoints = 0;
