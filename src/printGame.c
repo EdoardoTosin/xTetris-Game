@@ -93,7 +93,7 @@ void gameOver(int points_1, int points_2, int mode){
       printCentered(L"Bot");
     else if (points_1>points_2 && mode==MULTIPLAYER)
       printCentered(L"Player 1");
-    else if (points_1>points_2 && mode==MULTIPLAYER)
+    else if (points_2>points_1 && mode==MULTIPLAYER)
       printCentered(L"Player 2");
 	}
 	else if(points_1 == points_2){
@@ -103,7 +103,7 @@ void gameOver(int points_1, int points_2, int mode){
 	
 	wprintf(L"\r\n\r\n");
 	
-	printCentered(L"Press ENTER to continue");
+	printCentered(L"🕹 Press ENTER to continue...");
 	
 	waitUser();
 	
