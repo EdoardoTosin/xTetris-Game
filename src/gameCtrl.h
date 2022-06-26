@@ -38,10 +38,11 @@ int validRotation(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int dir
 /*!
    \brief Check if a move of the tetromino is valid.
    @param[in] board Player board where the move needs to be verified.
+   @param[in] storeMove Struct where all  details of current move are stored.
    @param[in] move Direction (left -1, right 1) where the tetromino is moved.
    @param[out] move If valid 1, otherwise 0.
 */
-int validMove(BoardPtr board, int move);
+int validMove(BoardPtr board, MovePtr storeMove, int move);
 
 /*!
    \brief Check if tetromino has landed or will move it one step down.
@@ -59,8 +60,6 @@ int fallingTetromino(BoardPtr board, MovePtr storeMove);
    @param[out] complete Return a number based on tetromino addition (0 if it was added, 1 otherwise).
 */
 int addTetromino(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove);
-
-int playerTurn(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int points);
 
 /*!
    \brief Start the gameplay.

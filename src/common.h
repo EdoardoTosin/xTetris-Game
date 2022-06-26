@@ -22,6 +22,11 @@ wchar_t eSq;
 wchar_t fSq;
 
 /*!
+   \brief Time waiting before letting the tetromino fall one row below.
+*/
+int timeLimit;
+
+/*!
    \brief Global variables type `struct timespec` used for nanosleep paramenters.
 */
 struct timespec request, remaining;
@@ -48,6 +53,15 @@ void delayTimer(int timeDelay);
    \brief Global variable type `struct winsize` used for terminal width and height.
 */
 struct winsize w;
+
+/*!
+   \brief Calculate the length of a given number.
+   @param[in] value Number which needs his length calculated.
+   @param[in] length Return the length of the number.
+*/
+int intLen(int value);
+
+
 
 /*!
    \brief Apply an horizontal spacing based on window width and what need to be printed.
@@ -78,5 +92,10 @@ int u_getchar(void);
    @param[in] time Time in microseconds which the usleep is called.
 */
 int waitUserInput();
+
+/*!
+   \brief Wait until Enter key is pressed.
+*/
+void waitUser();
 
 #endif
