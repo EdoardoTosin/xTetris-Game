@@ -7,7 +7,7 @@
    \brief Allocate memory for BoardPtr struct.
    @param[out] mat Struct empty at the start for the tetriminos cells.
 */
-BoardPtr initializeBoard();
+BoardPtr initializeBoard(void);
 
 /*!
    \brief Free the BoardPtr struct passed as parameter.
@@ -20,7 +20,7 @@ void destroyBoard(BoardPtr board);
    \brief Allocate memory for MovePtr struct.
    @param[out] storeMove Struct that contains all the info about a single move (coordinates, shape and rotation).
 */
-MovePtr initializeMove();
+MovePtr initializeMove(void);
 
 /*!
    \brief Free the MovePtr struct passed as parameter.
@@ -33,7 +33,7 @@ void destroyMove(MovePtr storeMove);
    \brief Allocate memory for TetraminoPtr struct.
    @param[out] parts Struct that contains all tetrominoes shapes with all possible rotations: [N_PIECES][TETRO_ROT][TETRO_DIM][TETRO_DIM].
 */
-TetrominoPtr initializeTetrominoes();
+TetrominoPtr initializeTetrominoes(void);
 
 /*!
    \brief Free the TetrominoPtr struct passed as parameter.

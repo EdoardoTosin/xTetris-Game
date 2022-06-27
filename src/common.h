@@ -34,15 +34,15 @@ struct timespec request, remaining;
 /*!
    \brief Makes a beep sound.
 */
-void sound();
+void sound(void);
 /*!
    \brief Call the system function to clear the cli.
 */
-void clearCLI();
+void clearCLI(void);
 /*!
    \brief Exit the program after cleaning everything on screen.
 */
-void exitFailure();
+void exitFailure(void);
 /*!
    \brief Call the system sleep.
    @param[in] timeDelay Time of the sleep in seconds.
@@ -91,11 +91,11 @@ int u_getchar(void);
    \brief Loop until user press a valid key.
    @param[in] time Time in microseconds which the usleep is called.
 */
-int waitUserInput();
+int waitUserInput(void);
 
 /*!
    \brief Wait until Enter key is pressed.
 */
-void waitUser();
+void waitUser(void);
 
 #endif
