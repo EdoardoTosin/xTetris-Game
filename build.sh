@@ -3,7 +3,7 @@
 set -o errexit
 
 #Clean terminal
-clear
+#clear
 
 rm -rf build
 mkdir build

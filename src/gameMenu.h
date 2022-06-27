@@ -8,12 +8,12 @@
 /*!
    \brief Print the intro screen.
 */
-void welcome();
+void welcome(void);
 
 /*!
    \brief Print the end screen.
 */
-void goodbye();
+void goodbye(void);
 
 /*!
    \brief Print main menu.
@@ -38,12 +38,12 @@ void printPlayerMode(int *opt);
 /*!
    \brief Print the rules menu.
 */
-void printGuide();
+void printGuide(void);
 
 /*!
    \brief Print the credits menu.
 */
-void printCredits();
+void printCredits(void);
 
 /*!
    \brief Call the print of the current menu.

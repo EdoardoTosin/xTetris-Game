@@ -5,7 +5,7 @@
 #include "definitions.h"
 #include "struct.h"
 
-BoardPtr initializeBoard() {
+BoardPtr initializeBoard(void) {
 
   int i, j;
 
@@ -41,7 +41,7 @@ void destroyBoard(BoardPtr board){
 }
 
 
-MovePtr initializeMove(){
+MovePtr initializeMove(void){
   
   MovePtr storeMove = (struct Move *) malloc(sizeof(struct Move));
   
@@ -58,7 +58,7 @@ void destroyMove(MovePtr storeMove){
 }
 
 
-TetrominoPtr initializeTetrominoes(){
+TetrominoPtr initializeTetrominoes(void){
 
   int i, j, k, l;
 

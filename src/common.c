@@ -25,7 +25,7 @@ void sound(){
   wprintf(L"\a");
 }
 
-void clearCLI(){
+void clearCLI(void){
 
   int res;
   
@@ -36,7 +36,7 @@ void clearCLI(){
   }
 }
 
-void exitFailure(){
+void exitFailure(void){
   clearCLI();
   exit(EXIT_FAILURE);
 }
@@ -130,7 +130,7 @@ int u_getchar(void){
   return ret;
 }
 
-int waitUserInput(){
+int waitUserInput(void){
 
   int key=0;
 
@@ -146,7 +146,7 @@ int waitUserInput(){
   exitFailure();
 }
 
-void waitUser(){
+void waitUser(void){
   int key=2;
   while(key!=CARRIAGE_RETURN){
     key = waitUserInput();

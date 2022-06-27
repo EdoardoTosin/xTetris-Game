@@ -134,14 +134,12 @@ int validMove(BoardPtr board, MovePtr storeMove, int move){
 
 	for(i=0; i<HEIGHT; i++){
 		for(j=0; j<WIDTH; j++){
-			if(board[i][j].status==TETRO_BOX && (j+move<0 || j+move>=WIDTH))
-				return INVALID;
-			else if(board[i][j].status==TETRO_BOX && board[i][j+move].status>TETRO_BOX)
+			if(board[i][j].status==TETRO_BOX && (j+move<0 || j+move>=WIDTH || board[i][j+move].status>TETRO_BOX))
 				return INVALID;
 		}
 	}
 	
-	storeMove->col += move;
+	(storeMove->col) += move;
 	
 	return VALID;
 }

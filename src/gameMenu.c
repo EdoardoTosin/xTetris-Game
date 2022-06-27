@@ -31,7 +31,7 @@ void welcome(void){
   printCentered(L"🕹 Press ENTER to continue...");
 }
 
-void goodbye(){
+void goodbye(void){
   clearCLI();
   heightSpacing(10);
   widthSpacing(30);
@@ -84,7 +84,7 @@ void printPlayerMode(int* opt){
   printMenuItems(5, 7, (*opt)-1);
 }
 
-void printGuide(){
+void printGuide(void){
   heightSpacing(16);
   printMenuItems(2, 2, 0);
   wprintf(L"\r\n");
@@ -99,7 +99,7 @@ void printGuide(){
   printMenuItems(7, 7, 7);
 }
 
-void printCredits(){
+void printCredits(void){
   heightSpacing(6);
   printMenuItems(3, 3, 0);
   wprintf(L"\r\n");
