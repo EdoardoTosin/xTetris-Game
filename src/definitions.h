@@ -34,4 +34,4 @@
 #define PLAYER_2 (L"Player 2")
 #define BOT (L"Bot")
 
-#define MULTIPLIER (3)
+#define MULTIPLIER (5)
