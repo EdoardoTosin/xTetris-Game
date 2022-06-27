@@ -19,16 +19,16 @@ void printPlayersName(int points_1, int points_2, int mode){
   
   n = intLen(points_1);
   
-  wprintf(PL1);
+  wprintf(PLAYER_1);
   wprintf(L": %d", points_1);
-  length = wcslen(PL1) + wcslen(L": ") + n;
+  length = wcslen(PLAYER_1) + wcslen(L": ") + n;
   for (i=0; i<12*2-length; i++)
     wprintf(L" ");
   printSpacing();
   if (mode == MULTIPLAYER)
-    wprintf(L"Player 2");
+    wprintf(PLAYER_2);
   else
-    wprintf(L"Bot");
+    wprintf(BOT);
   wprintf(L": %d", points_2);
   wprintf(L"\r\n");
 }
@@ -88,13 +88,13 @@ void gameOver(int points_1, int points_2, int mode){
     wprintf(L"\r\n");
     
     if (points_1>points_2 && mode==SINGLEPLAYER)
-      printCentered(L"Player 1");
+      printCentered(PLAYER_1);
     else if (points_2>points_1 && mode==SINGLEPLAYER)
-      printCentered(L"Bot");
+      printCentered(BOT);
     else if (points_1>points_2 && mode==MULTIPLAYER)
-      printCentered(L"Player 1");
+      printCentered(PLAYER_1);
     else if (points_2>points_1 && mode==MULTIPLAYER)
-      printCentered(L"Player 2");
+      printCentered(PLAYER_2);
 	}
 	else if(points_1 == points_2){
 		heightSpacing(6);
