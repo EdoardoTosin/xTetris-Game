@@ -224,7 +224,7 @@ int addTetromino(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove){
 
 void startGame(int mode){
 
-	int skip, prevPoints, fall, move, complete;
+	int skip, prevPoints, fall, move, complete, variableTLimit;
 	
 	int key = RESET;
 	int points_1 = 0;
@@ -241,6 +241,7 @@ void startGame(int mode){
 	storeMove = initializeMove();
 	tetro = initializeTetrominoes();
 
+	variableTLimit = timeLimit;
 	prevPoints = 0;
 	fall = 0;
 	move = 1;
@@ -296,7 +297,7 @@ void startGame(int mode){
 				}
 				timeDiff = (clock()-start)*1000/CLOCKS_PER_SEC;
 			}
-			while(timeDiff<timeLimit && skip==0);
+			while(timeDiff<variableTLimit && skip==0);
 			fall = fallingTetromino(board_1, storeMove);
 			printBoard(board_1, board_2, points_1, points_2, mode);
 			if(fall==0){
@@ -304,6 +305,7 @@ void startGame(int mode){
 				points_1 += clearFullRows(board_1);
 				if (points_1 != prevPoints){
 					printBoard(board_1, board_2, points_1, points_2, mode);
+					variableTLimit -= MULTIPLIER * (points_1 - prevPoints);
 					move = 1;
 				}
 			}
@@ -316,6 +318,7 @@ void startGame(int mode){
 		heightSpacing(1);
 		printCentered(L"🕹 Press ENTER to continue with second player...");
 		waitUser();
+		variableTLimit = timeLimit;
 		prevPoints = 0;
 		fall = 0;
 		move = 1;
@@ -371,7 +374,7 @@ void startGame(int mode){
 					}
 					timeDiff = (clock()-start)*1000/CLOCKS_PER_SEC;
 				}
-				while(timeDiff<timeLimit && skip==0);
+				while(timeDiff<variableTLimit && skip==0);
 				fall = fallingTetromino(board_2, storeMove);
 				printBoard(board_1, board_2, points_1, points_2, mode);
 				if(fall==0){
@@ -379,6 +382,7 @@ void startGame(int mode){
 					points_2 += clearFullRows(board_2);
 					if (points_2 != prevPoints){
 						printBoard(board_1, board_2, points_1, points_2, mode);
+						variableTLimit -= MULTIPLIER * (points_2 - prevPoints);
 						move = 1;
 					}
 				}

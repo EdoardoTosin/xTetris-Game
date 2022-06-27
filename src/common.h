@@ -24,7 +24,7 @@ wchar_t fSq;
 /*!
    \brief Time waiting before letting the tetromino fall one row below.
 */
-int timeLimit;
+const int timeLimit;
 
 /*!
    \brief Global variables type `struct timespec` used for nanosleep paramenters.
