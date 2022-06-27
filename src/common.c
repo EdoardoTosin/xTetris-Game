@@ -15,7 +15,7 @@ const wchar_t crSq = 0x274E; /* crossSquare ❎ */
 const wchar_t eSq = 0x2B1C; /* emptySquare ⬜ */
 const wchar_t fSq = 0x2B1B; /* fullSquare ⬛ */
 
-int timeLimit = 700;
+const int timeLimit = 1000;
 
 enum {NSEC_TO_SLEEP = 125, SECS_TO_SLEEP = 0};
 
