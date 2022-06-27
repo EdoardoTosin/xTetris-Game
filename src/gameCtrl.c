@@ -32,24 +32,24 @@ int clearFullRows(BoardPtr board){
 	int i, j, totPoints, consecutive, row, points;
 	int fullRow[HEIGHT];
 
-	for(i=HEIGHT-1, row=1; i>=0; i--){
-		row = 1;
-		fullRow[i] = 0;
+	for(i=HEIGHT-1; i>=0; i--){
+		row = VALID;
+		fullRow[i] = INVALID;
 		for(j=0; j<WIDTH; j++){
 			if(board[i][j].status==EMPTY_BOX){
 				j = WIDTH;
-				row = 0;
+				row = INVALID;
 			}
 		}
-		if(row!=0){
-			fullRow[i] = 1;
+		if(row == VALID){
+			fullRow[i] = VALID;
 		}
 	}
 
 	for(i=0, consecutive=0, totPoints=0; i<HEIGHT; i++){
-		if(fullRow[i]!=0){
+		if(fullRow[i] == VALID){
 			consecutive++;
-			if((i+1<HEIGHT && fullRow[i+1]==0) || i==HEIGHT-1){
+			if((i+1<HEIGHT && fullRow[i+1]==VALID) || i==HEIGHT-1){
 				points=1;
 				if(consecutive>1)
 					for(j=2, points=3; j<consecutive; j++)
@@ -60,8 +60,8 @@ int clearFullRows(BoardPtr board){
 		}
 	}
 
-	for(i=HEIGHT-1, row = HEIGHT-1; i>=0; i--, row--){
-		while(fullRow[row]!=0 && row>=0){
+	for(i=HEIGHT-1, row=HEIGHT-1; i>=0; i--, row--){
+		while(row>=0 && fullRow[row]==VALID){
 			row--;
 		}
 		if (row!=i){
@@ -105,20 +105,20 @@ int validRotation(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int dir
 	int i, j, k, l;
 	int piece, rotation;
 	
-	rotation = storeMove->rotation + direction;
-	if(rotation<0 || rotation>3){
-		rotation = rotation - (direction) * 3;
-	}
 	
 	piece = storeMove->piece;
+	rotation = storeMove->rotation + direction;
+	
+	if(rotation<0 || rotation>=TETRO_ROT)
+		rotation -= (direction * 4);
 
-	for(i=storeMove->row, k=0; k<TETRO_DIM; i++, k++){
-		for(j=storeMove->col, l=0; l<TETRO_DIM; j++, l++){
-			if(i>0 && i<WIDTH && j>0 && j<HEIGHT && board[i][j].status>TETRO_BOX && tetro[piece][rotation][k][l].status==TETRO_BOX){
+	for(k=0, i = storeMove->row; k<TETRO_DIM; i++, k++){
+		for(l=0, j = storeMove->col; l<TETRO_DIM; j++, l++){
+			if(i>=0 && i<HEIGHT && j>=0 && j<WIDTH && board[i][j].status==BOARD_BOX && tetro[piece][rotation][k][l].status==TETRO_BOX){
 				return INVALID;
 			}
-			else if((i<=0 || i>=WIDTH || j<0 || j>=HEIGHT) && tetro[piece][rotation][k][l].status==TETRO_BOX){
-				return INVALID; /* i<=0 evaluation ?? */
+			else if((i<0 || i>=HEIGHT || j<0 || j>=WIDTH) && tetro[piece][rotation][k][l].status==TETRO_BOX){
+				return INVALID;
 			}
 		}
 	}
@@ -197,9 +197,9 @@ int addTetromino(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove){
 	shape = storeMove->piece;
 	rotation = storeMove->rotation;
 	
-	for(i=0, row=-1; i<TETRO_DIM; i++){
-		for(j=0; j<TETRO_DIM; j++){
-			if(row==-1 && tetro[shape][rotation][i][j].status==TETRO_BOX)
+	for(i=0, row=-1; i<TETRO_DIM && row==-1; i++){
+		for(j=0; j<TETRO_DIM && row==-1; j++){
+			if(tetro[shape][rotation][i][j].status==TETRO_BOX && row==-1)
 				row = i;
 		}
 	}
@@ -216,8 +216,8 @@ int addTetromino(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove){
 		}
 	}
 	
-	storeMove->row = row;
-	storeMove->col = col;
+	storeMove->row = 0 - row;
+	storeMove->col = col - 0;
 	
 	return 0;
 }
