@@ -25,15 +25,15 @@ void welcome(void){
   wprintf(L"\r\n");
   wprintf(L"\r\n");
   wprintf(L"\r\n");
-  printCentered(L"🎮 Controls: W⏫, A⏪, S⏬, D⏩, Enter✅, Esc❎");
+  printCentered(L"🎮 Controls: W🔄, A⏪, S🔃, D⏩, Spacebar👽, Enter✅, Esc❎");
   wprintf(L"\r\n");
   wprintf(L"\r\n");
   printCentered(L"🕹 Press ENTER to continue...");
 }
 
-void goodbye(){
+void goodbye(void){
   clearCLI();
-  heightSpacing(5);
+  heightSpacing(10);
   widthSpacing(30);
   wprintf(L"                              ✨\r\n");
   widthSpacing(30);
@@ -78,28 +78,13 @@ void printMainMenu(int *opt){
 }
 
 void printPlayerMode(int* opt){
-  heightSpacing(5);
+  heightSpacing(9);
   printMenuItems(1, 1, 0);
   wprintf(L"\r\n");
   printMenuItems(5, 7, (*opt)-1);
 }
 
-void secondPlayerName(PlNamePtr pl1, PlNamePtr pl2, int mode){
-  pl1->name=L"Player 1";
-  wprintf(L"\r\n");
-  wprintf(L"%ls\r\n", pl1->name);
-  wprintf(L"%ls\r\n", pl2->name);
-  if (mode==1)
-    pl2->name=L"Player 2";
-  else
-    pl2->name=L"Bot";
-  wprintf(L"\r\n");
-  wprintf(L"%ls\r\n", pl1->name);
-  wprintf(L"%ls\r\n", pl2->name);
-  delayTimer(2);
-}
-
-void printGuide(){
+void printGuide(void){
   heightSpacing(16);
   printMenuItems(2, 2, 0);
   wprintf(L"\r\n");
@@ -114,7 +99,7 @@ void printGuide(){
   printMenuItems(7, 7, 7);
 }
 
-void printCredits(){
+void printCredits(void){
   heightSpacing(6);
   printMenuItems(3, 3, 0);
   wprintf(L"\r\n");
@@ -138,7 +123,7 @@ void printCurrentMenu(int *menu, int *opt){
 }
 
 int choiceCtrl(int menu, int opt, int min, int max){
-  int key=0;
+  int key=RESET;
   printCurrentMenu(&menu, &opt);
   while(1){
     if(u_kbhit()){

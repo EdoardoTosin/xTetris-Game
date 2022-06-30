@@ -8,12 +8,12 @@
 /*!
    \brief Print the intro screen.
 */
-void welcome();
+void welcome(void);
 
 /*!
    \brief Print the end screen.
 */
-void goodbye();
+void goodbye(void);
 
 /*!
    \brief Print main menu.
@@ -36,21 +36,14 @@ void printMainMenu(int *opt);
 void printPlayerMode(int *opt);
 
 /*!
-   \brief Prepare the second player name based on the mode selected.
-   @param[in] pl2 Pointer to Player 2 name.
-   @param[in] mode Define wich mode has been selected: singleplayer or multiplayer.
-*/
-void secondPlayerName(PlNamePtr pl1, PlNamePtr pl2, int mode);
-
-/*!
    \brief Print the rules menu.
 */
-void printGuide();
+void printGuide(void);
 
 /*!
    \brief Print the credits menu.
 */
-void printCredits();
+void printCredits(void);
 
 /*!
    \brief Call the print of the current menu.

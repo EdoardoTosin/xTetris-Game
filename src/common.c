@@ -10,6 +10,13 @@
 
 #include "definitions.h"
 
+const wchar_t chSq = 0x2705; /* checkSquare ✅ */
+const wchar_t crSq = 0x274E; /* crossSquare ❎ */
+const wchar_t eSq = 0x2B1C; /* emptySquare ⬜ */
+const wchar_t fSq = 0x2B1B; /* fullSquare ⬛ */
+
+const int timeLimit = 1000;
+
 enum {NSEC_TO_SLEEP = 125, SECS_TO_SLEEP = 0};
 
 struct timespec request, remaining = {NSEC_TO_SLEEP, SECS_TO_SLEEP};
@@ -18,8 +25,10 @@ void sound(){
   wprintf(L"\a");
 }
 
-void clearCLI(){
+void clearCLI(void){
+
   int res;
+  
   res = system("clear");
   if (res == 1){
     clearCLI();
@@ -27,7 +36,7 @@ void clearCLI(){
   }
 }
 
-void exitFailure(){
+void exitFailure(void){
   clearCLI();
   exit(EXIT_FAILURE);
 }
@@ -38,8 +47,25 @@ void delayTimer(int time){
 
 struct winsize w;
 
+int intLen(int value){
+  
+  int length = 0;
+  
+  if (value != 0){
+    while(value!=0){  
+       value = value/10;  
+       length++;  
+    }
+  }
+  
+  return (length==0)?1:length;
+  
+}
+
 void widthSpacing(int filledWidth){
+
   int i;
+  
   ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
   for(i=0; i<(w.ws_col-filledWidth)/2; i++)
     wprintf(L" ");
@@ -51,14 +77,13 @@ void printCentered(wchar_t *text){
 }
 
 void heightSpacing(int filledHeight){
+
   int i;
+
   ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
   for(i=0; i<(w.ws_row-filledHeight)/2; i++)
     wprintf(L"\r\n");
 }
-
-const wchar_t eSq = 0x2B1C; /* emptySquare ⬜ */
-const wchar_t fSq = 0x2B1B; /* fullSquare ⬛ */
 
 static struct termios orig_term;
 
@@ -67,6 +92,7 @@ void u_cleanup(void){
 }
 
 int u_kbhit(void){
+
   struct termios t;
   fd_set rfd;
   struct timeval to;
@@ -93,6 +119,7 @@ int u_kbhit(void){
 }
 
 int u_getchar(void){
+
   int ret;
   unsigned char buf;
 
@@ -103,8 +130,10 @@ int u_getchar(void){
   return ret;
 }
 
-int waitUserInput(){
+int waitUserInput(void){
+
   int key=0;
+
   while(1){
     if(u_kbhit()){
       key=u_getchar();
@@ -115,4 +144,11 @@ int waitUserInput(){
     nanosleep(&request, &remaining);
   }
   exitFailure();
+}
+
+void waitUser(void){
+  int key=2;
+  while(key!=CARRIAGE_RETURN){
+    key = waitUserInput();
+  }
 }
