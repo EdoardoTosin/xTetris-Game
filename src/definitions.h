@@ -35,3 +35,5 @@
 #define BOT (L"Bot")
 
 #define MULTIPLIER (5)
+
+#define NSEC_TO_SLEEP (10)

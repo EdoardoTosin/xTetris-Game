@@ -153,7 +153,7 @@ int choiceCtrl(int menu, int opt, int min, int max){
       else if(key==CTRL_C)
         exitFailure();
     }
-    nanosleep(&request, &remaining);
+    usleep(NSEC_TO_SLEEP);
   }
   exitFailure();
 }
