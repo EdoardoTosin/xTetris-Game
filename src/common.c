@@ -17,10 +17,6 @@ const wchar_t fSq = 0x2B1B; /* fullSquare ⬛ */
 
 const int timeLimit = 1000;
 
-enum {NSEC_TO_SLEEP = 125, SECS_TO_SLEEP = 0};
-
-struct timespec request, remaining = {NSEC_TO_SLEEP, SECS_TO_SLEEP};
-
 void sound(){
   wprintf(L"\a");
 }
@@ -141,7 +137,7 @@ int waitUserInput(void){
         exitFailure();
       return key;
     }
-    nanosleep(&request, &remaining);
+    usleep(NSEC_TO_SLEEP);
   }
   exitFailure();
 }

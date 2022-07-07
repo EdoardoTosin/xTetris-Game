@@ -3,6 +3,7 @@
 #include <wchar.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 #include "common.h"
 #include "definitions.h"
 #include "struct.h"
@@ -293,7 +294,7 @@ void startGame(int mode){
 					}
 					else if(key==CTRL_C)
 						exitFailure();
-					nanosleep(&request, &remaining);
+					usleep(NSEC_TO_SLEEP);
 				}
 				timeDiff = (clock()-start)*1000/CLOCKS_PER_SEC;
 			}
@@ -370,7 +371,7 @@ void startGame(int mode){
 						}
 						else if(key==CTRL_C)
 							exitFailure();
-						nanosleep(&request, &remaining);
+						usleep(NSEC_TO_SLEEP);
 					}
 					timeDiff = (clock()-start)*1000/CLOCKS_PER_SEC;
 				}
