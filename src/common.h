@@ -39,6 +39,7 @@ void sound(void);
 */
 
 void clearCLI(void);
+
 /*!
    \brief Exit the program after cleaning everything on screen.
 */
