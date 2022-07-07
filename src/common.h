@@ -8,14 +8,17 @@
    \brief Assign unicode character (green check square) to this global variable.
 */
 wchar_t chSq;
+
 /*!
    \brief Assign unicode character (green crossed square) to this global variable.
 */
 wchar_t crSq;
+
 /*!
    \brief Assign unicode character (white square) to this global variable.
 */
 wchar_t eSq;
+
 /*!
    \brief Assign unicode character (black square) to this global variable.
 */
@@ -27,22 +30,20 @@ wchar_t fSq;
 const int timeLimit;
 
 /*!
-   \brief Global variables type `struct timespec` used for nanosleep paramenters.
-*/
-struct timespec request, remaining;
-
-/*!
    \brief Makes a beep sound.
 */
 void sound(void);
+
 /*!
    \brief Call the system function to clear the cli.
 */
 void clearCLI(void);
+
 /*!
    \brief Exit the program after cleaning everything on screen.
 */
 void exitFailure(void);
+
 /*!
    \brief Call the system sleep.
    @param[in] timeDelay Time of the sleep in seconds.
