@@ -17,10 +17,6 @@ const wchar_t fSq = 0x2B1B; /* fullSquare ⬛ */
 
 const int timeLimit = 1000;
 
-enum {NSEC_TO_SLEEP = 125, SECS_TO_SLEEP = 0};
-
-struct timespec request, remaining = {NSEC_TO_SLEEP, SECS_TO_SLEEP};
-
 void sound(){
   wprintf(L"\a");
 }
@@ -28,7 +24,7 @@ void sound(){
 void clearCLI(void){
 
   int res;
-  
+
   res = system("clear");
   if (res == 1){
     clearCLI();
@@ -48,24 +44,24 @@ void delayTimer(int time){
 struct winsize w;
 
 int intLen(int value){
-  
+
   int length = 0;
-  
+
   if (value != 0){
-    while(value!=0){  
-       value = value/10;  
-       length++;  
+    while(value!=0){
+       value = value/10;
+       length++;
     }
   }
-  
+
   return (length==0)?1:length;
-  
+
 }
 
 void widthSpacing(int filledWidth){
 
   int i;
-  
+
   ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
   for(i=0; i<(w.ws_col-filledWidth)/2; i++)
     wprintf(L" ");
@@ -141,7 +137,7 @@ int waitUserInput(void){
         exitFailure();
       return key;
     }
-    nanosleep(&request, &remaining);
+    usleep(NSEC_TO_SLEEP);
   }
   exitFailure();
 }

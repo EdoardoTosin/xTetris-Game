@@ -3,6 +3,7 @@
 #include <wchar.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 #include "common.h"
 #include "definitions.h"
 #include "struct.h"
@@ -13,10 +14,10 @@
 int randGen(int min, int max){
 
 	unsigned long partSize, endOfLastPart, range, r;
-	
+
 	range = max - min + 1;
 
-	partSize = ((unsigned long)RAND_MAX + 1) / range; 
+	partSize = ((unsigned long)RAND_MAX + 1) / range;
 	endOfLastPart = partSize * range;
 
 	r = rand();
@@ -78,37 +79,37 @@ int clearFullRows(BoardPtr board){
 }
 
 void makeMove(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove){
-	
+
 	int i, j, k, l, piece, rotation;
-	
+
 	piece = storeMove->piece;
 	rotation = storeMove->rotation;
-	
+
 	for(i=0; i<HEIGHT; i++){
 		for(j=0; j<WIDTH; j++){
 			if(board[i][j].status == TETRO_BOX)
 				board[i][j].status = EMPTY_BOX;
 		}
 	}
-	
+
 	for(i=(storeMove->row), l=0; l<TETRO_DIM; i++, l++){
 		for(j=(storeMove->col), k=0; k<TETRO_DIM; j++, k++){
 			if(tetro[piece][rotation][l][k].status == TETRO_BOX)
 				board[i][j].status = TETRO_BOX;
 		}
 	}
-	
+
 }
 
 int validRotation(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int direction){
 
 	int i, j, k, l;
 	int piece, rotation;
-	
-	
+
+
 	piece = storeMove->piece;
 	rotation = storeMove->rotation + direction;
-	
+
 	if(rotation<0 || rotation>=TETRO_ROT)
 		rotation -= (direction * 4);
 
@@ -122,9 +123,9 @@ int validRotation(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int dir
 			}
 		}
 	}
-	
+
 	storeMove->rotation = rotation;
-	
+
 	return VALID;
 }
 
@@ -138,9 +139,9 @@ int validMove(BoardPtr board, MovePtr storeMove, int move){
 				return INVALID;
 		}
 	}
-	
+
 	(storeMove->col) += move;
-	
+
 	return VALID;
 }
 
@@ -185,18 +186,18 @@ int fallingTetromino(BoardPtr board, MovePtr storeMove){
 }
 
 int addTetromino(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove){
-	
+
 	int i, j, l, y;
 	int shape, rotation, row, col;
-	
+
 	storeMove->piece = randGen(0, N_PIECES-1);
 	storeMove->rotation = randGen(0, TETRO_ROT-1);
-	
+
 	col = WIDTH/2 - TETRO_DIM/2;
-	
+
 	shape = storeMove->piece;
 	rotation = storeMove->rotation;
-	
+
 	for(i=0, row=-1; i<TETRO_DIM && row==-1; i++){
 		for(j=0; j<TETRO_DIM && row==-1; j++){
 			if(tetro[shape][rotation][i][j].status==TETRO_BOX && row==-1)
@@ -215,17 +216,17 @@ int addTetromino(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove){
 				board[i][j].status = TETRO_BOX;
 		}
 	}
-	
+
 	storeMove->row = 0 - row;
 	storeMove->col = col - 0;
-	
+
 	return 0;
 }
 
 void startGame(int mode){
 
 	int skip, prevPoints, fall, move, complete, variableTLimit;
-	
+
 	int key = RESET;
 	int points_1 = 0;
 	int points_2 = 0;
@@ -293,7 +294,7 @@ void startGame(int mode){
 					}
 					else if(key==CTRL_C)
 						exitFailure();
-					nanosleep(&request, &remaining);
+					usleep(NSEC_TO_SLEEP);
 				}
 				timeDiff = (clock()-start)*1000/CLOCKS_PER_SEC;
 			}
@@ -311,7 +312,7 @@ void startGame(int mode){
 			}
 		}
 	}
-	
+
 
 	if(mode == MULTIPLAYER){
 		clearCLI();
@@ -370,7 +371,7 @@ void startGame(int mode){
 						}
 						else if(key==CTRL_C)
 							exitFailure();
-						nanosleep(&request, &remaining);
+						usleep(NSEC_TO_SLEEP);
 					}
 					timeDiff = (clock()-start)*1000/CLOCKS_PER_SEC;
 				}
@@ -389,7 +390,7 @@ void startGame(int mode){
 			}
 		}
 	}
-	
+
 	gameOver(points_1, points_2, mode);
 
 	destroyBoard(board_1);
