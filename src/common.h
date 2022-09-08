@@ -37,7 +37,6 @@ void sound(void);
 /*!
    \brief Call the system function to clear the cli.
 */
-
 void clearCLI(void);
 
 /*!
