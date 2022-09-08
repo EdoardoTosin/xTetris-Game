@@ -24,7 +24,7 @@ void sound(){
 void clearCLI(void){
 
   int res;
-  
+
   res = system("clear");
   if (res == 1){
     clearCLI();
@@ -44,24 +44,24 @@ void delayTimer(int time){
 struct winsize w;
 
 int intLen(int value){
-  
+
   int length = 0;
-  
+
   if (value != 0){
-    while(value!=0){  
-       value = value/10;  
-       length++;  
+    while(value!=0){
+       value = value/10;
+       length++;
     }
   }
-  
+
   return (length==0)?1:length;
-  
+
 }
 
 void widthSpacing(int filledWidth){
 
   int i;
-  
+
   ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
   for(i=0; i<(w.ws_col-filledWidth)/2; i++)
     wprintf(L" ");
