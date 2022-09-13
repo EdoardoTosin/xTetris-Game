@@ -1,6 +1,7 @@
 #ifndef STRUCT_H
 #define STRUCT_H
 
+
 struct Cell {
   int status;
 };
@@ -18,5 +19,6 @@ struct TetrominoCell {
   int status;
 };
 typedef struct TetrominoCell **** TetrominoPtr;
+
 
 #endif

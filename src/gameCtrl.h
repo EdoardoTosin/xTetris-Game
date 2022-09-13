@@ -1,7 +1,9 @@
 #ifndef GAMECTRL_H
 #define GAMECTRL_H
 
+
 #include <time.h>
+
 #include "struct.h"
 
 /*!
@@ -66,5 +68,6 @@ int addTetromino(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove);
    @param[in] mode Singleplayer or Multiplayer (0 or 1).
 */
 void startGame(int mode);
+
 
 #endif

@@ -8,6 +8,7 @@
 #include <sys/time.h>
 #include <sys/types.h>
 
+#include "common.h"
 #include "definitions.h"
 
 const wchar_t chSq = 0x2705; /* checkSquare ✅ */

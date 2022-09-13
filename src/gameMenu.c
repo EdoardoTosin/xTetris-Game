@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <wchar.h>
 
+#include "gameMenu.h"
 #include "common.h"
 #include "definitions.h"
 #include "struct.h"

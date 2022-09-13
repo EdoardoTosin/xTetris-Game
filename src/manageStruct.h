@@ -1,6 +1,7 @@
 #ifndef MANAGESTRUCT_H
 #define MANAGESTRUCT_H
 
+
 #include "struct.h"
 
 /*!

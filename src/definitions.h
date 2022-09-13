@@ -1,3 +1,7 @@
+#ifndef DEFINITIONS_H
+#define DEFINITIONS_H
+
+
 #define HEIGHT (15)
 #define WIDTH (10)
 #define SPACING (8)
@@ -37,3 +41,6 @@
 #define MULTIPLIER (5)
 
 #define NSEC_TO_SLEEP (10)
+
+
+#endif

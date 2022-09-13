@@ -1,7 +1,9 @@
 #ifndef PRINTGAME_H
 #define PRINTGAME_H
 
+
 #include <wchar.h>
+
 #include "struct.h"
 
 
@@ -41,5 +43,6 @@ void gameOver(int points_1, int points_2, int mode);
    @param[in] parts Struct containing all possible tetrominoes' shapes.
 */
 void printTetrominoes(TetrominoPtr parts);
+
 
 #endif

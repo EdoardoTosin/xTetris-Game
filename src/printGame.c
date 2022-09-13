@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <wchar.h>
+
+#include "printGame.h"
 #include "common.h"
 #include "definitions.h"
 #include "struct.h"

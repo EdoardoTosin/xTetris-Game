@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <wchar.h>
+
+#include "manageStruct.h"
 #include "common.h"
 #include "definitions.h"
 #include "struct.h"

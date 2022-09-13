@@ -5,6 +5,7 @@
 #include <time.h>
 #include <unistd.h>
 
+#include "gameCtrl.h"
 #include "common.h"
 #include "definitions.h"
 #include "struct.h"

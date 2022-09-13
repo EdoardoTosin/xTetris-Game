@@ -8,22 +8,22 @@
 /*!
    \brief Assign unicode character (green check square) to this global variable.
 */
-const wchar_t chSq;
+wchar_t chSq;
 
 /*!
    \brief Assign unicode character (green crossed square) to this global variable.
 */
-const wchar_t crSq;
+wchar_t crSq;
 
 /*!
    \brief Assign unicode character (white square) to this global variable.
 */
-const wchar_t eSq;
+wchar_t eSq;
 
 /*!
    \brief Assign unicode character (black square) to this global variable.
 */
-const wchar_t fSq;
+wchar_t fSq;
 
 /*!
    \brief Time waiting before letting the tetromino fall one row below.
