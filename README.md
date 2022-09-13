@@ -3,14 +3,6 @@
     <img src="https://github.com/EdoardoTosin/xTetris-Game/blob/main/doc/logo.png" alt="LOGO" height=200px></a>
 </p>
 
-## Table of contents
-* [General info](#general-info)
-* [Gameplay](#gameplay)
-* [Compile](#compile)
-* [Launch](#launch)
-* [Documentation](#documentation)
-* [License](#license)
-
 ## General info
 This is a variant of the famous video game Tetris written in C (standard C89) for Linux.
 
