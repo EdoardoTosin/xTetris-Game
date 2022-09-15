@@ -11,12 +11,12 @@
 #include "common.h"
 #include "definitions.h"
 
-chSq = 0x2705; /* checkSquare ✅ */
-crSq = 0x274E; /* crossSquare ❎ */
-eSq = 0x2B1C; /* emptySquare ⬜ */
-fSq = 0x2B1B; /* fullSquare ⬛ */
+const wchar_t chSq = 0x2705; /* checkSquare ✅ */
+const wchar_t crSq = 0x274E; /* crossSquare ❎ */
+const wchar_t eSq = 0x2B1C; /* emptySquare ⬜ */
+const wchar_t fSq = 0x2B1B; /* fullSquare ⬛ */
 
-timeLimit = 1000;
+const int timeLimit = 1000;
 
 void sound(){
   wprintf(L"\a");

@@ -1,7 +1,7 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-
+#include <stddef.h>
 #include <time.h>
 #include <sys/ioctl.h>
 
