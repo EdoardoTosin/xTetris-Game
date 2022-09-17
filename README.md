@@ -51,6 +51,6 @@ Doxygen documentation of the project is available [here](https://edoardotosin.gi
 
 ## License
 
-Copyright (c) 2021 [Lorenzo Tosin](https://github.com/LorenzoTosin) & [Edoardo Tosin](https://github.com/EdoardoTosin)
+Copyright (c) 2021 [Edoardo Tosin](https://github.com/EdoardoTosin)
 
 This software is released under the terms of the GNU General Public License v3.0. See the [LICENSE](https://github.com/EdoardoTosin/xTetris-Game/tree/main/LICENSE) file for further information.
