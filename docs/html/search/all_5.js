@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['fallingtetromino_0',['fallingTetromino',['../da/dab/game_ctrl_8c.html#a11eb6e6130e41cc7ebdcef90c36a31c7',1,'fallingTetromino(BoardPtr board, MovePtr storeMove):&#160;gameCtrl.c'],['../da/dca/game_ctrl_8h.html#a11eb6e6130e41cc7ebdcef90c36a31c7',1,'fallingTetromino(BoardPtr board, MovePtr storeMove):&#160;gameCtrl.c']]],
-  ['fsq_1',['fSq',['../d8/d19/common_8c.html#a7d53f237e8a34b6c1dd46d31dbdade7d',1,'fSq():&#160;common.c'],['../dc/d54/common_8h.html#a7d53f237e8a34b6c1dd46d31dbdade7d',1,'fSq():&#160;common.h']]]
+  ['empty_5fbox_0',['EMPTY_BOX',['../d6/dc2/definitions_8h.html#a7524a27b8e22e4f4b1ee8058ed0e3f01',1,'definitions.h']]],
+  ['escape_1',['ESCAPE',['../d6/dc2/definitions_8h.html#afe4b0e625372cd38ec60150d6f5594b8',1,'definitions.h']]],
+  ['esq_2',['esq',['../d8/d19/common_8c.html#aa29ca3b9020f3e27f10107758a0e17c1',1,'eSq:&#160;common.c'],['../dc/d54/common_8h.html#aa29ca3b9020f3e27f10107758a0e17c1',1,'eSq:&#160;common.c']]],
+  ['exitfailure_3',['exitfailure',['../d8/d19/common_8c.html#ac35f8b5f76bc207391aa69672b203b22',1,'exitFailure(void):&#160;common.c'],['../dc/d54/common_8h.html#ac35f8b5f76bc207391aa69672b203b22',1,'exitFailure(void):&#160;common.c']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['tetro_5fbox_0',['TETRO_BOX',['../d6/dc2/definitions_8h.html#a48795bfe784e87662a7936da532c6aad',1,'definitions.h']]],
-  ['tetro_5fdim_1',['TETRO_DIM',['../d6/dc2/definitions_8h.html#a5863f7465fa7be359a4d9de6c1f5deeb',1,'definitions.h']]],
-  ['tetro_5frot_2',['TETRO_ROT',['../d6/dc2/definitions_8h.html#a2bc94d77772d1fd06fcb0d1a70f9be93',1,'definitions.h']]]
+  ['platform_5fid_0',['platform_id',['../d1/d3a/_c_make_c_compiler_id_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID:&#160;CMakeCCompilerId.c'],['../d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID:&#160;CMakeCXXCompilerId.cpp']]],
+  ['player_5f1_1',['PLAYER_1',['../d6/dc2/definitions_8h.html#a246b16b4fade4f30665186ebfaf64f47',1,'definitions.h']]],
+  ['player_5f2_2',['PLAYER_2',['../d6/dc2/definitions_8h.html#afb2c94bd60a4f2b00395150e55c33d7c',1,'definitions.h']]]
 ];

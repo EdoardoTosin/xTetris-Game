@@ -8,27 +8,27 @@
 /*!
    \brief Assign unicode character (green check square) to this global variable.
 */
-const wchar_t chSq;
+extern const wchar_t chSq;
 
 /*!
    \brief Assign unicode character (green crossed square) to this global variable.
 */
-const wchar_t crSq;
+extern const wchar_t crSq;
 
 /*!
    \brief Assign unicode character (white square) to this global variable.
 */
-const wchar_t eSq;
+extern const wchar_t eSq;
 
 /*!
    \brief Assign unicode character (black square) to this global variable.
 */
-const wchar_t fSq;
+extern const wchar_t fSq;
 
 /*!
    \brief Time waiting before letting the tetromino fall one row below.
 */
-const int timeLimit;
+extern const int timeLimit;
 
 /*!
    \brief Makes a beep sound.
@@ -54,7 +54,7 @@ void delayTimer(int timeDelay);
 /*!
    \brief Global variable type `struct winsize` used for terminal width and height.
 */
-struct winsize w;
+extern struct winsize w;
 
 /*!
    \brief Calculate the length of a given number.

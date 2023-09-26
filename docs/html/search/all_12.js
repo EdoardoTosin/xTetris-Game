@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['w_0',['w',['../d8/d19/common_8c.html#a114d2a5a196322c42d4cd57cccb1f43b',1,'w():&#160;common.c'],['../dc/d54/common_8h.html#a114d2a5a196322c42d4cd57cccb1f43b',1,'w():&#160;common.h']]],
-  ['waituser_1',['waitUser',['../d8/d19/common_8c.html#abd3ff481df5444a4e726a23596467840',1,'waitUser(void):&#160;common.c'],['../dc/d54/common_8h.html#abd3ff481df5444a4e726a23596467840',1,'waitUser(void):&#160;common.c']]],
-  ['waituserinput_2',['waitUserInput',['../d8/d19/common_8c.html#a682262a196c89139581e23f76ce854d4',1,'waitUserInput(void):&#160;common.c'],['../dc/d54/common_8h.html#a682262a196c89139581e23f76ce854d4',1,'waitUserInput(void):&#160;common.c']]],
-  ['welcome_3',['welcome',['../d9/d4b/game_menu_8c.html#a3057f8bac12c8f0a8780b8af0078825e',1,'welcome(void):&#160;gameMenu.c'],['../d6/d26/game_menu_8h.html#a3057f8bac12c8f0a8780b8af0078825e',1,'welcome(void):&#160;gameMenu.c']]],
-  ['width_4',['WIDTH',['../d6/dc2/definitions_8h.html#a241aeeb764887ae5e3de58b98f04b16d',1,'definitions.h']]],
-  ['widthspacing_5',['widthSpacing',['../d8/d19/common_8c.html#a8e508c02b452b561ccb1e0a9b53ed660',1,'widthSpacing(int filledWidth):&#160;common.c'],['../dc/d54/common_8h.html#a8e508c02b452b561ccb1e0a9b53ed660',1,'widthSpacing(int filledWidth):&#160;common.c']]]
+  ['valid_0',['VALID',['../d6/dc2/definitions_8h.html#ad47ac60ff0cfac53148a07bc32fc7585',1,'definitions.h']]],
+  ['validmove_1',['validmove',['../da/dab/game_ctrl_8c.html#a229b7a49e1780f0ae32c540bb1a781ca',1,'validMove(BoardPtr board, MovePtr storeMove, int move):&#160;gameCtrl.c'],['../da/dca/game_ctrl_8h.html#a229b7a49e1780f0ae32c540bb1a781ca',1,'validMove(BoardPtr board, MovePtr storeMove, int move):&#160;gameCtrl.c']]],
+  ['validrotation_2',['validrotation',['../da/dab/game_ctrl_8c.html#aaeb1d104b7c66ce2863300b12ce9f45a',1,'validRotation(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int direction):&#160;gameCtrl.c'],['../da/dca/game_ctrl_8h.html#aaeb1d104b7c66ce2863300b12ce9f45a',1,'validRotation(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove, int direction):&#160;gameCtrl.c']]]
 ];

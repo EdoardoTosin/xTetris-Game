@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['carriage_5freturn_0',['CARRIAGE_RETURN',['../d6/dc2/definitions_8h.html#a3b81478c7058ceb6ed610ce8e2ca3822',1,'definitions.h']]],
-  ['ctrl_5fc_1',['CTRL_C',['../d6/dc2/definitions_8h.html#a8751d8b101fef3c1d372bab4cd16e318',1,'definitions.h']]]
+  ['architecture_5fid_0',['architecture_id',['../d1/d3a/_c_make_c_compiler_id_8c.html#aba35d0d200deaeb06aee95ca297acb28',1,'ARCHITECTURE_ID:&#160;CMakeCCompilerId.c'],['../d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#aba35d0d200deaeb06aee95ca297acb28',1,'ARCHITECTURE_ID:&#160;CMakeCXXCompilerId.cpp']]]
 ];
