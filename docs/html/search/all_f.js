@@ -1,12 +1,9 @@
 var searchData=
 [
-  ['singleplayer_0',['SINGLEPLAYER',['../d6/dc2/definitions_8h.html#a84334bf34f44dd78d8fad4e2705785e6',1,'definitions.h']]],
-  ['sound_1',['sound',['../d8/d19/common_8c.html#a69f6d7fff9dfce3a42b94789a5264396',1,'sound():&#160;common.c'],['../dc/d54/common_8h.html#ac20506badc462e76d3c519bd433af219',1,'sound(void):&#160;common.c']]],
-  ['spacebar_2',['SPACEBAR',['../d6/dc2/definitions_8h.html#accb1b438d3d367c5d8e48c61a27efaf5',1,'definitions.h']]],
-  ['spacing_3',['SPACING',['../d6/dc2/definitions_8h.html#ab2dc237e07e2b4c8a52a5203c216fd37',1,'definitions.h']]],
-  ['startgame_4',['startgame',['../da/dab/game_ctrl_8c.html#a529a872612cd1492dcc2b701f27e01d8',1,'startGame(int mode):&#160;gameCtrl.c'],['../da/dca/game_ctrl_8h.html#a529a872612cd1492dcc2b701f27e01d8',1,'startGame(int mode):&#160;gameCtrl.c']]],
-  ['status_5',['status',['../dc/d9f/struct_cell.html#a037b107d975f1197692eb836386c5a21',1,'Cell::status'],['../da/d56/struct_tetromino_cell.html#a008b023e2733e41af5fe5043c71b8ab2',1,'TetrominoCell::status']]],
-  ['stringify_6',['stringify',['../d1/d3a/_c_make_c_compiler_id_8c.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY:&#160;CMakeCCompilerId.c'],['../d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY:&#160;CMakeCXXCompilerId.cpp']]],
-  ['stringify_5fhelper_7',['stringify_helper',['../d1/d3a/_c_make_c_compiler_id_8c.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER:&#160;CMakeCCompilerId.c'],['../d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d',1,'STRINGIFY_HELPER:&#160;CMakeCXXCompilerId.cpp']]],
-  ['struct_2eh_8',['struct.h',['../df/dec/struct_8h.html',1,'']]]
+  ['tetro_5fbox_0',['TETRO_BOX',['../d6/dc2/definitions_8h.html#a48795bfe784e87662a7936da532c6aad',1,'definitions.h']]],
+  ['tetro_5fdim_1',['TETRO_DIM',['../d6/dc2/definitions_8h.html#a5863f7465fa7be359a4d9de6c1f5deeb',1,'definitions.h']]],
+  ['tetro_5frot_2',['TETRO_ROT',['../d6/dc2/definitions_8h.html#a2bc94d77772d1fd06fcb0d1a70f9be93',1,'definitions.h']]],
+  ['tetrominocell_3',['TetrominoCell',['../da/d56/struct_tetromino_cell.html',1,'']]],
+  ['tetrominoptr_4',['TetrominoPtr',['../df/dec/struct_8h.html#a178d89d2d5ee5a39fa04d7aa6c5e64ad',1,'struct.h']]],
+  ['timelimit_5',['timelimit',['../d8/d19/common_8c.html#a981df86826c8ac5902d5d03eca70de3e',1,'timeLimit:&#160;common.c'],['../dc/d54/common_8h.html#a981df86826c8ac5902d5d03eca70de3e',1,'timeLimit:&#160;common.c']]]
 ];

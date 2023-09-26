@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['rotation_0',['rotation',['../d8/d4e/struct_move.html#a86dec6d052257f48c2f72e0a4791b09f',1,'Move']]],
-  ['row_1',['row',['../d8/d4e/struct_move.html#a078eb7da4c5a1bd0b9810453b1c25036',1,'Move']]]
+  ['status_0',['status',['../dc/d9f/struct_cell.html#a037b107d975f1197692eb836386c5a21',1,'Cell::status'],['../da/d56/struct_tetromino_cell.html#a008b023e2733e41af5fe5043c71b8ab2',1,'TetrominoCell::status']]]
 ];
