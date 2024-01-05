@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['status_0',['status',['../dc/d9f/struct_cell.html#a037b107d975f1197692eb836386c5a21',1,'Cell::status'],['../da/d56/struct_tetromino_cell.html#a008b023e2733e41af5fe5043c71b8ab2',1,'TetrominoCell::status']]]
+  ['timelimit_0',['timeLimit',['../d8/d19/common_8c.html#a981df86826c8ac5902d5d03eca70de3e',1,'timeLimit:&#160;common.c'],['../dc/d54/common_8h.html#a981df86826c8ac5902d5d03eca70de3e',1,'timeLimit:&#160;common.c']]]
 ];
