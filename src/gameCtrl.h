@@ -7,9 +7,17 @@
 #include "struct.h"
 
 /*!
-   \brief Generate random number given a range.
-   @param[in] min Minimum number of range (inclusive).
-   @param[in] max Maximum number of range (inclusive).
+  @brief Generates a random integer within a specified range.
+  
+  This function generates a random integer within the range specified by the `min` and `max` parameters. 
+  The generated number is selected with equal probability from the range [min, max].
+  
+  @param min The lower bound of the range (inclusive).
+  @param max The upper bound of the range (inclusive).
+  
+  @return A random integer within the range [min, max].
+  
+  @note The `rand()` function is used to generate the random number. The modulo operator (`%`) is used to scale the output of `rand()` to fit within the desired range.
 */
 int randGen(int min, int max);
 

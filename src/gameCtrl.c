@@ -15,19 +15,15 @@
 
 int randGen(int min, int max){
 
-	unsigned long partSize, endOfLastPart, range, r;
+	int range;
+	int r;
+	
+	srand(time(NULL));
 	
 	range = max - min + 1;
-
-	partSize = ((unsigned long)RAND_MAX + 1) / range; 
-	endOfLastPart = partSize * range;
-
-	r = rand();
-	while(r>=endOfLastPart){
-	    r = rand();
-	}
-
-	return min + r / partSize;
+	r = rand() % range;
+	
+	return min + r;
 }
 
 int clearFullRows(BoardPtr board){
