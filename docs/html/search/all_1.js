@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['board_5fbox_0',['BOARD_BOX',['../d6/dc2/definitions_8h.html#a04ede8890a7790c384750aeaa30f2dc3',1,'definitions.h']]],
-  ['boardptr_1',['BoardPtr',['../df/dec/struct_8h.html#a20ab16b3fb29cdc00ed53fadee50eb77',1,'struct.h']]],
-  ['bot_2',['BOT',['../d6/dc2/definitions_8h.html#a8729a567b846ff767c1fbf87fd5725e8',1,'definitions.h']]],
-  ['bot_2ec_3',['bot.c',['../df/d98/bot_8c.html',1,'']]],
-  ['bot_2eh_4',['bot.h',['../da/de8/bot_8h.html',1,'']]]
+  ['addtetromino_0',['addTetromino',['../da/dab/game_ctrl_8c.html#aa0ccce303be18592499561acf42f6bea',1,'addTetromino(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove):&#160;gameCtrl.c'],['../da/dca/game_ctrl_8h.html#aa0ccce303be18592499561acf42f6bea',1,'addTetromino(BoardPtr board, TetrominoPtr tetro, MovePtr storeMove):&#160;gameCtrl.c']]],
+  ['architecture_5fid_1',['ARCHITECTURE_ID',['../d1/d3a/_c_make_c_compiler_id_8c.html#aba35d0d200deaeb06aee95ca297acb28',1,'ARCHITECTURE_ID:&#160;CMakeCCompilerId.c'],['../d3/d66/_c_make_c_x_x_compiler_id_8cpp.html#aba35d0d200deaeb06aee95ca297acb28',1,'ARCHITECTURE_ID:&#160;CMakeCXXCompilerId.cpp']]]
 ];
