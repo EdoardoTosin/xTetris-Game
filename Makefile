@@ -3,7 +3,7 @@ TARGET   = xTetris
 
 CC       = gcc
 # compiling flags here
-CFLAGS   = -ansi -pedantic -O2 -Wall -Wextra -lm
+CFLAGS   = -ansi -pedantic -O2 -Wall -Wextra -lm -D _DEFAULT_SOURCE
 
 LINKER   = gcc
 # linking flags here
