@@ -7,9 +7,6 @@ xTetris
 *.o
 *.d
 
-# Doxygen config file
-Doxyfile
-
 # CMake build files
 CMakeCache.txt
 /build
