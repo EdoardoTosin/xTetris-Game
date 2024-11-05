@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/EdoardoTosin/xTetris-Game">
-    <img src="https://raw.githubusercontent.com/EdoardoTosin/xTetris-Game/main/doc/logo.png" alt="LOGO" height=200px></a>
+    <img src="https://raw.githubusercontent.com/EdoardoTosin/xTetris-Game/main/assets/logo.png" alt="LOGO" height=200px></a>
 </p>
 
 ## General info
@@ -29,7 +29,7 @@ Source: [tetris.123-games.org](https://tetris.123-games.org/tut.html)
 ## Requirements
 - [Git](https://git-scm.com/).
 - [CMake](https://cmake.org/) (version equal or greater than 3.21).
-- (Optional) Set one of the [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) in your terminal for better display the special characters printed by the game.
+- (Recommended) Set one of the [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) in your terminal for better display the special characters printed by the game.
 
 ## Compile
 Run the following commands on terminal:
@@ -44,10 +44,6 @@ Run the following command on terminal:
 ``` bash
 $ ./run.sh
 ```
-
-## Documentation
-
-Doxygen documentation of the project is available [here](https://edoardotosin.github.io/xTetris-Game/).
 
 ## License
 
