@@ -28,21 +28,20 @@ Source: [tetris.123-games.org](https://tetris.123-games.org/tut.html)
 
 ## Requirements
 - [Git](https://git-scm.com/).
-- [CMake](https://cmake.org/) (version equal or greater than 3.21).
 - (Recommended) Set one of the [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) in your terminal for better display the special characters printed by the game.
 
 ## Compile
 Run the following commands on terminal:
 ``` bash
-$ git clone https://github.com/EdoardoTosin/xTetris-Game.git
-$ cd xTetris-Game
-$ ./build.sh
+git clone https://github.com/EdoardoTosin/xTetris-Game
+cd xTetris-Game
+make
 ```
 
 ## Launch
 Run the following command on terminal:
 ``` bash
-$ ./run.sh
+make run
 ```
 
 ## License
